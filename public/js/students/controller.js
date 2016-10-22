@@ -9,12 +9,12 @@
 angular.module("studentsCtrl", [])
     .controller('studentsmyselfCtrl', ['$scope', '$state',
         function ($scope, $state) {
-            $scope.student = [{
+            $scope.user = {
                 id: 201358503103,
                 name: '程雪飞',
                 sex:'女',
                 age:'20'
-            }];
+            };
             $scope.students = [{
                 id: 201358503103,
                 name: '程雪飞',
