@@ -103,7 +103,7 @@ angular.module('app', ['ui.router','studentsCtrl']).config(
                 //评学评教结果查询
                 .state('app.school.result', {
                     url: '/result',
-                    template: '评学评教查阅'
+                    templateUrl: 'tpl/school/result.html'
                 })
                 //班级统计
                 .state('app.school.classes', {
