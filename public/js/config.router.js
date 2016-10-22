@@ -108,7 +108,7 @@ angular.module('app', ['ui.router','studentsCtrl']).config(
                 //班级统计
                 .state('app.school.classes', {
                     url: '/classes',
-                    template: '班级统计图表'
+                    templateUrl: 'tpl/school/class-charts.html'
                 })
                 //老师统计
                 .state('app.school.teachers', {
