@@ -1,0 +1,9 @@
+(function(){
+	if(!this.console){
+		this.console={
+			'log':function(){},
+			'error':function(){},
+			'warn':function(){}
+		};
+	}
+})()

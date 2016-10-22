@@ -1,0 +1,244 @@
+
+<!--响应式
+http://www.runoob.com/bootstrap/bootstrap-responsive-utilities.html
+-->
+
+<div class="wrapper box oflow-h clearfix">
+    <!-- 左侧 -->
+    <div class="box-left col-xs-3">
+        <!--通道采集实时统计-->
+        <div class="container visible-lg">
+            <div class="row">
+                <div class="list-group col-xs-3">
+                    <a href="#" class="list-group-item active">
+                        便捷通道
+                    </a>
+                    <a ui-sref="app.students.my-result" class="list-group-item">评学结果查询</a>
+                    <a ui-sref="app.teachers.my-result" class="list-group-item">评教结果查询</a>
+                    <a ui-sref="app.school.result"  class="list-group-item">评教评学查阅</a>
+                </div>
+            </div>
+        </div>
+        <div class="container visible-xs">
+            <div class="row">
+                <div class="list-group">
+                    <a href="#" class="list-group-item active">
+                       便捷通道
+                    </a>
+                    <a ui-sref="app.students.my-result" class="list-group-item">评学结果查询</a>
+                    <a ui-sref="app.teachers.my-result" class="list-group-item">评教结果查询</a>
+                    <a ui-sref="app.school.result"  class="list-group-item">评教评学查阅</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 右侧 -->
+    <div class="box-content col-xs-9">
+        <div class="column">
+            <div class="portlet" id="todayInfo">
+                <!-- 今日头条 -->
+                <div class="m-b oflow-h">
+                    <div class="today-news">
+                        <div class="collection-head portlet-header">
+                            <div class="collection-title-blue-lbr font-bold color-b-lbr f7">
+                                今日头条
+									<span style="color: #4F4F4F;margin-right: 15px;" tooltip="关闭" class="mdi-navigation-close curpoint pull-right box-close-lbr curpoint">
+									</span>
+                            </div>
+                        </div>
+                        <div class="collection-today-body portlet-content">
+                            <div class="col-xs-12" style="padding-left:0;padding-right:0">
+                                <div class="key-title-lbr">
+                                    <img src="img/logo.png" alt="" width='45' height="44" class="toutiao">
+										<span class="color-r f-b font-bold">国家发布推动中央结构调整与重组的指导意见</span>
+                                </div>
+                                <div class="key-word-box">
+                                    <div class="key-word m-b-xs">
+                                        <span class="key-word-a font-bold f7">关键词</span>
+											<span ng-repeat="key in keys" class="m-l-sm f8 key-word-b">
+												知道意见
+											</span>
+                                    </div>
+                                    <div class="summary">
+                                        <span class="summary-a font-bold f7">摘&nbsp;&nbsp;&nbsp;要</span>
+                                        <span class="f8 m-l-sm summary-b">2016年9月4号，举世瞩目的G20峰会就要在杭州召开。这是近些年来，中国举办的又一次世界级的大会，为中国参与世界治理、贡献中国智慧提供了非常好的契机和平台</span>
+                                    </div>
+                                </div>
+                                <div class="similar-list">
+                                    <table class="table similar-table">
+                                        <thead class="toutiao-th-lbr f8">
+                                        <tr>
+                                            <th class="col-xs-8" class="title-th">相似文章</th>
+                                            <th class="col-xs-4" class="form-th">来源</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr class="f6 toutiao-list-td tr">
+                                            <td class="toutiao-title">
+                                                习大大重要讲话1
+                                            </td>
+                                            <td class="align-c">
+                                                习大大重要讲话来源
+                                            </td>
+
+                                        </tr>
+                                        <tr class="f6 toutiao-list-td tr">
+                                            <td class="toutiao-title">
+                                                习大大重要讲话2
+                                            </td>
+                                            <td class="align-c">
+                                                习大大重要讲话来源
+                                            </td>
+
+                                        </tr>
+                                        <tr class="f6 toutiao-list-td tr">
+                                            <td class="toutiao-title">
+                                                习大大重要讲话3
+                                            </td>
+                                            <td class="align-c">
+                                                习大大重要讲话来源
+                                            </td>
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 评教评学信息 -->
+            <div class="yj-info m-b portlet" id="yjInfo" >
+                <div class="collection-head portlet-header">
+                    <div class="collection-title-blue-lbr font-bold color-b-lbr f7">
+                        评教评学信息
+							<span style="color: #4F4F4F;margin-right: 15px;" tooltip="关闭" class="mdi-navigation-close pull-right box-close-lbr curpoint">
+                                 <!--ng-click="closeBox('yjInfo',cards.warning)"-->
+							</span>
+                        <!--<a  ui-sref="app.infoalarm.sudden.sub({itemId:1})" target="_blank">-->
+                            <!--<span style="color: #4F4F4F" tooltip="更多" class="mdi-hardware-keyboard-control pull-right box-close-lbr m-r-sm curpoint" ></span>-->
+                        <!--</a>-->
+                    </div>
+                </div>
+                <div class="collection-body collection-today-body portlet-content">
+                    <table class="table">
+                        <thead class="toutiao-th-lbr f8 yj-th" >
+                        <tr>
+                            <th class="col-xs-4 yj-title-th">文章标题</th>
+                            <th class="col-xs-2 yj-classify-th">类别</th>
+                            <th class="col-xs-2 yj-level-th">预警级别</th>
+                            <th class="col-xs-3 yj-time-th">创建时间</th>
+                            <th class="col-xs-1 yj-arti-num">文章数</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="tr" ng-class="{'yj-current-tr1':alarmData.level=='1级','yj-current-tr2':alarmData.level=='2级','yj-current-tr3':alarmData.level=='3级','yj-current-tr4':alarmData.level=='4级'}" class="f6 yj-info-td" ng-repeat="alarmData in alarmDatas track by $index">
+                            <td class="yj-title" title="{{alarmData.title}}">
+                                <i class="mdi-social-notifications-paused color-g"></i>
+                                <a  ui-sref="app.homedetail" target="_blank">{{alarmData.title}}</a>
+                            </td>
+                            <td class="align-c">{{alarmData.classify}}</td>
+                            <td class="align-c">
+										<span class="yj-level color-w" ng-class="{'yj-level1':alarmData.level=='1级','yj-level2':alarmData.level=='2级','yj-level3':alarmData.level=='3级'}">
+										{{alarmData.level}}
+										</span>
+                            </td>
+                            <td class="align-c">{{alarmData.time}}</td>
+                            <td class="align-c">{{alarmData.article}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- 事件分析 -->
+            <!--<div class=" oflow-h m-b portlet">-->
+            <div class="overseas col-xs-6 m-b" id="alaysisLeft" >
+                <!--ng-if="cards.emergency.show"-->
+                <div class="collection-head portlet-header">
+                    <div class="collection-title-blue-lbr font-bold color-b-lbr f7">
+                        今日关注
+								<!--<span style="color: #4F4F4F" tooltip="关闭" class="mdi-navigation-close pull-right box-close-lbr curpoint"-->
+                                      <!--ng-click="closeBox('alaysisLeft',cards.emergency)"></span>-->
+                    </div>
+                </div>
+                <div class="collection-analysis-body today-body-pic portlet-content">
+                    <!--<div id="map" class="chart"></div>-->
+                    <div alarmhome id="main"  config="cityData" ></div>
+                </div>
+            </div>
+
+            <div class="similar-article col-xs-6 m-b" id="alaysisRight" ng-if="cards.groupRelevance.show">
+                <div class="collection-head portlet-header">
+                    <div class="collection-title-blue-lbr font-bold color-b-lbr f7">
+                        群体关联分析
+								<span style="color: #4F4F4F;margin-right: 15px;"tooltip="关闭" class="mdi-navigation-close pull-right box-close-lbr curpoint"
+                                      ng-click="closeBox('alaysisRight',cards.groupRelevance)"></span>
+                    </div>
+                </div>
+                <div class="collection-analysis-body today-body-pic">
+                    <div class="container">
+                        <div id="containerId" class="chart"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 信息监测-境外信息 -->
+            <div class=" overseas col-xs-6 pull-left m-b" id="overseas" >
+
+            <div class="similar-article col-xs-6 m-b" id="southEvent" >
+                <div class="collection-head portlet-header">
+                    <div class="collection-title-blue-lbr font-bold color-b-lbr f7">
+                        <a>分析-专题事件分析-南海事件</a>
+								<span style="color: #4F4F4F;margin-right: 15px;" tooltip="关闭" class="mdi-navigation-close pull-right box-close-lbr curpoint"
+                                      ng-click="closeBox('southEvent',cards.southEvents)"></span>
+                        <!--<a ui-sref="app.analysis.dissertation.sub({itemId:2})" target="_blank">-->
+                            <!--<span style="color: #4F4F4F" tooltip="更多" class="mdi-hardware-keyboard-control pull-right box-close-lbr m-r-sm curpoint"></span>-->
+                        <!--</a>-->
+                    </div>
+                    <div class="collection-analysis-body" style="padding:0 !important">
+                        <ul style="padding-left:0;margin-bottom:0;padding-top:5px">
+                            <li ng-repeat="sourthInfo in south" class="sourth">
+                                <span class="w-point"></span>
+									<span class=" f6 wrapper-sm south-title" title="{{sourthInfo.title}}">
+										<!--<a ui-sref="app.homedetail" target="_blank">{{sourthInfo.title}}</a>-->
+                                        你好
+                                    </span>
+                                <!--<span class="pull-right color-time">{{sourthInfo.time}}</span>-->
+                                <span class="pull-right color-time">时间</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+</div>
+
+            <!--&lt;!&ndash; 右侧第二行 自定义模块&ndash;&gt;-->
+            <!--<div class="col-xs-12 col-cxf">-->
+                <!--<div class="add">-->
+                    <!--<div class="add-module wrapper-sm align-c f8 curpoint" ng-click="toggleModal1()">-->
+                        <!--<span>+</span>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; 添加模块弹出框 &ndash;&gt;-->
+                    <!--<div class="add-module-modal flag"  id="addModuleModal1" style="height: initial;">-->
+                        <!--<div class="add-mod-head collection-title font-bold f7">-->
+                            <!--推荐添加-->
+                            <!--<span class="mdi-navigation-close pull-right box-close curpoint" ng-click="closeModal1()"></span>-->
+                        <!--</div>-->
+                        <!--<div class="add-mod-body">-->
+                            <!--<ul style="padding-left:0">-->
+                                <!--<li class="wrapper-sm" ng-click="addModule1(k)" ng-repeat="k in cards track by $index" ng-if="!k.show"><i class=" icon-graduation m-r-sm color-weixin"></i>{{k.name}}</li>-->
+                            <!--</ul>-->
+                            <!--<div class="wrapper-sm" ng-if="leftCards">没有可添加的内容</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+    </div>
+        </div>
+    </div>

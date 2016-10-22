@@ -1,0 +1,91 @@
+html,body{
+	background: #e6e7eb !important;
+    font-family: '微软雅黑';
+}
+.login-bg{
+	height: 350px;
+    width: 416px;
+    margin: 100px auto 0px;
+}
+.color-w{
+	color: #fff;
+}
+header{
+	overflow: hidden;
+    padding: 20px;
+    position: relative;
+}
+.login-plane{
+	color: #58666e;
+    font-size: 32px;
+    margin-left: 20px;
+    text-align: center;
+    display: inline-block;
+    font-weight: bold;
+    font-family: '微软雅黑';
+    padding-left: 35px;
+}
+.login-logo{
+    width: 32px;
+    height: 32px;
+    /* display: inline-block; */
+    background: url(../img/ytulogo.jpg) no-repeat;
+    /* margin-top: 13px; */
+    position: absolute;
+    top: 58px;
+    left: 20px;
+}
+.login-box{
+	border:1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    width: 310px;
+}
+.login-checkbox{
+    display: inline-block;
+}
+.miss-pwd{
+    display: inline-block;
+    margin-left: 40px;
+}
+.miss-pwd:hover{
+    text-decoration: underline;
+    color: #012f6a;
+    cursor: pointer;
+}
+
+.username,.password{
+    position: relative;
+}
+#username,#password{
+    border:0 none;
+    height: 45px;
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    padding-left: 35px;
+}
+#username{
+    border-bottom: 1px solid #ddd;
+}
+.username-pic,.pwd-pic{
+    position: absolute;
+    top: 15px;
+    left: 10px;
+}
+
+.list-group-item input{
+    padding:5px 20px;
+    font-family: '微软雅黑';
+}
+.btn-lg{
+    background-color: #012f6a !important;
+    font-family: '微软雅黑';
+    border:1px solid #012f6a !important;
+}
+input::-webkit-input-placeholder {
+    color:#bdbdbd !important;
+}
+input:-moz-placeholder {
+    color:#bdbdbd !important;
+}

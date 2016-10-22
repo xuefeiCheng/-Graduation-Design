@@ -1,0 +1,44 @@
+
+<!--响应式
+http://www.runoob.com/bootstrap/bootstrap-responsive-utilities.html
+-->
+
+<div class="wrapper box oflow-h clearfix" >
+    <!-- 左侧 -->
+    <div class="box-left col-xs-3">
+        <!--通道采集实时统计-->
+        <div class="container visible-lg">
+            <div class="row">
+                <div class="list-group col-xs-3">
+                    <a href="" class="list-group-item active">
+                        学生评教
+                    </a>
+                    <a ui-sref="app.students.myself" class="list-group-item">学生个人信息</a>
+                    <a ui-sref="app.students.my-result" class="list-group-item">评学结果查询</a>
+                    <a ui-sref="app.students.my-teachers" class="list-group-item">评教入口</a>
+                </div>
+            </div>
+        </div>
+        <div class="container visible-xs">
+            <div class="row">
+                <div class="list-group">
+                    <a href="" class="list-group-item active">
+                        学生评教
+                    </a>
+                    <a ui-sref="app.students.myself" class="list-group-item">学生个人信息</a>
+                    <a ui-sref="app.students.my-result" class="list-group-item">评学结果查询</a>
+                    <a ui-sref="app.students.my-teachers" class="list-group-item">评教入口</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 右侧 -->
+    <div class="box-content col-xs-9">
+        <div class="column">
+            <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+            <ui-view></ui-view>
+        </div>
+    </div>
+</div>

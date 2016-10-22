@@ -1,0 +1,13 @@
+.app-header-fixed {
+    margin-bottom: 100px;
+}
+
+.app-header-fixed .app-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+footer{
+    font-style:inherit;
+    text-align: center;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>login</title>
+	<link rel="stylesheet" href="libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="stylesheet" href="libs/angular/angular-material/angular-material.css" type="text/css" />
+	<link rel="stylesheet" href="libs/assets/simple-line-icons/css/simple-line-icons.css" type="text/css" />
+	 <!-- build:css css/app.material.css -->
+  <link rel="stylesheet" href="css/material-design-icons.css" type="text/css" />
+  <link rel="stylesheet" href="css/md.css" type="text/css" />
+  <link rel="stylesheet" href="css/font.css" type="text/css" />
+  <link rel="stylesheet" href="css/app.css" type="text/css" />
+</head>
+<body>
+	<div class="login-bg">
+		<header>
+	        <span class="login-logo"></span>
+	        <h2 class="color-w login-plane">烟台大学教务督导系统</h2>
+	    </header>
+	    <div name="form" class="form-validation ng-pristine ng-valid-email ng-invalid ng-invalid-required">
+		      <div class="list-group list-group-sm">
+		        <div class="list-group-item">
+					<span class="icon icon-user username-pic"></span>
+		          <input type="email" placeholder="账户名" class="form-control no-border ng-pristine ng-untouched ng-valid-email ng-invalid ng-invalid-required" ng-model="user.email" required="" aria-required="true" aria-invalid="true">
+		        </div>
+		        <div class="list-group-item">
+		        	<span class="icon icon-lock pwd-pic"></span>
+		           <input type="password" placeholder="密码" class="form-control no-border ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-model="user.password" required="" aria-required="true" aria-invalid="true">
+		        </div>
+		      </div>
+		      <div class="login-state">
+				<label class="checkbox i-checks m-l-md m-b-md login-checkbox">
+					          <input type="checkbox" ng-model="oneAtATime" class="ng-valid ng-dirty ng-valid-parse ng-touched" tabindex="0" aria-checked="true" aria-invalid="false"><i></i>
+					          保持登录状态
+					        </label>
+					        <span class="m-l-md miss-pwd">忘记密码？</span>
+			</div>
+			<a href="index.html">
+				<input class="btn btn-lg btn-primary btn-block btn-submit" name="submit" accesskey="l" value="登 录" tabindex="6" type="submit">
+			</a>
+    	</div>
+	</div>
+</body>
+</html>
+

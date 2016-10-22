@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>烟台大学教务督导系统</title>
+    <!-- 网站内容描述 搜索引擎可据此搜索到该网站-->
+    <meta name="description" content="" />
+    <!-- 网站关键字 搜索引擎可据此搜索到该网站-->
+    <meta name="keywords" content="" />
+    <!-- 标注作者-->
+    <meta name="author" content="程雪飞">
+    <!--width:可视区域的宽度，值可为数字或关键词device-width
+     height:同width
+     intial-scale:页面首次被显示是可视区域的缩放级别，取值1.0则页面按实际尺寸显示，无任何缩放
+     maximum-scale=1.0, minimum-scale=1.0;可视区域的缩放级别，
+     maximum-scale用户可将页面放大的程序，1.0将禁止用户放大到实际尺寸之上。
+     user-scalable:是否可对页面进行缩放，no 禁止缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <link rel="Shortcut Icon" href="img/logo.png">
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/angular.js/1.5.8/angular.js"></script>
+    <!--<script src="http://cdn.bootcss.com/angular.js/1.5.8/angular.min.js"></script>-->
+    <script src="http://cdn.bootcss.com/angular-ui-router/1.0.0-beta.2/angular-ui-router.min.js"></script>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/appa.css" type="text/css" />
+    <!-- 路由配置-->
+    <script src="js/config.router.js"></script>
+
+    <!-- jQuery -->
+    <!--<script src="libs/jquery/jquery/dist/jquery.js"></script>-->
+    <!--<script src="libs/jquery/jquery-ui.min.js"></script>-->
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+<body  layout="row">
+<!-- ng-class="{'app-header-fixed':app.settings.headerFixed}" class="theme-{{app.settings.themeID}}"-->
+<div layout="column" flex ui-view></div>
+
+<!--<script src="js/config.lazyload.js"></script>-->
+<script src="js/main.js"></script>
+<!-- 导航模块 -->
+<!--<script src="js/students/config.js"></script>-->
+<!--<script src="js/teachers/config.js"></script>-->
+<!--<script src="js/school/config.js"></script>-->
+<!--各个模块控制-->
+<script src="js/students/controller.js"></script>
+</body>
+</html>
