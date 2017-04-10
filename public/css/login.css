@@ -1,91 +1,254 @@
+/*html,body{*/
+	/*background: #e6e7eb !important;*/
+    /*font-family: '微软雅黑';*/
+/*}*/
+/*.login-bg{*/
+	/*height: 350px;*/
+    /*width: 416px;*/
+    /*margin: 100px auto 0px;*/
+/*}*/
+/*.color-w{*/
+	/*color: #fff;*/
+/*}*/
+/*header{*/
+	/*overflow: hidden;*/
+    /*padding: 20px;*/
+    /*position: relative;*/
+/*}*/
+/*.login-plane{*/
+	/*color: #58666e;*/
+    /*font-size: 32px;*/
+    /*margin-left: 20px;*/
+    /*text-align: center;*/
+    /*display: inline-block;*/
+    /*font-weight: bold;*/
+    /*font-family: '微软雅黑';*/
+    /*padding-left: 35px;*/
+/*}*/
+/*.login-logo{*/
+    /*width: 32px;*/
+    /*height: 32px;*/
+    /*/!* display: inline-block; *!/*/
+    /*background: url(../img/ytulogo.jpg) no-repeat;*/
+    /*/!* margin-top: 13px; *!/*/
+    /*position: absolute;*/
+    /*top: 58px;*/
+    /*left: 20px;*/
+/*}*/
+/*.login-box{*/
+	/*border:1px solid #ddd;*/
+    /*border-radius: 5px;*/
+    /*background-color: #fff;*/
+    /*width: 310px;*/
+/*}*/
+/*.login-checkbox{*/
+    /*display: inline-block;*/
+/*}*/
+/*.miss-pwd{*/
+    /*display: inline-block;*/
+    /*margin-left: 40px;*/
+/*}*/
+/*.miss-pwd:hover{*/
+    /*text-decoration: underline;*/
+    /*color: #012f6a;*/
+    /*cursor: pointer;*/
+/*}*/
+
+/*.username,.password{*/
+    /*position: relative;*/
+/*}*/
+/*#username,#password{*/
+    /*border:0 none;*/
+    /*height: 45px;*/
+    /*width: 100%;*/
+    /*padding: 5px;*/
+    /*border-radius: 5px;*/
+    /*padding-left: 35px;*/
+/*}*/
+/*#username{*/
+    /*border-bottom: 1px solid #ddd;*/
+/*}*/
+/*.username-pic,.pwd-pic{*/
+    /*position: absolute;*/
+    /*top: 15px;*/
+    /*left: 10px;*/
+/*}*/
+
+/*.list-group-item input{*/
+    /*padding:5px 20px;*/
+    /*font-family: '微软雅黑';*/
+/*}*/
+/*.btn-lg{*/
+    /*background-color: #012f6a !important;*/
+    /*font-family: '微软雅黑';*/
+    /*border:1px solid #012f6a !important;*/
+/*}*/
+/*input::-webkit-input-placeholder {*/
+    /*color:#bdbdbd !important;*/
+/*}*/
+/*input:-moz-placeholder {*/
+    /*color:#bdbdbd !important;*/
+/*}*/
+*{padding:0;margin:0;}
+img{vertical-align: top;}
+a{
+    color: #666;text-decoration: none;}
 html,body{
-	background: #e6e7eb !important;
-    font-family: '微软雅黑';
+    font-family: "微软雅黑";
+    /*background-color: #fff;*/
+    background-color: #fdfdfd !important;
 }
-.login-bg{
-	height: 350px;
-    width: 416px;
-    margin: 100px auto 0px;
+/*版心*/
+.w{
+    width: 990px;
+    margin: 0 auto;
 }
-.color-w{
-	color: #fff;
-}
-header{
-	overflow: hidden;
-    padding: 20px;
+#logo {
     position: relative;
+    /*width: 300px;*/
+    /*margin: 10px 0;*/
+    /*height: 60px;*/
+    /*width: 750px;*/
+    /*height:85px;*/
+    float: left;
+    /*background: url(../img/headlogo_new5.png) 0 0 no-repeat;*/
 }
-.login-plane{
-	color: #58666e;
-    font-size: 32px;
-    margin-left: 20px;
-    text-align: center;
-    display: inline-block;
-    font-weight: bold;
-    font-family: '微软雅黑';
-    padding-left: 35px;
-}
-.login-logo{
-    width: 32px;
-    height: 32px;
-    /* display: inline-block; */
-    background: url(../img/ytulogo.jpg) no-repeat;
-    /* margin-top: 13px; */
+#logo b {
+    display: block;
+    width: 110px;
+    height: 40px;
     position: absolute;
-    top: 58px;
-    left: 20px;
+    right: 60px;
+    top: 22px;
+    /*top: 10px;*/
+    background: url(../img/l-icon.gif) 0 0 no-repeat;
 }
-.login-box{
-	border:1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-    width: 310px;
+#content {
+    clear: both;
 }
-.login-checkbox{
-    display: inline-block;
-}
-.miss-pwd{
-    display: inline-block;
-    margin-left: 40px;
-}
-.miss-pwd:hover{
-    text-decoration: underline;
-    color: #012f6a;
-    cursor: pointer;
-}
-
-.username,.password{
+.login-wrap {
     position: relative;
+    height: 475px;
+    margin: 10px 0 20px;
+    z-index: 5;
 }
-#username,#password{
-    border:0 none;
-    height: 45px;
+.login-wrap .login-form {
+    float: right;
+    top: 100px;
+}
+.login-form {
+    position: relative;
+    z-index: 4;
+    /*透明*/
+    /*background: transparent;*/
+    background: #fff 80%;
+    overflow: visible;
+    width: 298px;
+    border-radius: 2%;
+}
+/*.login-form .login-tab {*/
+    /*height: 54px;*/
+    /*font-size: 18px;*/
+    /*font-family: "microsoft yahei";*/
+    /*text-align: center;*/
+    /*border-top: 1px solid #f4f4f4;*/
+    /*position: absolute;*/
+    /*background: #fff;*/
+    /*display: block;*/
+/*}*/
+/*.login-form .change{*/
+    /*background: #f4f4f4;*/
+    /*border-top: 1px solid #fff;*/
+/*}*/
+/*.login-form .login-tab a {*/
+    /*width: 99%;*/
+    /*height: 18px;*/
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*top: 18px;*/
+    /*border-right: 1px solid #f4f4f4;*/
+    /*text-decoration: none;*/
+/*}*/
+/*.login-form .login-tab-r{width: 150px;right: 0;}*/
+/*.login-form .login-tab-l{width: 150px;}*/
+/*.login-form .login-tab-c{width: 150px;left:150px;}*/
+/*.login-form .login-tab a.checked{*/
+    /*font-weight: 700;*/
+    /*color: #e4393c;*/
+/*}*/
+.login-wrap .login-banner {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
-    padding: 5px;
-    border-radius: 5px;
-    padding-left: 35px;
+    height: 475px;
+    background: url(../img/jdt1.jpg) 50% 50% no-repeat;
 }
-#username{
-    border-bottom: 1px solid #ddd;
+.login-wrap .i-inner {
+    position: relative;
+    z-index: 3;
+    height: 475px;
 }
-.username-pic,.pwd-pic{
+.login-form .login-box {
+    width: 268px;
+    height: 200px;
+    /*background:transparent;*/
+    position: relative;
+    background: rgba(211,229,239,0.3);
+    overflow: hidden;
+    padding: 15px;
+    margin: 15px;
+    border-radius: inherit;
+}
+.login-form .msg-wrap {
+    min-height: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: auto!important;
+}
+/*.input-group{*/
+    /*position: relative;*/
+/*}*/
+#result-wrong{
+    display: none;
+    height: 18px;
+    /*border:1px solid #ccc;*/
+    border: 1px solid #FFAC91;
+    color: #FF6B39;
+    /*color: #999;*/
+    /*padding-left:20px;*/
+    text-align: left;
+    font-size: 12px;
+    line-height: 18px;
+}
+.wrong{
+    background:url(../img/wrong.png) no-repeat #FFDCD0 right 5px  center;
+    border: 1px solid #FFAC91;
+    color: #FF6B39;
+}
+.right {  /*正确的*/
+    color: #5EFF5E;
+    background:url(../img/right.png) no-repeat #DFFFDF right 5px  center;
+    border: 1px solid #ACFFAC;
+}
+.login-box .btn-position{
     position: absolute;
-    top: 15px;
-    left: 10px;
+    bottom: 20px;
+    left: 90px;
 }
-
-.list-group-item input{
-    padding:5px 20px;
-    font-family: '微软雅黑';
+.login-form .form{
+    width: 410px;
+    height: 200px;
+    margin: 20px;
+    background-color: #fff;
 }
-.btn-lg{
-    background-color: #012f6a !important;
-    font-family: '微软雅黑';
-    border:1px solid #012f6a !important;
+.login-form .show{
+    display:block;
 }
-input::-webkit-input-placeholder {
-    color:#bdbdbd !important;
+.footer{
+    padding-bottom: 20px;
+    text-align: center;
 }
-input:-moz-placeholder {
-    color:#bdbdbd !important;
+.footer .copyright{
+    margin: 20px 0;
 }

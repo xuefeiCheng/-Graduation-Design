@@ -1,55 +1,24 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">显示/隐藏菜单</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" ui-sref="app.home">烟台大学教务督导系统</a>
+<div class="header navbar-fixed-top">
+    <div class="logo">
+        <a ui-sref="app.home">
+            <img src="img/logo.gif" alt="" style="width: 340px;height: 50px;"/>
+        </a>
+
     </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#">首页</a></li>
-            <li class="dropdown" dropdown>
-                <a ui-sref="app.students.myself" class="dropdown-toggle" data-toggle="dropdown">
-                            学生
-                            <!--<b class="caret"></b>-->
-                </a>
-                <!--<ul class="dropdown-menu">-->
-                    <!--<li><a ui-sref="app.students.myself">个人信息</a></li>-->
-                    <!--<li><a ui-sref="app.students.my-result">评学结果查询</a></li>-->
-                    <!--<li class="divider"></li>-->
-                    <!--<li><a ui-sref="app.students.my-teacher">评教入口1</a></li>-->
-                    <!--<li class="divider"></li>-->
-                    <!--<li><a ui-sref="app.students.my-teachers">评教入口2</a></li>-->
-                <!--</ul>-->
-            </li>
-            <li class="dropdown">
-                <a ui-sref="app.teachers.my-result" class="dropdown-toggle" data-toggle="dropdown">
-                            老师
-                            <!--<b class="caret"></b>-->
-                </a>
-                <!--<ul class="dropdown-menu">-->
-                    <!--<li><a ui-sref="app.teachers.my-result">个人信息</a></li>-->
-                    <!--<li><a ui-sref="app.teachers.my-result">评教结果查询</a></li>-->
-                    <!--<li class="divider"></li>-->
-                    <!--<li><a ui-sref="app.teachers.my-students">评学入口</a></li>-->
-                <!--</ul>-->
-            </li>
-            <li class="dropdown">
-                <a ui-sref="app.school.myself" class="dropdown-toggle" data-toggle="dropdown">
-                            督导中心
-                            <!--<b class="caret"></b>-->
-                </a>
-                <!--<ul class="dropdown-menu">-->
-                    <!--<li><a ui-sref="app.school.myself">个人信息</a></li>-->
-                    <!--<li><a ui-sref="app.school.result" >评学评教查阅</a></li>-->
-                    <!--<li><a ui-sref="app.school.classes">班级图表</a></li>-->
-                    <!--<li><a ui-sref="app.school.teachers">老师图表</a></li>-->
-                <!--</ul>-->
-            </li>
+    <div class="nav clearfix" id="nav">
+        <span class="cloud" id="cloud"></span>
+        <ul>
+            <li><a ui-sref="app.home">系统首页</a> </li>
+            <li><a ui-sref="app.students.myself">个人信息</a> </li>
+            <li><a ui-sref="app.students.my-teachers">评教入口</a> </li>
+            <li><a ui-sref="app.students.my-result">评学查询</a> </li>
+            <li><a ui-sref="app.teachers.my-students">评学入口</a> </li>
+            <li><a ui-sref="app.teachers.my-result">评教查询</a> </li>
+            <li><a ui-sref="app.school.classes">评教进度</a> </li>
+            <li><a ui-sref="app.school.teachers">教学排行</a> </li>
         </ul>
+    </div>
+    <div class="login-out">
         <p class="navbar-text navbar-right"style="margin-right: 15px">
             <a data-toggle="modal" data-target="#myModal" ng-click="change()"style="cursor: pointer">
                 修改密码
@@ -58,12 +27,12 @@
             <!--<a data-toggle="modal" data-target="#myModal">修改密码</a>-->
             <!-- ng-click-->
             <!--<a ui-sref="app.layout">登出</a>-->
-            <span>欢迎你，xxx</span>
-            <a href="login1.html">登出</a>
+            欢迎你，<span style="color: #2c36ff;">{{userxxx}}</span>
+            <a ui-sref="login">登出</a>
         </p>
     </div>
-</nav>
-<!--&lt;!&ndash; 模态框（Modal） &ndash;&gt;-->
+</div>
+<!--模态框 修改密码-->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -110,8 +79,34 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<!--<script>-->
-    <!--$(function () { $('#myModal').modal({-->
-        <!--keyboard: true-->
-    <!--})});-->
-<!--</script>-->
+<!--筋斗云特效-->
+<script>
+    // 原理：筋斗云是执行者，筋斗云的位置发生变化，筋斗云移动的位置是li所在的位置
+    function $(id){
+        return document.getElementById(id);
+    }
+    var cloud = $("cloud");
+    var nav = $("nav");
+    var lis = nav.children[1].children;
+    var current = 0;//筋斗云位置记录
+//    console.log(lis.length);
+    // 缓动公式 初始版本
+    var leader = 0,target = 0;
+    setInterval(function(){
+        leader = leader +(target - leader)/10;
+        cloud.style.left = leader +"px";
+    },10);
+    // 遍历
+    for(var i=0,le=lis.length;i<le;i++){
+        lis[i].onmouseover = function(){
+            target = this.offsetLeft;
+        };
+        lis[i].onmouseout = function(){
+            target = current;
+            // 筋斗云位置复原
+        };
+        lis[i].onclick = function(){
+            current = this.offsetLeft;
+        }
+    }
+</script>

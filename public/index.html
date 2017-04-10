@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>烟台大学教务督导系统</title>
+    <!--<base href="/public/">-->
     <!-- 网站内容描述 搜索引擎可据此搜索到该网站-->
     <meta name="description" content="" />
     <!-- 网站关键字 搜索引擎可据此搜索到该网站-->
@@ -18,34 +19,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <link rel="Shortcut Icon" href="img/logo.png">
-    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/angular.js/1.5.8/angular.js"></script>
-    <!--<script src="http://cdn.bootcss.com/angular.js/1.5.8/angular.min.js"></script>-->
-    <script src="http://cdn.bootcss.com/angular-ui-router/1.0.0-beta.2/angular-ui-router.min.js"></script>
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>-->
+    <!--<script src="http://cdn.bootcss.com/angular.js/1.5.8/angular.js"></script>-->
+    <!--<script src="http://cdn.bootcss.com/angular-ui-router/1.0.0-beta.2/angular-ui-router.min.js"></script>-->
+    <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <!--<link rel="stylesheet" href="css/header.css">-->
+<!--css-->
+    <link rel="stylesheet" href="libs/jquery/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/appa.css" type="text/css" />
-    <!-- 路由配置-->
+    <!--<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <!--<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>-->
+    <!--<link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <!--<script src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>-->
+    <!--<script src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+
+    <!-- jQuery -->
+    <script src="libs/jquery/jquery/dist/jquery.js"></script>
+    <script src="libs/jquery/jquery-ui.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- Angular -->
+    <script src="libs/angular/angular/angular.js"></script>
+    <script src="libs/angular/angular-animate/angular-animate.js"></script>
+    <script src="libs/angular/angular-aria/angular-aria.js"></script>
+    <script src="libs/angular/angular-cookies/angular-cookies.js"></script>
+    <script src="libs/angular/angular-messages/angular-messages.js"></script>
+    <script src="libs/angular/angular-resource/angular-resource.js"></script>
+    <script src="libs/angular/angular-sanitize/angular-sanitize.js"></script>
+    <script src="libs/angular/angular-touch/angular-touch.js"></script>
+
+    <script src="libs/angular/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="libs/angular/ngstorage/ngStorage.js"></script>
+    <script src="libs/angular/angular-ui-utils/ui-utils.js"></script>
+
+    <!-- bootstrap -->
+    <script src="libs/angular/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- lazyload -->
+    <script src="libs/angular/oclazyload/dist/ocLazyLoad.js"></script>
+    <!-- App-->
+    <script src="js/app.js"></script>
+    <script src="js/services/ui-load.js"></script>
+    <script src="js/config.lazyload.js"></script>
     <script src="js/config.router.js"></script>
+    <script src="js/directives/setnganimate.js"></script>
+    <script src="js/directives/ui-butterbar.js"></script>
+    <script src="js/directives/ui-focus.js"></script>
+    <script src="js/directives/ui-fullscreen.js"></script>
+    <script src="js/directives/ui-jq.js"></script>
+    <script src="js/directives/ui-module.js"></script>
+    <script src="js/directives/ui-nav.js"></script>
+    <script src="js/directives/ui-scroll.js"></script>
+    <script src="js/directives/ui-shift.js"></script>
+    <script src="js/directives/ui-toggleclass.js"></script>
 
     <!-- jQuery -->
     <!--<script src="libs/jquery/jquery/dist/jquery.js"></script>-->
     <!--<script src="libs/jquery/jquery-ui.min.js"></script>-->
-    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 
 </head>
-<body  layout="row">
+<body  layout="row"ng-controller="AppCtrl">
 <!-- ng-class="{'app-header-fixed':app.settings.headerFixed}" class="theme-{{app.settings.themeID}}"-->
-<div layout="column" flex ui-view></div>
+<div layout="column" flex ui-view ></div>
 
-<!--<script src="js/config.lazyload.js"></script>-->
-<script src="js/main.js"></script>
 <!-- 导航模块 -->
 <!--<script src="js/students/config.js"></script>-->
 <!--<script src="js/teachers/config.js"></script>-->
 <!--<script src="js/school/config.js"></script>-->
-<!--各个模块控制-->
-<script src="js/students/controller.js"></script>
 </body>
 </html>
+<script src="js/main.js"></script>
+<script src="js/students/controller.js"></script>

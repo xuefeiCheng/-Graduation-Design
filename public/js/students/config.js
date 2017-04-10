@@ -30,7 +30,7 @@ angular.module('students',['ui.load'])
                 //    'libs/jquery/bootstrap-daterangepicker/daterangepicker.js',
                 //    'libs/jquery/bootstrap-daterangepicker/daterangepicker-bs3.css',
                 //    'libs/jquery/bootstrap/dist/js/bootstrap.min.js'])
-            })
+            });
         function load(srcs, callback) {
             return {
                 deps: ['$ocLazyLoad', '$q',
@@ -61,4 +61,4 @@ angular.module('students',['ui.load'])
                     }]
             }
         }
-    })
+    });

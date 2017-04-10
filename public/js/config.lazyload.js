@@ -1,5 +1,5 @@
 // lazyload config
-
+//¿¡º”‘ÿ
 angular.module('app')
     /**
    * jQuery plugin config use ui-jq directive , config the js and css files that required
