@@ -1,5 +1,6 @@
 package controllers.User;
 
+import models.adminUser;
 import models.leaderUser;
 import models.studentUser;
 import models.teacherUser;
@@ -45,6 +46,19 @@ public class UserInfo extends Controller {
     //    用于获取 督导 个人信息
     public static void getLeaderJson(String userId){
         leaderUser user = leaderUser.findByLeaderUserId(userId);
+        renderJSON(user.toJson());
+    }
+
+    //    更改 管理员 个人信息
+    public static void changeInfo_ad(String userId ,String email,String dz){
+        adminUser user = adminUser.findByAdminUserId(userId);
+        user.changeInfo(email, dz);
+        user.save();
+        renderJSON(user);
+    }
+    //    用于获取 管理员 个人信息
+    public static void getAdminJson(String userId){
+        adminUser user = adminUser.findByAdminUserId(userId);
         renderJSON(user.toJson());
     }
 }

@@ -421,7 +421,8 @@ angular.module('app')
                 params:{
                     "userId":$stateParams.UserId,
                     "email":$scope.user.email,
-                    'dz':$scope.user.dz
+                    'dz':$scope.user.dz,
+                    'phone':$scope.user.phone
                 }
             }).success(function(data){
                 //console.log("保存成功");
@@ -435,10 +436,40 @@ angular.module('app')
 
         //获得管理员个人信息
         function getAdminJson(){
-
+            $http({
+                method:'post',
+                url:'/api/UserInfo/getAdminJson',
+                params:{
+                    'userId':$stateParams.UserId
+                }
+            }).success(function(data){
+                //console.log(data);
+                $scope.user = data;
+            });
+            $scope.goSub=function(){
+                $state.go("app.information.edit-do");
+            };
         }
         //更改 管理员信息
-        function changeInfo_ad(){}
+        function changeInfo_ad(){
+            $http({
+                method:"post",
+                url:"/api/UserInfo/changeInfo_ad",
+                params:{
+                    "userId":$stateParams.UserId,
+                    "email":$scope.user.email,
+                    'dz':$scope.user.dz,
+                    'phone':$scope.user.phone
+                }
+            }).success(function(data){
+                //console.log("保存成功");
+                //console.log(data);
+                //跳转页面 并且 刷新页面 显示新数据
+                //跳转到该路由下 会再一次 调用 该控制器 所以 会刷新一次
+                //不用自己手动调用一次函数 刷新页面了
+                $state.go("app.information.edit");
+            })
+        }
 
 
         //获得 教师 个人信息
@@ -463,7 +494,8 @@ angular.module('app')
                 params:{
                     "userId":$stateParams.UserId,
                     "email":$scope.user.email,
-                    'dz':$scope.user.dz
+                    'dz':$scope.user.dz,
+                    'phone':$scope.user.phone
                 }
             }).success(function(data){
                 //console.log("保存成功");
@@ -497,7 +529,8 @@ angular.module('app')
                 params:{
                     "userId":$stateParams.UserId,
                     "email":$scope.user.email,
-                    'dz':$scope.user.dz
+                    'dz':$scope.user.dz,
+                    'phone':$scope.user.phone
                 }
             }).success(function(data){
                 //console.log("保存成功");
