@@ -21,116 +21,170 @@
         </div>
     </div>
 <!--内容 主体-->
-    <div id="content">
-        <div class="login-wrap">
-            <div class="w">
-                <div class="login-form">
-                    <ul id="myTab" class="nav nav-tabs">
-                        <li><a href="#student" data-toggle="tab">学生登录</a></li>
-                        <li><a href="#teacher" data-toggle="tab">教工登录</a></li>
-                        <li><a href="#leader" data-toggle="tab">督评中心登录</a></li>
-                    </ul>
-                    <div class="login-box">
-                        <!-- 变淡页面  简单验证-->
-                        <div class="msg-wrap">
-                            <span id="result-wrong"></span>
-                        </div>
-                        <div id="myTabContent" class="tab-content">
-                            <div class="tab-pane fade in active">
-                                <h4>选择相应角色登录</h4>
-                            </div>
-                            <div class="tab-pane fade" id="student">
-                                <form class="bs-example bs-example-form" role="form" name="myForm" novalidate>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="输入学号" name="stName" ng-model="stName" id="stName" required>
-                                        <span class="input-group-addon"><b class="glyphicon glyphicon-user"></b></span>
-                                        <!--<span class="result" id="Result"></span>-->
-                                    </div>
-                                    <div class="msg-wrap"></div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><b class=" glyphicon glyphicon-log-in"></b></span>
-                                        <input type="password" class="form-control" placeholder="输入密码" name="password" ng-model="stPsd" id="stPsd">
-                                    </div>
-                                    <!--<input type="submit" value="Login" id="fat-btn-st"  />-->
-                                    <button id="fat-btn-st" class="btn btn-primary btn-position" data-loading-text="Loading..."
-                                            type="button" ng-click="login(stName,stPsd)"> 学生登录
-                                    </button>
-                                    <script>
-//                                        $(function() {
-//                                            $(".btn").click(function(){
-//                                                $(this).button('loading').delay(1000).queue(function() {
-//                                                    console.log();
-//                                                    // $(this).button('reset');
-//                                                    // $(this).dequeue();
-//                                                });
-//                                            });
-//                                        });
-                                    </script>
-                                </form>
-                            </div>
-                            <div class="tab-pane fade" id="teacher">
-                                <form class="bs-example bs-example-form" role="form">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><b class="glyphicon glyphicon-user"></b></span>
-                                        <input type="text" class="form-control" placeholder="输入教工号" ng-model="teName" id="teName">
-                                    </div>
-                                    <div class="msg-wrap"></div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><b class=" glyphicon glyphicon-log-in"></b></span>
-                                        <input type="password" class="form-control" placeholder="输入密码" ng-model="tePsd" id="tePsd">
-                                    </div>
-                                    <button id="fat-btn1" class="btn btn-primary btn-position" data-loading-text="Loading..."
-                                            type="button" ng-click="login(teName,tePsd)"> 教工登录
-                                    </button>
-                                    <script>
-//                                        $(function() {
-//                                            $(".btn").click(function(){
-//                                                $(this).button('loading').delay(1000).queue(function() {
-//                                                    // $(this).button('reset');
-//                                                    // $(this).dequeue();
-//                                                });
-//                                            });
-//                                        });
-                                    </script>
-                                </form>
-                            </div>
-                            <div class="tab-pane fade" id="leader">
-                                <form class="bs-example bs-example-form" role="form">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><b class="glyphicon glyphicon-user"></b></span>
-                                        <input type="text" class="form-control" placeholder="输入个人账号" ng-model="leName" id="leName">
-                                    </div>
-                                    <div class="msg-wrap"></div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><b class=" glyphicon glyphicon-log-in"></b></span>
-                                        <input type="password" class="form-control" placeholder="输入密码" ng-model="lePsd" id="lePsd">
-                                    </div>
-                                    <button id="fat-btn2" class="btn btn-primary btn-position" data-loading-text="Loading..."
-                                            type="button" ng-click="login(leName,lePsd)"> 督评中心登录
-                                    </button>
-                                    <script>
-//                                        $(function() {
-//                                            $(".btn").click(function(){
-//                                                $(this).button('loading').delay(1000).queue(function() {
-//                                                    // $(this).button('reset');
-//                                                    // $(this).dequeue();
-//                                                });
-//                                            });
-//                                        });
-                                    </script>
-                                </form>
-                            </div>
+<div id="content">
+    <div class="login-wrap">
+        <div class="w">
+            <div class="login-form">
+                <ul id="myTab" class="nav nav-bottom">
+                    <li><a href="javaScript:void(0)" data-toggle="tab"><h4 class="font-bold">用户登录</h4></a></li>
+                </ul>
+                <div class="login-box">
+                    <!-- 变淡页面  简单验证-->
+                    <div class="msg-wrap">
+                        <span id="result-wrong"></span>
+                    </div>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="student">
+                            <form class="bs-example bs-example-form" role="form" name="myForm" novalidate>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="输入用户账号" name="stName" ng-model="stName" id="stName" required>
+                                    <span class="input-group-addon"><b class="glyphicon glyphicon-user"></b></span>
+                                    <!--<span class="result" id="Result"></span>-->
+                                </div>
+                                <div class="msg-wrap"></div>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><b class=" glyphicon glyphicon-log-in"></b></span>
+                                    <input type="password" class="form-control" placeholder="输入密码" name="password" ng-model="stPsd" id="stPsd">
+                                </div>
+                                <div class="msg-wrap"></div>
+                                <!--<input type="submit" value="Login" id="fat-btn-st"  />-->
+                                <button id="fat-btn-st" class="btn btn-primary btn-position" data-loading-text="Loading..." type="button" ng-click="login(stName,stPsd)"> 用户登录
+                                </button>
+                                <script>
+                                    $(function() {
+                                        $(".btn").click(function(){
+                                            $(this).button('loading').delay(1000).queue(function() {
+                                                console.log();
+                                                // $(this).button('reset');
+                                                // $(this).dequeue();
+                                            });
+                                        });
+                                    });
+                                </script>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="login-banner">
-                <div class="w">
-                    <div class="banner-bg i-inner"></div>
-                </div>
+        </div>
+        <div class="login-banner">
+            <div class="w">
+                <div class="banner-bg i-inner"></div>
             </div>
         </div>
     </div>
+</div>
+
+    <!--<div id="content">-->
+        <!--<div class="login-wrap">-->
+            <!--<div class="w">-->
+                <!--<div class="login-form">-->
+                    <!--<ul id="myTab" class="nav nav-tabs">-->
+                        <!--<li><a href="#student" data-toggle="tab">学生登录</a></li>-->
+                        <!--<li><a href="#teacher" data-toggle="tab">教工登录</a></li>-->
+                        <!--<li><a href="#leader" data-toggle="tab">督评中心登录</a></li>-->
+                    <!--</ul>-->
+                    <!--<div class="login-box">-->
+                        <!--&lt;!&ndash; 变淡页面  简单验证&ndash;&gt;-->
+                        <!--<div class="msg-wrap">-->
+                            <!--<span id="result-wrong"></span>-->
+                        <!--</div>-->
+                        <!--<div id="myTabContent" class="tab-content">-->
+                            <!--<div class="tab-pane fade in active">-->
+                                <!--<h4>选择相应角色登录</h4>-->
+                            <!--</div>-->
+                            <!--<div class="tab-pane fade" id="student">-->
+                                <!--<form class="bs-example bs-example-form" role="form" name="myForm" novalidate>-->
+                                    <!--<div class="input-group">-->
+                                        <!--<input type="text" class="form-control" placeholder="输入学号" name="stName" ng-model="stName" id="stName" required>-->
+                                        <!--<span class="input-group-addon"><b class="glyphicon glyphicon-user"></b></span>-->
+                                        <!--&lt;!&ndash;<span class="result" id="Result"></span>&ndash;&gt;-->
+                                    <!--</div>-->
+                                    <!--<div class="msg-wrap"></div>-->
+                                    <!--<div class="input-group">-->
+                                        <!--<span class="input-group-addon"><b class=" glyphicon glyphicon-log-in"></b></span>-->
+                                        <!--<input type="password" class="form-control" placeholder="输入密码" name="password" ng-model="stPsd" id="stPsd">-->
+                                    <!--</div>-->
+                                    <!--&lt;!&ndash;<input type="submit" value="Login" id="fat-btn-st"  />&ndash;&gt;-->
+                                    <!--<button id="fat-btn-st" class="btn btn-primary btn-position" data-loading-text="Loading..."-->
+                                            <!--type="button" ng-click="login(stName,stPsd)"> 学生登录-->
+                                    <!--</button>-->
+                                    <!--<script>-->
+<!--//                                        $(function() {-->
+<!--//                                            $(".btn").click(function(){-->
+<!--//                                                $(this).button('loading').delay(1000).queue(function() {-->
+<!--//                                                    console.log();-->
+<!--//                                                    // $(this).button('reset');-->
+<!--//                                                    // $(this).dequeue();-->
+<!--//                                                });-->
+<!--//                                            });-->
+<!--//                                        });-->
+                                    <!--</script>-->
+                                <!--</form>-->
+                            <!--</div>-->
+                            <!--<div class="tab-pane fade" id="teacher">-->
+                                <!--<form class="bs-example bs-example-form" role="form">-->
+                                    <!--<div class="input-group">-->
+                                        <!--<span class="input-group-addon"><b class="glyphicon glyphicon-user"></b></span>-->
+                                        <!--<input type="text" class="form-control" placeholder="输入教工号" ng-model="teName" id="teName">-->
+                                    <!--</div>-->
+                                    <!--<div class="msg-wrap"></div>-->
+                                    <!--<div class="input-group">-->
+                                        <!--<span class="input-group-addon"><b class=" glyphicon glyphicon-log-in"></b></span>-->
+                                        <!--<input type="password" class="form-control" placeholder="输入密码" ng-model="tePsd" id="tePsd">-->
+                                    <!--</div>-->
+                                    <!--<button id="fat-btn1" class="btn btn-primary btn-position" data-loading-text="Loading..."-->
+                                            <!--type="button" ng-click="login(teName,tePsd)"> 教工登录-->
+                                    <!--</button>-->
+                                    <!--<script>-->
+<!--//                                        $(function() {-->
+<!--//                                            $(".btn").click(function(){-->
+<!--//                                                $(this).button('loading').delay(1000).queue(function() {-->
+<!--//                                                    // $(this).button('reset');-->
+<!--//                                                    // $(this).dequeue();-->
+<!--//                                                });-->
+<!--//                                            });-->
+<!--//                                        });-->
+                                    <!--</script>-->
+                                <!--</form>-->
+                            <!--</div>-->
+                            <!--<div class="tab-pane fade" id="leader">-->
+                                <!--<form class="bs-example bs-example-form" role="form">-->
+                                    <!--<div class="input-group">-->
+                                        <!--<span class="input-group-addon"><b class="glyphicon glyphicon-user"></b></span>-->
+                                        <!--<input type="text" class="form-control" placeholder="输入个人账号" ng-model="leName" id="leName">-->
+                                    <!--</div>-->
+                                    <!--<div class="msg-wrap"></div>-->
+                                    <!--<div class="input-group">-->
+                                        <!--<span class="input-group-addon"><b class=" glyphicon glyphicon-log-in"></b></span>-->
+                                        <!--<input type="password" class="form-control" placeholder="输入密码" ng-model="lePsd" id="lePsd">-->
+                                    <!--</div>-->
+                                    <!--<button id="fat-btn2" class="btn btn-primary btn-position" data-loading-text="Loading..."-->
+                                            <!--type="button" ng-click="login(leName,lePsd)"> 督评中心登录-->
+                                    <!--</button>-->
+                                    <!--<script>-->
+<!--//                                        $(function() {-->
+<!--//                                            $(".btn").click(function(){-->
+<!--//                                                $(this).button('loading').delay(1000).queue(function() {-->
+<!--//                                                    // $(this).button('reset');-->
+<!--//                                                    // $(this).dequeue();-->
+<!--//                                                });-->
+<!--//                                            });-->
+<!--//                                        });-->
+                                    <!--</script>-->
+                                <!--</form>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="login-banner">-->
+                <!--<div class="w">-->
+                    <!--<div class="banner-bg i-inner"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 
 <!--尾部-->
     <div class="w">

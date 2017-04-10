@@ -92,16 +92,24 @@
 *{padding:0;margin:0;}
 img{vertical-align: top;}
 a{
-    color: #666;text-decoration: none;}
+    color: #666;text-decoration: none;
+}
 html,body{
     font-family: "微软雅黑";
     /*background-color: #fff;*/
     background-color: #fdfdfd !important;
 }
+.nav > li > a:focus, .nav > li > a:hover{
+    text-decoration:none;
+    background-color: #fff !important;
+}
 /*版心*/
 .w{
     width: 990px;
     margin: 0 auto;
+}
+.font-bold {
+    font-weight: 700;
 }
 #logo {
     position: relative;
@@ -143,8 +151,12 @@ html,body{
     /*background: transparent;*/
     background: #fff 80%;
     overflow: visible;
-    width: 298px;
+    width: 386px;
     border-radius: 2%;
+    overflow: hidden;
+}
+.nav-bottom{
+    border-bottom: 1px solid #ddd;
 }
 /*.login-form .login-tab {*/
     /*height: 54px;*/
@@ -190,7 +202,7 @@ html,body{
     height: 475px;
 }
 .login-form .login-box {
-    width: 268px;
+    width: 356px;
     height: 200px;
     /*background:transparent;*/
     position: relative;
@@ -233,8 +245,8 @@ html,body{
 }
 .login-box .btn-position{
     position: absolute;
-    bottom: 20px;
-    left: 90px;
+    bottom: 6px;
+    left: 136px;
 }
 .login-form .form{
     width: 410px;

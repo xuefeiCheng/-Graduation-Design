@@ -167,7 +167,7 @@ angular.module('app')
                     }
                 }).success(function(data){
                     //console.log("登录成功，用户的详细信息为");
-                    //console.log(data);
+                    console.log(data);
                     if(data ==""){
                         msg("#result-wrong","wrong","用户不存在或者密码错误，请检查重新输入");
                         return;
