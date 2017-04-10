@@ -10,23 +10,13 @@ angular.module('app')
         });
     }])
     .controller("LoginCtrl",["$scope","$state","$http",function($scope,$state,$http){
-        //登录验证  （页面）
-        var userId = $("#user");
-        var ps = $("#ps");
+
         //$("#user").css("background-color","#B2E0FF");
 
         //原生js函数写法
         //$("#ps").onmouseover = function () {
         //    this.select();
         //};
-        //鼠标悬停 选中文本
-        userId.mouseover(function () {
-            this.select();
-        });
-        //jquery中的函数  是mouseover
-        ps.mouseover(function(){
-            this.select();
-        });
 
         // 用户离开  输入框
         //onblur()  与  blur()的区别
@@ -37,6 +27,7 @@ angular.module('app')
         //    $(id).className=img;
         //    $(id).innerHTML=value;
         //}
+        //封装 消息 函数
         function msg (id,result,txt){
             if(result=="wrong"){
                 $(id).show();
@@ -45,55 +36,147 @@ angular.module('app')
                 $(id).hide();
                 $(id).html(txt);
             }
-
         }
-        userId.blur(function(){
-            var txt = this.value;
-            if(txt == ""){
-                //console.log("学号不能为空");
-                userId.removeClass("right");
-                userId.focus();
-                userId.addClass("wrong");
-                msg("#result-wrong","wrong","学号不能为空，请重新输入");
-                //show("#result","学号不能为空");
-                //$("#result-wrong").show();
-                //$("#result-wrong").html("学号不能为空，请重新输入");
-                //$("#result").innerHTML="学号不能为空";
-                //userId.attr('placeholder','学号不能为空');
-            }else if(isNaN(txt)){
-                userId.removeClass("right");
-                //console.log("学号仅为数字的组合");
-                this.select();
-                userId.addClass("wrong");
-                msg("#result-wrong","wrong","学号仅为数字的组合，请重新输入");
-                //$("#result-wrong").show();
-                //$("#result-wrong").html("学号仅为数字的组合，请重新输入");
-                //userId.attr('placeholder','学号仅为数字的组合');
-            }else if(txt.length!=12){
-                userId.removeClass("right");
-                userId.addClass("wrong");
-                msg("#result-wrong","wrong","学号为12位数字组合，请重新输入");
-                //$("#result-wrong").show();
-                //$("#result-wrong").html("学号为12位数字组合，请重新输入");
-                //userId.attr('placeholder','学号为12位数字组合');
-                this.select();
-            }
-            else{
-                $("#result-wrong").hide();
-                userId.removeClass("wrong");
-                userId.addClass("right");
-            }
-            //console.log("用户离开输入框了");
+        //学生登录验证  （页面）
+        var stName = $("#stName");
+        var teName = $("#teName");
+        var leName = $("#leName");
+
+        var stPsd = $("#stPsd");
+        var tePsd = $("#tePsd");
+        var lePsd = $("#lePsd");
+
+
+        //鼠标悬停 选中文本
+        stName.mouseover(function () {
+           this.select();
         });
-        $("#ps").blur(function(){});
-        //自动聚焦
-        userId.focus();
+        teName.mouseover(function () {
+            this.select();
+        });
+        leName.mouseover(function () {
+            this.select();
+        });
+        stPsd.mouseover(function () {
+            this.select();
+        });
+        tePsd.mouseover(function () {
+            this.select();
+        });
+        lePsd.mouseover(function () {
+            this.select();
+        });
+        //jquery中的函数  是mouseover
+
+        //页面验证
+        function st(){
+            stName.blur(function(){
+                var txt = this.value;
+                if(txt == ""){
+                    //console.log("学号不能为空");
+                    stName.removeClass("right");
+                    stName.focus();
+                    stName.addClass("wrong");
+                    msg("#result-wrong","wrong","学号不能为空，请重新输入");
+                    //show("#result","学号不能为空");
+                    //$("#result-wrong").show();
+                    //$("#result-wrong").html("学号不能为空，请重新输入");
+                    //$("#result").innerHTML="学号不能为空";
+                    //userId.attr('placeholder','学号不能为空');
+                }else if(isNaN(txt)){
+                    stName.removeClass("right");
+                    //console.log("学号仅为数字的组合");
+                    this.select();
+                    stName.addClass("wrong");
+                    msg("#result-wrong","wrong","学号仅为数字的组合，请重新输入");
+                    //$("#result-wrong").show();
+                    //$("#result-wrong").html("学号仅为数字的组合，请重新输入");
+                    //userId.attr('placeholder','学号仅为数字的组合');
+                }else if(txt.length!=12){
+                    stName.removeClass("right");
+                    stName.addClass("wrong");
+                    msg("#result-wrong","wrong","学号为12位数字组合，请重新输入");
+                    //$("#result-wrong").show();
+                    //$("#result-wrong").html("学号为12位数字组合，请重新输入");
+                    //userId.attr('placeholder','学号为12位数字组合');
+                    this.select();
+                }
+                else{
+                    $("#result-wrong").hide();
+                    stName.removeClass("wrong");
+                    stName.addClass("right");
+                }
+                //console.log("用户离开输入框了");
+            });
+        }
+        function te(){
+            $("#result-wrong").hide();
+            stName.removeClass("wrong");
+            stName.removeClass("right");
+        }
+        function le(){
+            $("#result-wrong").hide();
+        }
+
+        $(function(){
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                // 获取已激活的标签页的名称
+                var activeTab = $(e.target).text();
+                // 获取前一个激活的标签页的名称
+                var previousTab = $(e.relatedTarget).text();
+                $(".active-tab span").html(activeTab);
+                $(".previous-tab span").html(previousTab);
+                switch (activeTab){
+                    case "学生登录":
+                        stName.focus();
+                        //st();
+                        break;
+                    case "教工登录":
+                        //自动聚焦
+                        teName.focus();
+                        //te();
+                        break;
+                    case "督评中心登录":
+                        leName.focus();
+                        break;
+                }
+            });
+        });
+
+
+
 
 
         //封装 登录函数
         $scope.login=function(a,b){
             var userId =a;
             var userPsd = b;
+            //console.log(userPsd)
+            if(a==""|| a==undefined){
+                msg("#result-wrong","wrong","用户登录名不能为空，请输入");
+            }else if(b==""|| b==undefined){
+                msg("#result-wrong","wrong","用户密码不能为空，请输入");
+            }else{
+                $http({
+                    method:'post',
+                    //url:'/login',
+                    url:'/api/UserLoginController/login',
+                    params:{
+                        'username':userId,
+                        'password':userPsd
+                    }
+                }).success(function(data){
+                    //console.log("登录成功，用户的详细信息为");
+                    //console.log(data);
+                    if(data ==""){
+                        msg("#result-wrong","wrong","用户不存在或者密码错误，请检查重新输入");
+                        return;
+                    }else{
+                        $state.go('app.home',{UserId:data.user_id,roleId:data.role.id});
+                    }
+
+                })
+            }
             //if(ps == null){
             //    alert("密码不能为空");
             //    return ;
@@ -105,25 +188,7 @@ angular.module('app')
             //console.log($scope.username);
             //console.log($scope.password);
             //$state.go('app.home');
-            $http({
-                method:'post',
-                //url:'/login',
-                url:'/api/UserLoginController/login',
-                params:{
-                    'username':userId,
-                    'password':userPsd
-                }
-            }).success(function(data){
-                //console.log("登录成功，用户的详细信息为");
-                //console.log(data);
-                if(data ==""){
-                    msg("#result-wrong","wrong","用户不存在或者密码错误，请检查重新输入");
-                    return;
-                }else{
-                    $state.go('app.home',{UserId:data.user_id,roleId:data.role.id});
-                }
 
-            })
         }
 
     }])
@@ -131,7 +196,7 @@ angular.module('app')
         $scope.$on("child",function(event,data){
             console.log("这是header");
             console.log(data);
-        })
+        });
         var user;//全局变量 用户的所有信息
         //console.log($stateParams.UserName);
         //由 LoginCtrl 传递过来的参数  可以用于全局的数据绑定
