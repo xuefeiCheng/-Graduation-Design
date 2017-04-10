@@ -27,6 +27,7 @@ public class teacherUser extends Model {
 //    可变部分
     public String email;//邮箱
     public String dz;//通讯地址
+    public String phone;//通讯地址
 
 
     private void _parseJson(JsonObject json, teacherUser st) {
@@ -43,6 +44,7 @@ public class teacherUser extends Model {
 
         json.addProperty("email", st.email);
         json.addProperty("dz", st.dz);
+        json.addProperty("phone", st.phone);
     }
 
     public JsonObject toJson() {
@@ -55,6 +57,7 @@ public class teacherUser extends Model {
     public void changeInfo(String email,String dz){
         this.email = email;
         this.dz = dz;
+        this.phone = phone;
     }
 
     //    根据id 得到teacher列表

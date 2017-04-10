@@ -376,7 +376,7 @@ angular.module('app')
                     hideAll("#student","#teacher","#admin");
                     //更改 督导个人信息 并保存
                     $scope.save= function(){
-                        changeInfo_lea();
+                        changeInfo_le();
                     };
                     break;
                 case 4:

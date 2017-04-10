@@ -41,6 +41,7 @@ public class studentUser extends Model {
     //可改项目
     public String email;//邮箱
     public String dz;//通讯地址
+    public String phone;//通讯地址
 //    public Date cs;//出生日期
 
     private void _parseJson(JsonObject json, studentUser st) {
@@ -60,6 +61,7 @@ public class studentUser extends Model {
 
         json.addProperty("email", st.email);
         json.addProperty("dz", st.dz);
+        json.addProperty("phone", st.phone);
 
 //        st.cs= new Date();
 //        json.add("cs",st.cs);
@@ -73,6 +75,7 @@ public class studentUser extends Model {
     public void changeInfo(String email,String dz){
         this.email = email;
         this.dz = dz;
+        this.phone = phone;
     }
 //    根据id 得到student列表
     public static studentUser findByStudentUserId(String st_id){
