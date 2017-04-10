@@ -52,7 +52,6 @@ public class UserMenuController extends Controller {
             return json;
         }
 
-
 //    ¸ü¸ÄÃÜÂë
     public static void changePassword(String userId ,String newPassword){
         User user = User.findByUserId(userId);

@@ -50,7 +50,7 @@
                                     </div>
                                     <!--<input type="submit" value="Login" id="fat-btn-st"  />-->
                                     <button id="fat-btn-st" class="btn btn-primary btn-position" data-loading-text="Loading..."
-                                            type="button"ng-click="login()"> 学生登录
+                                            type="button" ng-click="login(username,password)"> 学生登录
                                     </button>
                                     <script>
 //                                        $(function() {
@@ -69,15 +69,15 @@
                                 <form class="bs-example bs-example-form" role="form">
                                     <div class="input-group">
                                         <span class="input-group-addon"><b class="glyphicon glyphicon-user"></b></span>
-                                        <input type="text" class="form-control" placeholder="输入教工号">
+                                        <input type="text" class="form-control" placeholder="输入教工号" ng-model="teName">
                                     </div>
                                     <div class="msg-wrap"></div>
                                     <div class="input-group">
                                         <span class="input-group-addon"><b class=" glyphicon glyphicon-log-in"></b></span>
-                                        <input type="text" class="form-control" placeholder="输入密码">
+                                        <input type="password" class="form-control" placeholder="输入密码" ng-model="tePsd">
                                     </div>
                                     <button id="fat-btn1" class="btn btn-primary btn-position" data-loading-text="Loading..."
-                                            type="button"> 教工登录
+                                            type="button" ng-click="login(teName,tePsd)"> 教工登录
                                     </button>
                                     <script>
 //                                        $(function() {
@@ -95,15 +95,15 @@
                                 <form class="bs-example bs-example-form" role="form">
                                     <div class="input-group">
                                         <span class="input-group-addon"><b class="glyphicon glyphicon-user"></b></span>
-                                        <input type="text" class="form-control" placeholder="输入个人账号">
+                                        <input type="text" class="form-control" placeholder="输入个人账号" ng-model="leName">
                                     </div>
                                     <div class="msg-wrap"></div>
                                     <div class="input-group">
                                         <span class="input-group-addon"><b class=" glyphicon glyphicon-log-in"></b></span>
-                                        <input type="text" class="form-control" placeholder="输入密码">
+                                        <input type="password" class="form-control" placeholder="输入密码" ng-model="lePsd">
                                     </div>
                                     <button id="fat-btn2" class="btn btn-primary btn-position" data-loading-text="Loading..."
-                                            type="button"> 督评中心登录
+                                            type="button" ng-click="login(leName,lePsd)"> 督评中心登录
                                     </button>
                                     <script>
 //                                        $(function() {

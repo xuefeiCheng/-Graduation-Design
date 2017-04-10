@@ -90,8 +90,10 @@ angular.module('app')
         userId.focus();
 
 
-        //console.log("hhahaha");
-        $scope.login=function(){
+        //封装 登录函数
+        $scope.login=function(a,b){
+            var userId =a;
+            var userPsd = b;
             //if(ps == null){
             //    alert("密码不能为空");
             //    return ;
@@ -108,8 +110,8 @@ angular.module('app')
                 //url:'/login',
                 url:'/api/UserLoginController/login',
                 params:{
-                    'username':$scope.username,
-                    'password':$scope.password
+                    'username':userId,
+                    'password':userPsd
                 }
             }).success(function(data){
                 //console.log("登录成功，用户的详细信息为");
