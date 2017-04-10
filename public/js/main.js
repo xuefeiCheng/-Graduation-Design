@@ -11,6 +11,11 @@ angular.module('app')
     }])
     .controller("LoginCtrl",["$scope","$state","$http",function($scope,$state,$http){
 
+    $("#student").keydown(function(event){
+        if(event.keyCode ==13){
+            $scope.login($scope.stName,$scope.stPsd);
+        }
+    });
         //$("#user").css("background-color","#B2E0FF");
 
         //原生js函数写法
@@ -148,7 +153,7 @@ angular.module('app')
 
 
         //封装 登录函数
-        $scope.login=function(a,b){
+        $scope.login =function(a,b){
             var userId =a;
             var userPsd = b;
             //console.log(userPsd)
