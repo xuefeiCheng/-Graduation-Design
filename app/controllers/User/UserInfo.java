@@ -1,5 +1,6 @@
 package controllers.User;
 
+import models.leaderUser;
 import models.studentUser;
 import models.teacherUser;
 import play.mvc.Controller;
@@ -31,6 +32,19 @@ public class UserInfo extends Controller {
     //    用于获取 教师 个人信息
     public static void getTeacherJson(String userId){
         teacherUser user = teacherUser.findByTeacherUserId(userId);
+        renderJSON(user.toJson());
+    }
+
+    //    更改 督导 个人信息
+    public static void changeInfo_le(String userId ,String email,String dz){
+        leaderUser user = leaderUser.findByLeaderUserId(userId);
+        user.changeInfo(email, dz);
+        user.save();
+        renderJSON(user);
+    }
+    //    用于获取 督导 个人信息
+    public static void getLeaderJson(String userId){
+        leaderUser user = leaderUser.findByLeaderUserId(userId);
         renderJSON(user.toJson());
     }
 }

@@ -476,9 +476,38 @@ angular.module('app')
         }
 
         //获得 督导 个人信息
-        function getLeaderJson(){}
+        function getLeaderJson(){
+            $http({
+                method:'post',
+                url:'/api/UserInfo/getLeaderJson',
+                params:{
+                    'userId':$stateParams.UserId
+                }
+            }).success(function(data){
+                console.log(data);
+                $scope.user = data;
+            });
+        }
+
         //更改 督导个人信息
-        function changeInfo_lea(){}
+        function changeInfo_le(){
+            $http({
+                method:"post",
+                url:"/api/UserInfo/changeInfo_le",
+                params:{
+                    "userId":$stateParams.UserId,
+                    "email":$scope.user.email,
+                    'dz':$scope.user.dz
+                }
+            }).success(function(data){
+                //console.log("保存成功");
+                //console.log(data);
+                //跳转页面 并且 刷新页面 显示新数据
+                //跳转到该路由下 会再一次 调用 该控制器 所以 会刷新一次
+                //不用自己手动调用一次函数 刷新页面了
+                $state.go("app.information.edit");
+            })
+        }
 
 
         $scope.goSub=function(){
