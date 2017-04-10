@@ -46,7 +46,7 @@ angular.module('app')
         var tePsd = $("#tePsd");
         var lePsd = $("#lePsd");
 
-
+        stName.focus();
         //鼠标悬停 选中文本
         stName.mouseover(function () {
            this.select();
@@ -154,8 +154,14 @@ angular.module('app')
             //console.log(userPsd)
             if(a==""|| a==undefined){
                 msg("#result-wrong","wrong","用户登录名不能为空，请输入");
-            }else if(b==""|| b==undefined){
+                stName.focus();
+            }else if(isNaN(a)){
+                msg("#result-wrong","wrong","用户登录名仅为数字的组合，请重新输入");
+                stName.select();
+            }
+            else if(b==""|| b==undefined){
                 msg("#result-wrong","wrong","用户密码不能为空，请输入");
+                stName.focus();
             }else{
                 $http({
                     method:'post',
@@ -170,6 +176,7 @@ angular.module('app')
                     console.log(data);
                     if(data ==""){
                         msg("#result-wrong","wrong","用户不存在或者密码错误，请检查重新输入");
+                        stName.focus();
                         return;
                     }else{
                         $state.go('app.home',{UserId:data.user_id,roleId:data.role.id});
