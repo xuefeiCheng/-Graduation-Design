@@ -10,7 +10,7 @@
     <!--<script src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
     <!--<script src="http://cdn.bootcss.com/angular.js/1.5.8/angular.js"></script>-->
 </head>
-<body ng-controller="LoginCtrl">
+<body ng-controller="LoginCtrl" ng-model="reloadRoute">
 <!--头部-->
     <div class="w">
         <div id="logo">
@@ -46,7 +46,7 @@
                                     <div class="msg-wrap"></div>
                                     <div class="input-group">
                                         <span class="input-group-addon"><b class=" glyphicon glyphicon-log-in"></b></span>
-                                        <input type="text" class="form-control" placeholder="输入密码" name="password" ng-model="password" id="ps">
+                                        <input type="password" class="form-control" placeholder="输入密码" name="password" ng-model="password" id="ps">
                                     </div>
                                     <!--<input type="submit" value="Login" id="fat-btn-st"  />-->
                                     <button id="fat-btn-st" class="btn btn-primary btn-position" data-loading-text="Loading..."

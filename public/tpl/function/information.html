@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="w-content">
+    <div class="list-group clearfix" style="margin-bottom: 60px">
+
+        <div id="student" class="pull-left wid-percent-48">
+            <li  class="list-group-item active clearfix" style="background-color: #f6f8f8; border:1px solid #dde6e6;">
+                <h4 class="list-group-item-heading pull-left" style="color:#58666e;font-weight: bold;line-height: 30px">
+                    学籍信息
+                </h4>
+                <!--<button class="btn btn-success pull-right" ng-click="save()">编辑</button>-->
+            </li>
+            <li  class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    姓名：{{user.name}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    性别:{{user.sex}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    身份证号:{{user.sfz}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    院系:{{user.xy}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    专业:{{user.zy}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    班级:{{user.classroom}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    籍贯:{{user.jg}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    政治面貌:{{user.zzmm}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    学生类别:{{user.lb}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    民族:{{user.mz}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    入学时间:{{user.rxdate}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    年级:{{user.jb}}
+                </span>
+            </li>
+        </div>
+        <div id="teacher" class="pull-left wid-percent-48">
+            <li  class="list-group-item active clearfix" style="background-color: #f6f8f8; border:1px solid #dde6e6;">
+                <h4 class="list-group-item-heading pull-left" style="color:#58666e;font-weight: bold;line-height: 30px">
+                    教师信息
+                </h4>
+                <!--<button class="btn btn-success pull-right" ng-click="save()">编辑</button>-->
+            </li>
+            <li  class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    教师姓名：{{user.name}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    性别:{{user.sex}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    身份证号:{{user.sfz}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    院系:{{user.xy}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    籍贯:{{user.jg}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    政治面貌:{{user.zzmm}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    民族:{{user.mz}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    入职时间:{{user.rxdate}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    职称:{{user.zc}}
+                </span>
+            </li>
+        </div>
+        <div id="admin" class="pull-left wid-percent-48">
+            <li  class="list-group-item active clearfix" style="background-color: #f6f8f8; border:1px solid #dde6e6;">
+                <h4 class="list-group-item-heading pull-left" style="color:#58666e;font-weight: bold;line-height: 30px">
+                    管理员信息
+                </h4>
+                <!--<button class="btn btn-success pull-right" ng-click="save()">编辑</button>-->
+            </li>
+            <li  class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    教师姓名：{{user.name}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    性别:{{user.sex}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    身份证号:{{user.sfz}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    院系:{{user.xy}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    籍贯:{{user.jg}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    政治面貌:{{user.zzmm}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    民族:{{user.mz}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    入职时间:{{user.rxdate}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    职称:{{user.zc}}
+                </span>
+            </li>
+        </div>
+        <div id="leader" class="pull-left wid-percent-48">
+            <li  class="list-group-item active clearfix" style="background-color: #f6f8f8; border:1px solid #dde6e6;">
+                <h4 class="list-group-item-heading pull-left" style="color:#58666e;font-weight: bold;line-height: 30px">
+                    督导信息
+                </h4>
+                <!--<button class="btn btn-success pull-right" ng-click="save()">编辑</button>-->
+            </li>
+            <li  class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    教师姓名：{{user.name}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    性别:{{user.sex}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    身份证号:{{user.sfz}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    院系:{{user.xy}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    籍贯:{{user.jg}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    政治面貌:{{user.zzmm}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    民族:{{user.mz}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    入职时间:{{user.rxdate}}
+                </span>
+            </li>
+            <li class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    职称:{{user.zc}}
+                </span>
+            </li>
+        </div>
+        <div class="pull-right wid-percent-48">
+            <ui-view></ui-view>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<!--通道采集实时统计 ng-class用法可以借鉴-->
+<!--<div class="collection-box m-b">-->
+    <!--<div class="collection-head">-->
+        <!--<div class="collection-title  font-bold font-title f8">通道采集实时统计</div>-->
+    <!--</div>-->
+    <!--<div class="collection-body">-->
+        <!--<table class="table">-->
+            <!--<thead class="table-th-e">-->
+            <!--<tr>-->
+                <!--<th class="wid-percent-24">通道</th>-->
+                <!--<th class="wid-percent-20">今日</th>-->
+                <!--<th class="wid-percent-20">昨日</th>-->
+                <!--<th class="wid-percent-36">累计</th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--<tr ng-repeat="collectionData in collectionDatas track by $index" class="collection-a ">-->
+                <!--<td class="padding-8-5">-->
+                    <!--<i class="fa {{collectionData.url}}"-->
+                       <!--ng-class="{'color-luntan':collectionData.name=='论坛',-->
+											<!--'color-boke':collectionData.name=='博客',-->
+											<!--'color-jingwai':collectionData.name=='境外',-->
+											<!--'color-weibo':collectionData.name=='微博',-->
+											<!--'color-weixin':collectionData.name=='微信',-->
+											<!--'color-sj':collectionData.name=='社交网站',-->
+											<!--'color-total':collectionData.name=='总量',-->
+										<!--}"></i>-->
+                    <!--<img src="img/app.png" width="13" height="13" ng-show="collectionData.name=='APP'">-->
+                    <!--<img src="img/news.png" width="13" height="13" ng-show="collectionData.name=='新闻'">-->
+                    <!--<img src="img/total.png" width="13" height="13" ng-show="collectionData.name=='总量'">-->
+                    <!--<img src="img/blog.png" width="13" height="13" ng-show="collectionData.name=='博客'">-->
+                    <!--{{collectionData.channelName}}-->
+                <!--</td>-->
+                <!--<td>{{collectionData.todayCount}}</td>-->
+                <!--<td>{{collectionData.yestodayCount}}</td>-->
+                <!--<td class="col-lbr">{{collectionData.total}}</td>-->
+            <!--</tr>-->
+            <!--</tbody>-->
+        <!--</table>-->
+    <!--</div>-->
+<!--</div>-->

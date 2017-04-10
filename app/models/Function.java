@@ -1,6 +1,5 @@
 package models;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import play.db.jpa.Model;
 
@@ -18,24 +17,14 @@ import java.util.List;
 public class Function extends Model {
     public String name;
 
-    public JsonObject toJson(){
-        JsonObject json = new JsonObject();
-        _parseJson(json, this);
-        return json;
-    }
+//    public JsonObject toJson() {
+//        JsonObject json = new JsonObject();
+//        _parseJSON(json, this);
+//        return json;
+//    }
 
-    private void _parseJson(JsonObject json, Function function) {
+    private void _parseJSON(JsonObject json, Function function) {
         json.addProperty("id", function.id);
-        json.addProperty("name", function.name);
+        json.addProperty("name",function.name);
     }
-
-    private static List<Function> findByRole(Role role) {
-        List<Function> list = new ArrayList<Function>();
-        List<RoleFunctionLink> links = RoleFunctionLink.find("byRole", role).fetch();
-        for (RoleFunctionLink link : links) {
-            list.add(link.function);
-        }
-        return list;
-    }
-
 }

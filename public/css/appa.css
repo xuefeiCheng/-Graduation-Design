@@ -1,5 +1,25 @@
+html {
+    /* background-color: #f0f3f4; */
+    background-color: #F7F7F7;
+
+}
+
+body {
+    font-family: '微软雅黑', "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.42857143;
+    color: #58666e;
+    background-color: transparent;
+}
+a{color:#000;}
+a:hover,
+a:focus {
+    color:#002f68;
+    text-decoration: none;
+}
 .app-header-fixed {
-    margin-bottom: 100px;
+    margin-bottom: 160px;
 }
 
 .app-header-fixed .app-header {
@@ -10,4 +30,42 @@
 footer{
     font-style:inherit;
     text-align: center;
+}
+.m-b {
+    margin-bottom: 15px;
+}
+/*字体颜色*/
+.col-lbr {
+    color:#58666e;
+}
+.font-title{
+    color:#58666e;
+    font-size: 1rem;
+    font-weight: bold;
+}
+/*版心*/
+.w-content{
+    width: 1221px;margin:0 auto;
+}
+/*自定义 列表*/
+/*样式一*/
+.collection-box{
+    border:1px solid #dde6e6;
+    background-color:#fff;
+}
+
+.collection-title{
+    height: 40px;
+    border-bottom:1px solid #dde6e6;
+    line-height: 38px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color:#f6f8f8;
+}
+.collection-body{
+    padding:2px;
+}
+.table-th-e{
+    background-color:#e3f2fd;
+    color:#666;
 }

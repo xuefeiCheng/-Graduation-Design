@@ -3,30 +3,35 @@
  */
 angular.module('app')
     .controller("AppCtrl",["$scope","$state",function($scope,$state){
+        $scope.$on("USER",function(event,data){
+            console.log("ssss");
+            console.log(data);
+            $scope.$broadcast("child",{data:data})
+        });
     }])
     .controller("LoginCtrl",["$scope","$state","$http",function($scope,$state,$http){
-            //登录验证  （页面）
+        //登录验证  （页面）
         var userId = $("#user");
         var ps = $("#ps");
         //$("#user").css("background-color","#B2E0FF");
 
-            //原生js函数写法
-            //$("#ps").onmouseover = function () {
-            //    this.select();
-            //};
-            //鼠标悬停 选中文本
+        //原生js函数写法
+        //$("#ps").onmouseover = function () {
+        //    this.select();
+        //};
+        //鼠标悬停 选中文本
         userId.mouseover(function () {
             this.select();
         });
-            //jquery中的函数  是mouseover
+        //jquery中的函数  是mouseover
         ps.mouseover(function(){
             this.select();
         });
 
-            // 用户离开  输入框
-            //onblur()  与  blur()的区别
-            //js原生          jquery中的
-            //注意  函数写法
+        // 用户离开  输入框
+        //onblur()  与  blur()的区别
+        //js原生          jquery中的
+        //注意  函数写法
         // 验证结果
         //function result(id,img,value){
         //    $(id).className=img;
@@ -81,157 +86,328 @@ angular.module('app')
             //console.log("用户离开输入框了");
         });
         $("#ps").blur(function(){});
-            //自动聚焦
+        //自动聚焦
         userId.focus();
 
 
-            //console.log("hhahaha");
-            $scope.login=function(){
-                //if(ps == null){
-                //    alert("密码不能为空");
-                //    return ;
-                //}
-                //if(userId == null){
-                //    alert("学号不能为空");
-                //    return;
-                //}
-                //console.log($scope.username);
-                //console.log($scope.password);
-                //$state.go('app.home');
-                $http({
-                    method:'post',
-                    url:'/login',
-                    params:{
-                        'username':$scope.username,
-                        'password':$scope.password
-                    }
-                }).success(function(data){
-                    console.log(data);
-                    if(data ==""){
-                        msg("#result-wrong","wrong","用户不存在或者密码错误，请检查重新输入");
-                        return;
-                    }else{
-                        $state.go('app.home',{UserName:data.name});
-                    }
+        //console.log("hhahaha");
+        $scope.login=function(){
+            //if(ps == null){
+            //    alert("密码不能为空");
+            //    return ;
+            //}
+            //if(userId == null){
+            //    alert("学号不能为空");
+            //    return;
+            //}
+            //console.log($scope.username);
+            //console.log($scope.password);
+            //$state.go('app.home');
+            $http({
+                method:'post',
+                //url:'/login',
+                url:'/api/UserLoginController/login',
+                params:{
+                    'username':$scope.username,
+                    'password':$scope.password
+                }
+            }).success(function(data){
+                //console.log("登录成功，用户的详细信息为");
+                //console.log(data);
+                if(data ==""){
+                    msg("#result-wrong","wrong","用户不存在或者密码错误，请检查重新输入");
+                    return;
+                }else{
+                    $state.go('app.home',{UserId:data.user_id,roleId:data.role.id});
+                }
 
-                })
-            }
-        }])
-    .controller("homeCtrl",function($scope,$state,$http,$stateParams){
-        //console.log($stateParams.UserName);
-    })
-    .controller("headerCtrl",function($scope,$state,$http,$stateParams,$rootScope){
+            })
+        }
+
+    }])
+    .controller("headerCtrl",function($scope,$state,$http,$stateParams,$rootScope,$injector){
+        $scope.$on("child",function(event,data){
+            console.log("这是header");
+            console.log(data);
+        })
+        var user;//全局变量 用户的所有信息
         //console.log($stateParams.UserName);
         //由 LoginCtrl 传递过来的参数  可以用于全局的数据绑定
-        $rootScope.userxxx=$stateParams.UserName;
+        $rootScope.userxxx=$stateParams.UserId;
+        //    根据user_id查询到  权限
+        //    根据权限查 function（目录）
+        //    $http({
+        //        method:'post',
+        //        url:'/api/UserLoginController/getUserById',
+        //        params:{
+        //            'userId':$stateParams.UserId
+        //        }
+        //    }).success(function(data){
+        //            console.log("当前用户权限id"+data.role.id);
+        //            var role = data.role.id;
+        //通过获取得来的 权限id  获得目录
+        $http({
+            method:'post',
+            url:'/api/UserMenuController/getMenu',
+            params:{
+                'userId':$stateParams.UserId
+            }
+        }).success(function(data){
+            user = data;
+            //console.log("获得用户权限成功");
+            //console.log(data);
+            $scope.userId = data.userId;
+            $scope.userRole = data.roleName;
+            $scope.menus = data.menus;
+            $scope.roleId = data.roleId;
+        });
+        //}
+        //)
+        //修改密码  函数
+        function changePsd(userId,newPassword){
+            $http({
+                method:'post',
+                url:'/api/UserMenuController/changePassword',
+                params:{
+                    'userId':userId,
+                    'newPassword':newPassword
+                }
+            }).success(function(data){
+                console.log("修改密码成功");
+                $state.go('login');
+                //$state.go("login", {}, { reload: true});
+                //    跳转到 登录界面
+            });
+        }
+        //清空 弹框 函数
+        function clear(a,b,c){
+            //$("#password").val("");
+            //$("#mpassword").val("");
+            //$("#lpassword").val("");
+            $(a).val("");
+            $(b).val("");
+            $(c).val("");
+        }
+        //关闭  修改密码 弹框
+        $scope.closePsd=function(){
+            //console.log("清空 弹框内容");
+            clear("#password","#mpassword","#lpassword");
+            $("#psdMsg").removeClass("psdmsg-wrong","psdmsg-right");
+            $("#psdMsg").html("请输入");
+            //$("#myModal").hide();
+        };
+        //修改密码  操作
+        $scope.psdSave = function(){
+            //console.log(user);
+            //console.log($("#psdMsg").attr('class'));
+            var currentPsd = $("#password").val();
+            var newPsd = $("#mpassword").val();
+            var newPsdAgain = $("#lpassword").val();
+            var psdMsg = $("#psdMsg");
+            //psdMsg.html('点击了修改密码按钮');
+            //console.log("点击了修改密码按钮");
+            console.log(currentPsd);
+            console.log(newPsd);
+            console.log(newPsdAgain);
+            if(user.psd =="" || newPsd=="" ||newPsdAgain==""){
+                psdMsg.removeClass("psdmsg-right").addClass("psdmsg-wrong");
+                psdMsg.html('输入不能为空');
+            }else if(user.psd != currentPsd ){
+                psdMsg.removeClass("psdmsg-right").addClass("psdmsg-wrong");
+                psdMsg.html('旧密码输入不正确');
+                clear("#password");
+                $("#password").focus();
+            }else if(newPsd !==newPsdAgain){
+                psdMsg.removeClass("psdmsg-right").addClass("psdmsg-wrong");
+                psdMsg.html('新密码两次输入不一致');
+                clear("#mpassword","#lpassword");
+                $("#mpassword").focus();
+            }else{
+                psdMsg.removeClass("psdmsg-wrong").addClass("psdmsg-right");
+                psdMsg.html('新密码验证成功，稍后跳转至登录界面，请重新登录');
+                //设置定时器
+                setTimeout(function(){
+                    $("#myModal").modal("hide");
+                    //模态框 隐藏后 遮罩层 还在 在html文件中 出现<div class="modal-backdrop fade in"></div>
+                    //解决办法是 需要 调用一下刷新函数
+                    //全部清除 方法一 ：在控制器中 加入$injector 服务 ，然后调用
+                    //方法二 在路由配置文件中 加入监听 路由状态更改 则 刷新一次
+                    //$injector.get('$templateCache').removeAll();
+                    changePsd(user.userId,newPsd);
+                },3000);
+                //setTimeout(changePsd(user.userId,newPsd),6000);
+                //time时间过后在运行
+
+            }
+            //changePassword()
+            //    当前密码 currentPsd
+            //    新密码 newPsd
+            //    再次确认新密码 newPsdAgain
+        }
+    })
+    .controller("homeCtrl",function($scope,$state,$http,$stateParams){
+        //console.log($stateParams.UserName);
+        var userId=$stateParams.UserId;
+        console.log("home");
+        console.log(userId);
+        $scope.$emit("USER",{data:$stateParams.UserId});
+        $scope.$on("child",function(event,data){
+            console.log("这是home");
+            console.log(data);
+        })
+
+    })
+    .controller("infoCtrl",function($scope,$http,$stateParams,$rootScope,$state){
+    //    控制器之间 传递的参数  为  用户id 用户的权限
+    //    根据权限 查不同角色的表
+    //    显示具体的 角色的信息
+    //    console.log("这是个人信息");
+    //    console.log($stateParams.UserId);
+        //问题：为什么 同样都是appCtrl的子控制器 只有headerCtrl能够接受到 父控制器的广播
+        //页面加载之后  在F12中 ui-view 那是没有controller的
+        //是不是因为这个原因呢 毕竟在该结果中 只有headerCtrl是写死在页面中的
+        //要怎么解决呢？？？？？
+        $rootScope.$on("child",function(event,data){
+            console.log(data);
+        });
+    //    由于 每一个目录 都会用到 userId  所以用了一个 取巧的办法 直接在路径渲染后面加了 userId
+
+    //    获得权限 id
+    //    var roleId = $stateParams.roleId;
+    //    console.log(typeof roleId);//String
+        var roleId = parseInt($stateParams.roleId);
+        console.log(typeof roleId);//nummber
+        info(roleId);
+
+    //    根据 权限 加载相应的函数
+        function info(role){
+            switch (role){
+                case 1:getStudentJson();
+                    //    视图 全部消失
+                    hideAll("#teacher","#leader","#admin");
+                    //更改 学生个人信息 并保存
+                    $scope.save= function(){
+                        changeInfo_st();
+                    };
+                    break;
+                case 2:
+                    getTeacherJson();
+                    hideAll("#student","#leader","#admin");
+                    $scope.save= function(){
+                        changeInfo_te();
+                    };
+                    break;
+                case 3:getLeaderJson();
+                    //    视图 全部消失
+                    hideAll("#student","#teacher","#admin");
+                    //更改 督导个人信息 并保存
+                    $scope.save= function(){
+                        changeInfo_lea();
+                    };
+                    break;
+                case 4:
+                    getAdminJson();
+                    hideAll("#student","#teacher","#leader");
+                    //更改 学生个人信息 并保存
+                    $scope.save= function(){
+                        changeInfo_ad();
+                    };
+                    break;
+            }
+        }
+    //函数 封装
+    //    全部消失
+        function hideAll(a,b,c,d){
+            $(a).hide();
+            $(b).hide();
+            $(c).hide();
+            $(d).hide();
+        }
+        //    获得  学生 个人信息
+        function getStudentJson(){
+            $http({
+                method:'post',
+                url:'/api/UserInfo/getStudentJson',
+                params:{
+                    'userId':$stateParams.UserId
+                }
+            }).success(function(data){
+                //console.log(data);
+                $scope.user = data;
+            });
+            $scope.goSub=function(){
+                $state.go("app.information.edit-do");
+            };
+        }
+        //更改学生信息
+        function changeInfo_st(){
+            $http({
+                method:"post",
+                url:"/api/UserInfo/changeInfo_st",
+                params:{
+                    "userId":$stateParams.UserId,
+                    "email":$scope.user.email,
+                    'dz':$scope.user.dz
+                }
+            }).success(function(data){
+                //console.log("保存成功");
+                //console.log(data);
+                //跳转页面 并且 刷新页面 显示新数据
+                //跳转到该路由下 会再一次 调用 该控制器 所以 会刷新一次
+                //不用自己手动调用一次函数 刷新页面了
+                $state.go("app.information.edit");
+            })
+        }
+
+        //获得管理员个人信息
+        function getAdminJson(){
+
+        }
+        //更改 管理员信息
+        function changeInfo_ad(){}
+
+
+        //获得 教师 个人信息
+        function getTeacherJson(){
+            $http({
+                method:'post',
+                url:'/api/UserInfo/getTeacherJson',
+                params:{
+                    'userId':$stateParams.UserId
+                }
+            }).success(function(data){
+                console.log(data);
+                $scope.user = data;
+            });
+        }
+
+        //更改教师信息
+        function changeInfo_te(){
+            $http({
+                method:"post",
+                url:"/api/UserInfo/changeInfo_te",
+                params:{
+                    "userId":$stateParams.UserId,
+                    "email":$scope.user.email,
+                    'dz':$scope.user.dz
+                }
+            }).success(function(data){
+                //console.log("保存成功");
+                //console.log(data);
+                //跳转页面 并且 刷新页面 显示新数据
+                //跳转到该路由下 会再一次 调用 该控制器 所以 会刷新一次
+                //不用自己手动调用一次函数 刷新页面了
+                $state.go("app.information.edit");
+            })
+        }
+
+        //获得 督导 个人信息
+        function getLeaderJson(){}
+        //更改 督导个人信息
+        function changeInfo_lea(){}
+
+
+        $scope.goSub=function(){
+            $state.go("app.information.edit-do");
+        };
     });
-    //.controller('AppCtrl', ['$scope','$state',
-    //    function( $scope,$state) {
-    //        $scope.pageKeyDown = function(e){
-    //            var keycode = window.event?e.keyCode:e.which;
-    //            if(keycode==13){
-    //                $state.go('app.search');
-    //            }
-    //        };
-    //        $scope.search=function(){
-    //            $state.go('app.search');
-    //        };
-    //
-    //        // add 'ie' classes to html
-    //        var isIE = !!navigator.userAgent.match(/MSIE/i);
-    //        if(isIE){ angular.element($window.document.body).addClass('ie');}
-    //        if(isSmartDevice( $window ) ){ angular.element($window.document.body).addClass('smart')};
-    //
-    //        // 系统顶部导航栏
-    //        $scope.systemNavigator=[];
-    //        //$scope.systemNavigatortop=[];
-    //
-    //
-    //
-    //
-    //
-    //
-    //        //字号设置
-    //        var fontConfig = {
-    //            small: 14,
-    //            middle: 15,
-    //            large: 16
-    //        };
-    //        var selectFont = $('body');
-    //        var selectFontHtml = $('html');
-    //        var currentsize = localStorage.getItem("fontsize");
-    //        if(currentsize==fontConfig.small){
-    //            selectFont.addClass('small-font');
-    //            selectFontHtml.addClass('small-font');
-    //        }else if(currentsize==fontConfig.large){
-    //            selectFont.addClass('large-font');
-    //            selectFontHtml.addClass('large-font');
-    //        }else{
-    //            selectFont.addClass('middle-font');
-    //            selectFontHtml.addClass('middle-font');
-    //        }
-    //        $scope.fontsizes=[{
-    //            size:fontConfig.small,
-    //            name:'小'
-    //        },{
-    //            size:fontConfig.middle,
-    //            name:'中'
-    //        },{
-    //            size:fontConfig.large,
-    //            name:'大'
-    //        }];
-    //
-    //        $scope.editToggle=false;
-    //        $scope.editParams=function(){
-    //            $('.edit-params').removeClass('hide');
-    //            $scope.editToggle=!$scope.editToggle;
-    //        };
-    //        $scope.currentFont=currentsize;
-    //        $scope.selectFont=function(font){
-    //            $scope.currentFont = font.size;
-    //
-    //            if(font.size==fontConfig.small){
-    //                selectFont.removeClass('middle-font');
-    //                selectFont.removeClass('large-font');
-    //                selectFont.addClass('small-font');
-    //
-    //                selectFontHtml.removeClass('middle-font');
-    //                selectFontHtml.removeClass('large-font');
-    //                selectFontHtml.addClass('small-font');
-    //                localStorage.setItem("fontsize",fontConfig.small);
-    //
-    //            }else if(font.size==fontConfig.middle){
-    //                selectFont.removeClass('small-font');
-    //                selectFont.removeClass('large-font');
-    //                selectFont.addClass('middle-font');
-    //
-    //
-    //                selectFontHtml.removeClass('small-font');
-    //                selectFontHtml.removeClass('large-font');
-    //                selectFontHtml.addClass('middle-font');
-    //                localStorage.setItem("fontsize",fontConfig.middle);
-    //
-    //            }else if(font.size==fontConfig.large){
-    //                selectFont.removeClass('middle-font');
-    //                selectFont.removeClass('small-font');
-    //                selectFont.addClass('large-font');
-    //
-    //                selectFontHtml.removeClass('middle-font');
-    //                selectFontHtml.removeClass('small-font');
-    //                selectFontHtml.addClass('large-font');
-    //                localStorage.setItem("fontsize",fontConfig.large);
-    //
-    //            }
-    //        };
-    //
-    //
-    //
-    //        function isSmartDevice( $window )
-    //        {
-    //            // Adapted from http://www.detectmobilebrowsers.com
-    //            var ua = $window['navigator']['userAgent'] || $window['navigator']['vendor'] || $window['opera'];
-    //            // Checks for iOs, Android, Blackberry, Opera Mini, and Windows mobile devices
-    //            return (/iPhone|iPod|iPad|Silk|Android|BlackBerry|Opera Mini|IEMobile/).test(ua);
-    //        }
-    //
-    //    }]);

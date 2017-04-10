@@ -9,7 +9,4 @@ public class Application extends Controller {
         redirect("public/index.html");
     }
 
-
-
-
 }

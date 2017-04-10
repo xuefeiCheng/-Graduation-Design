@@ -20,6 +20,7 @@ GET     /public/                                staticDir:public
 
 
 # Catch all
+*       /api/{controller}/{action}                  User.{controller}.{action}
 *       /{controller}/{action}                  {controller}.{action}
 
 

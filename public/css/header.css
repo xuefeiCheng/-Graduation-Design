@@ -21,21 +21,107 @@ a:focus {
 .clearfix{
     *zoom:1;
 }
+.font-bold {
+    font-weight: 700;
+}
+.psdmsg-wrong{
+    color:#cc0000 ;
+}
+.psdmsg-right{
+    color:#27c24c ;
+}
+/*支撑模块导航颜色*/
+.nav-main .clr-information{
+    background-color: #2963B5;
+}
+.nav-main .clr-myTeachers{
+    background-color: #27c24c;
+}
+.nav-main .clr-studentsResult{
+    background-color: #ff9900;
+}
+.nav-main .clr-myStudents{
+    background-color: #cc0000;
+}
+.nav-main .clr-teachersResult{
+    background-color: #7266ba;
+}
+.nav-main .clr-count{
+    background-color: #002f68;
+}
+.nav-main .clr-rankingList{
+    background-color: #B516B3;
+}
+
+/*导航上半部  字体颜色 字号*/
+.navbar-top-collapse{
+    font-size: 14px;
+    color:#58666E;
+}
 .header{
-    background-color: #fdfdfd;
+    background-color: #f6f8f8;
+}
+.nav-top{
+}
+.nav-top .user{
+    float: left;
+}
+.nav-top .login-out{
+    float: right;
+}
+.nav-text{
+    margin: 15px 30px;
+}
+.nav .bottom-nav{
+    width: 70px;
+    height: 70px;
+    margin: 10px 5px;
+    /*border: transparent 4px solid;*/
+    cursor: pointer;
+}
+
+/*支撑模块 导航组件*/
+.icon-nav{
+    height: 24px;
+    width: 24px;
+    margin: 8px 19px 8px 19px;
+}
+.font-nav{
+    font-size: 14px;
+    color: #fff;
+    margin:0 3px 10px 3px;
+}
+.bottom-Nav{
+    /*margin-top: 50px;*/
+}
+.navbar-bottom-unactive{
+    border: transparent 4px solid;
+}
+.nav .bottom-nav:hover{
+    border: 4px solid rgba(0,0,0,0.4);
+}
+.nav .bottom-nav:focus{
+    border: 4px solid rgba(0,0,0,0.4);
+}
+.navbar-bottom-active{
+    border: 4px solid rgba(0,0,0,0.4);
+}
+.navbar-bottom-collapse,.normal .navbar-bottom-collapse{
+    background-color: #fff;
+    box-shadow: 4px 3px 2px #002f68;
+}
+.footer-top{
+    box-shadow: 1px -1px 1px 0px #002f68;
 }
 .logo,.nav{
     float: left;
 }
-.login-out{
-    float: right;
-    background-color: #fdfdfd;
-}
+
 .nav{
     position: relative;
     /*width: 800px;*/
     /*height: 42px;*/
-    background-color: #fdfdfd;
+    /*background-color: #fdfdfd;*/
 }
 .nav .cloud{
     position: absolute;
@@ -50,7 +136,7 @@ a:focus {
     float: left;
     width: 83px;
     height: 50px;
-    line-height: 50px;
+    /*line-height: 50px;*/
     text-align: center;
     color: #000;
 }

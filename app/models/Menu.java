@@ -1,7 +1,5 @@
 package models;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
@@ -9,54 +7,38 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PersistenceUnit;
 import java.util.ArrayList;
 import java.util.List;
+import com.google.gson.JsonObject;
 
 /**
- * Created by zhangxuan on 16/10/19.
+ * Created by Administrator on 2017/4/6.
  */
 @Entity
 @PersistenceUnit(name="default")
 public class Menu extends Model {
-    public static final Menu all = new Menu();
-    @ManyToOne
-    public Menu parent;
-    public String name;
-    public String displayName;
 
-    public List<Menu> children(){
-        if (this == Menu.all) {
-            return Menu.find("byParentIsNull").fetch();
-        }else{
-            return Menu.find("byParent", this).fetch();
-        }
-    }
+    public String name;//menu英文名
+    public String displayName;//menu中文名
+    public String url;//menu对应路径
+    public String color;//menu对应颜色
+    public String icon;//menu对应图标路径
 
-    public JsonObject toJson(){;
+
+    public JsonObject toJson(){
         JsonObject json = new JsonObject();
         _parseJson(json, this);
         return json;
     }
-
     private void _parseJson(JsonObject json, Menu menu) {
         json.addProperty("id",menu.id);
         json.addProperty("name",menu.name);
         json.addProperty("displayName",menu.displayName);
-        if(menu.parent!=null){
-            json.addProperty("parentId",menu.parent.id);
-        }
-        List<Menu> children = menu.children();
-        if (children.size() > 0) {
-            JsonArray jsonArray = new JsonArray();
-            for (Menu m : children) {
-                JsonObject j = new JsonObject();
-                _parseJson(j, m);
-                jsonArray.add(j);
-            }
-            json.add("children",jsonArray);
-        }
+        json.addProperty("url",menu.url);
+        json.addProperty("color",menu.color);
+        json.addProperty("icon",menu.icon);
     }
-
     public static List<Menu> findByRole(Role role) {
         List<Menu> list = new ArrayList<Menu>();
+//        依赖RoleMenuLink模块 以及该模块下的方法
         List<RoleMenuLink> links = RoleMenuLink.findByRole(role);
         for (RoleMenuLink link : links) {
             list.add(link.menu);

@@ -5,6 +5,15 @@
 //自定义路由
 //angular.module('app', ['ui.router'])
 angular.module('app')
+    .run(['$rootScope', '$window', '$location', '$log','$templateCache', function ($rootScope, $window, $location, $log,$templateCache) {
+
+        var stateChangeSuccess = $rootScope.$on('$stateChangeSuccess', stateChangeSuccess);
+
+        function stateChangeSuccess($rootScope) {
+            $templateCache.removeAll();
+        }
+
+    }])
     .config(
         [ '$stateProvider', '$urlRouterProvider', 'JQ_CONFIG', 'MODULE_CONFIG',
             function ($stateProvider,   $urlRouterProvider, JQ_CONFIG, MODULE_CONFIG) {
@@ -16,6 +25,7 @@ angular.module('app')
                 $stateProvider
                     .state('login', {
                         url: '/login',
+                        cache:'false',//禁止页面缓存
                         controller: 'LoginCtrl',
                         templateUrl: 'login-cxf.html',
                         resolve:load(['css/login.css'])
@@ -29,7 +39,7 @@ angular.module('app')
                     })
                     //首页
                     .state('app.home', {
-                        url: '/home/:UserName',
+                        url: '/home/:UserId/:roleId',
                         //多个 view的视图设置
                         //views: {
                         //    "header_view": {
@@ -44,6 +54,111 @@ angular.module('app')
                         controller: 'homeCtrl',
                         templateUrl: 'tpl/blocks/home.html'
                         // use resolve to load other dependences
+                        //resolve: load(['moment', 'echarts3'])
+                    })
+                    //个人信息 管理
+                    .state('app.information', {
+                        url: '/information/:UserId/:roleId',
+                        abstract: true,
+                        controller:"infoCtrl",
+                        //controller: 'studentsCtrl',
+                        templateUrl: 'tpl/function/information.html'
+                        //resolve: load(['moment', 'echarts3'])
+                    })
+                    .state('app.information.edit', {
+                        url: '/edit',
+                        //controller:"infoCtrl",
+                        //controller: 'studentsCtrl',
+                        templateUrl: 'tpl/details/information-edit.html'
+                        //resolve: load(['moment', 'echarts3'])
+                    })
+                    .state('app.information.edit-do', {
+                        url: '/edit',
+                        //controller:"infoCtrl",
+                        //controller: 'studentsCtrl',
+                        templateUrl: 'tpl/details/information-edit-do.html'
+                        //resolve: load(['moment', 'echarts3'])
+                    })
+                    //评教
+                    .state('app.myTeachers', {
+                        url: '/myTeachers',
+                        abstract: true,
+                        //controller: 'studentsCtrl',
+                        templateUrl: 'tpl/function/myTeachers.html'
+                        //resolve: load(['moment', 'echarts3'])
+                    })
+                    //评教详情页面
+                    .state('app.myTeachers.detail', {
+                        url: '/myTeachers/detail',
+                        //controller: 'studentsCtrl',
+                        templateUrl: 'tpl/details/myTeachers-detail.html'
+                        //resolve: load(['moment', 'echarts3'])
+                    })
+                    //评学结果查询
+                    .state('app.studentsResult', {
+                        abstract: true,
+                        url: '/studentsResult',
+                        //controller: 'studentsCtrl',
+                        templateUrl: 'tpl/function/studentsResult.html'
+                        //resolve: load(['moment', 'echarts3'])
+                    })
+                    //评学结果查询  详情页面
+                    .state('app.studentsResult-detail', {
+                        url: '/studentsResult/detail',
+                        //controller: 'studentsCtrl',
+                        templateUrl: 'tpl/details/studentsResult-detail.html'
+                        //resolve: load(['moment', 'echarts3'])
+                    })
+                    //评学
+                    .state('app.myStudents', {
+                        url: '/myStudents',
+                        abstract: true,
+                        //controller: 'studentsCtrl',
+                        templateUrl: 'tpl/function/myStudents.html'
+                        //resolve: load(['moment', 'echarts3'])
+                    })
+                    //评学详情页面
+                    .state('app.myStudents.detail', {
+                        url: '/myStudents/detail',
+                        //controller: 'studentsCtrl',
+                        templateUrl: 'tpl/details/myStudents-detail.html'
+                        //resolve: load(['moment', 'echarts3'])
+                    })
+                    //评教结果查询
+                    .state('app.teachersResult', {
+                        abstract: true,
+                        url: '/teachersResult',
+                        //controller: 'studentsCtrl',
+                        templateUrl: 'tpl/function/teachersResult.html'
+                        //resolve: load(['moment', 'echarts3'])
+                    })
+                    //评教结果查询  详情页面
+                    .state('app.teachersResult-detail', {
+                        url: '/teachersResult/detail',
+                        //controller: 'studentsCtrl',
+                        templateUrl: 'tpl/details/teachersResult-detail.html'
+                        //resolve: load(['moment', 'echarts3'])
+                    })
+                    //评教统计
+                    .state('app.count', {
+                        url: '/count',
+                        abstract: true,
+                        //controller: 'studentsCtrl',
+                        templateUrl: 'tpl/function/count.html'
+                        //resolve: load(['moment', 'echarts3'])
+                    })
+                    //评教统计  详情页面
+                    .state('app.count.detail', {
+                        url: '/count/detail',
+                        //controller: 'studentsCtrl',
+                        templateUrl: 'tpl/details/count-detail.html'
+                        //resolve: load(['moment', 'echarts3'])
+                    })
+                    //老师排名
+                    .state('app.rankingList', {
+                        url: '/rankingList',
+                        //controller: 'studentsCtrl',
+                        templateUrl: 'tpl/function/rankingList.html'
                         //resolve: load(['moment', 'echarts3'])
                     })
                     //    学生
@@ -168,38 +283,151 @@ angular.module('app')
     );
 
 
+//自定义 工厂方法
+angular.module('app')
+    .factory('Auth',function($http,$q,$rootScope){
+        var Auth = {};
+        var defer = $q.defer();
+        var User = defer.promise;
+        $http.get('/application/user').then(function(response){
+            defer.resolve(response.data);
+        },function(){
+            defer.reject();
+            throw 'Get User Failed!'
+        });
+        User.then(function(User){
+            Auth.user = User;
+            $rootScope.auth = Auth;
+            $rootScope.user = User;
+            $rootScope.navi = createNavi(User);
+        });
+        function createNavi(User){
+            var topic = {
+                name:'专题事件',
+                check: 'dissertation',
+                state: 'app.dissertation.line',
+                type:'direct-link',
+                href:'/topic',
+                color:"clr-dissertation",
+                icon:"img/ztsj.png"
+            };
+            var infoMonitor = {
+                name: '信息监测',
+                check: 'infomonitor',
+                state: 'app.infomonitor.infom.index',
+                color: "clr-infomonitor",
+                icon: "img/xxjc.png"
+            };
+            var groupview = {
+                name:'群体监测',
+                check:'groupview',
+                state: 'app.groupview.work-sub({itemId:1})',
+                color:"clr-groupview",
+                icon:"img/qtjc.png"
+            };
+            var sentimentsituation = {
+                name:'舆情态势',
+                check:'sentimentsituation',
+                state:'app.sentimentsituation.sentiment',
+                color:"clr-sentimentsituation",
+                icon:"img/yqts.png"
+            };
+            var hotpoint = {
+                name:'热点推荐',
+                check: 'hotpoint',
+                state:'app.hotpoint.hotpointdochome',
+                color:"clr-hotpoint",
+                icon:"img/rdtj.png"
+            };
+            var infoalarm = {
+                name: '行动预警',
+                check: 'infoalarm',
+                state: 'app.infoalarm.sudden.sub({itemName:"自然灾害",itemId:0})',
+                color:"clr-infoalarm",
+                icon:"img/yjzt.png"
+            };
+            var knowledgepool = {
+                name: '知识库',
+                check: 'knowledgepool',
+                state: 'app.knowledgepool.groupdata.sub({itemId:1})'
+            };
+            var materialmanage = {
+                name:'素材管理',
+                check:'materialmanage',
+                state:'app.materialmanage.matter({itemId:1})'
+            };
+            var systemmanage ={
+                name: '系统管理',
+                check:'systemmanage',
+                /*state: 'app.systemmanage.right.sub({itemId:1})'*/
+                state: 'app.systemmanage.right.user'
+            };
+            var navi ={main:[],top:[]};
+            var main = [infoMonitor,topic,groupview,sentimentsituation,hotpoint,infoalarm];
+            var top = [materialmanage,knowledgepool,systemmanage];
+            for(var i=0;i<main.length;i++) {
+                var config = main[i];
+                +function(config) {
+                    Auth.check('menu_' + config.check).then(function (result) {
+                        if (result == true) {
+                            navi.main.push(config);
+                        }
+                    })
+                }(config)
+            }
+            for(var i=0;i<top.length;i++) {
+                var config = top[i];
+                +function (config) {
+                    Auth.check('menu_'+config.check).then(function(result){
+                        if(result == true){
+                            navi.top.push(config);
+                        }
+                    })
+                }(config)
 
+            }
+            return navi;
+        }
+        function checkauth(o,k) {
+            if(!o || !o.length){
+                return false;
+            }
+            for(var i=0;i<o.length;i++) {
+                if(o[i].name == k) {
+                    return true;
+                }
+                if(o[i].children && o[i].children.length){
+                    if(checkauth(o[i].children,k)){
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
 
-
-
-
-            //function load(srcs, callback) {
-            //    return {
-            //        deps: ['$ocLazyLoad', '$q',
-            //            function( $ocLazyLoad, $q ){
-            //                var deferred = $q.defer();
-            //                var promise  = false;
-            //                srcs = angular.isArray(srcs) ? srcs : srcs.split(/\s+/);
-            //                if(!promise){
-            //                    promise = deferred.promise;
-            //                }
-            //                angular.forEach(srcs, function(src) {
-            //                    promise = promise.then( function(){
-            //                        if(JQ_CONFIG[src]){
-            //                            return $ocLazyLoad.load(JQ_CONFIG[src]);
-            //                        }
-            //                        angular.forEach(MODULE_CONFIG, function(module) {
-            //                            if( module.name == src){
-            //                                name = module.name;
-            //                            }else{
-            //                                name = src;
-            //                            }
-            //                        });
-            //                        return $ocLazyLoad.load(name);
-            //                    } );
-            //                });
-            //                deferred.resolve();
-            //                return callback ? promise.then(function(){ return callback(); }) : promise;
-            //            }]
-            //    }
-            //}
+        /**
+         * Auth.check('menu_key').then(function(result){
+         *    if(result==true){
+         *        //....
+         *    }
+         * });
+         * @type {{check: Function}}
+         */
+        var Auth = {
+            check: function(key){
+                return User.then(function(User){
+                    var menuReg = /^menu_/,functionReg = /^function_/;
+                    if(menuReg.test(key)){
+                        key = key.substring(5);
+                        return checkauth(User.menu.children,key);
+                    }
+                    if(functionReg.test(key)){
+                        key = key.substring(9);
+                        return checkauth(User.functions,key);
+                    }
+                    throw "Illegal check format!";
+                })
+            }
+        };
+        return Auth;
+    });

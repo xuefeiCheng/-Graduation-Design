@@ -5,15 +5,19 @@ import play.mvc.Controller;
 
 
 public class UserLoginController extends  Controller{
-//²éÕÒÓÃ»§
-public static void login(@Required String username, @Required String password){
-//    @SuppressWarnings("deprecation")
-    User user = User.find("user_id = ? and password = ? ", username, password).first();
-//    System.out.println(user);
-    if(user != null){
-       renderJSON(user);
-    }else{
-        System.out.println("ÓÃ»§Ãû»òÃÜÂë²»ÕıÈ·");
+//æŸ¥æ‰¾ç”¨æˆ·
+    public static void login(@Required String username, @Required String password){
+    //    @SuppressWarnings("deprecation")
+       User user = User.find("user_id = ? and password = ? ", username, password).first();
+    //    System.out.println(user);
+        if(user != null){
+           renderJSON(user);
+        }else{
+            System.out.println("ç”¨æˆ·åæˆ–å¯†ç ä¸æ­£ç¡®");
+        }
     }
-}
+    public static void getUserById(String userId){
+        User user = User.findByUserId(userId);
+        renderJSON(user.toJson());
+    }
 }

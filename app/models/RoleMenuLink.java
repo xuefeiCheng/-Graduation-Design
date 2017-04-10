@@ -1,26 +1,25 @@
 package models;
 
-import models.Breadcrumb;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.PersistenceUnit;
-import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by zhangxuan on 16/10/19.
+ * Created by Administrator on 2017/4/6.
  */
+
 @Entity
 @PersistenceUnit(name="default")
-public class RoleMenuLink extends Model{
+public class RoleMenuLink extends Model {
+
     @ManyToOne
     public Role role;
 
     @ManyToOne
     public Menu menu;
-
     public static List<RoleMenuLink> findByMenu(Menu menu) {
         return RoleMenuLink.find("byMenu", menu).fetch();
     }
@@ -30,32 +29,7 @@ public class RoleMenuLink extends Model{
     }
 
     public static RoleMenuLink findByRoleAndMenu(Role role, Menu menu) {
+//        查询语句   查询在 RoleMenuLink表中 role_id = role(参数)并且 menu_id = menu的数据
         return RoleMenuLink.find("role=?1 and menu=?2",role,menu).first();
-    }
-    /**
-     * 淇瑙掕壊瀵逛笅绾ц彍鍗曟湁鏉冮檺锛屼絾瀵逛笂绾ц彍鍗曟病鏈夋潈闄愮殑鎯呭喌
-     */
-    public static void fix(){
-        List<Role> allRoles = Role.findAll();
-        for (Role role : allRoles) {
-            List<Menu> menus = Menu.findByRole(role);
-            for (Menu menu : menus) {
-                Breadcrumb breadcrumb = Breadcrumb.getByMenu(menu);
-                Collections.reverse(breadcrumb);
-                for (Menu menu2fix : breadcrumb) {
-                    fix(menu2fix,role);
-                }
-            }
-        }
-    }
-
-    private static void fix(Menu menu2fix, Role role) {
-
-        if (RoleMenuLink.findByMenu(menu2fix).size() == 0) {
-            RoleMenuLink link = new RoleMenuLink();
-            link.role = role;
-            link.menu = menu2fix;
-            link.save();
-        }
     }
 }
