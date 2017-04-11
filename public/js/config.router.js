@@ -88,10 +88,17 @@ angular.module('app')
                         templateUrl: 'tpl/function/myTeachers.html'
                         //resolve: load(['moment', 'echarts3'])
                     })
+                    //评教 默认 页面
+                    .state('app.myTeachers.default', {
+                        url: '/myTeachers/default',
+                        //controller: 'studentsCtrl',
+                        templateUrl: 'tpl/details/myTeachers-default.html'
+                        //resolve: load(['moment', 'echarts3'])
+                    })
                     //评教详情页面
                     .state('app.myTeachers.detail', {
-                        url: '/myTeachers/detail',
-                        //controller: 'studentsCtrl',
+                        url: '/myTeachers/detail/:TeId/:courseId',
+                        controller: 'PingTeDetailCtrl',
                         templateUrl: 'tpl/details/myTeachers-detail.html'
                         //resolve: load(['moment', 'echarts3'])
                     })

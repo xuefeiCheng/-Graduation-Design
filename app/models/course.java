@@ -42,7 +42,7 @@ public class course extends Model {
 //    用于 学生角色时  根据学生id 查找 学生 课程link表 查到课程id ->课程的具体信息
 //    根据 课程id -> 【教师表】 教师的信息
     public static course findCourseById(String co_id){
-        return course.find("id",co_id).first();
+        return course.find("id", Long.valueOf(co_id)).first();
     }
 //    根据 老师id 查找该老师开通的课程
     public static List<course> getCoursesByTeacherId(String te_Id){

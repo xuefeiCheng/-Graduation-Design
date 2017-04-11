@@ -5,7 +5,31 @@
     <title></title>
 </head>
 <body>
-左侧：老师列表页面
-右侧：具体评教页面(ui-view)
+<div class="w-content">
+    <div class="pull-left wid-percent-26">
+        <!--左侧：老师列表页面-->
+        <!--右侧：具体评教页面(ui-view)-->
+        <a ui-sref="app.myTeachers.default">
+            <li  class="list-group-item active clearfix" style="background-color: #f6f8f8; border:1px solid #dde6e6;">
+                <h4 class="list-group-item-heading pull-left" style="color:#58666e;font-weight: bold;line-height: 30px">
+                    本学期课程
+                </h4>
+                <!--<button class="btn btn-success pull-right" ng-click="save()">编辑</button>-->
+            </li>
+        </a>
+
+        <a ui-sref="app.myTeachers.detail({TeId: {{d.course.te_id}},courseId:{{d.course.id}} })" ng-repeat="d in data">
+            <li  class="list-group-item clearfix">
+                <span class="list-group-item-heading pull-left">
+                    {{d.course.name}}
+                </span>
+            </li>
+        </a>
+    </div>
+
+    <div class="pull-right wid-percent-70">
+        <ui-view></ui-view>
+    </div>
+</div>
 </body>
 </html>

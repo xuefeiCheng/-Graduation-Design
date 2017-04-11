@@ -568,8 +568,43 @@ angular.module('app')
         }).success(function(data){
             //console.log("获取数据成功");
             console.log(data);
+            $scope.data = data;
         });
 
 
 
-    });
+
+
+    })
+    .controller("PingTeDetailCtrl",function($scope,$http,$stateParams){
+//        课程id 为 $stateParams.courseId
+//        根据 课程id 查到课程表数据
+        $http({
+            method:"post",
+            url:"/api/getListController/getCourseJson",
+            params:{
+                "co_id":$stateParams.courseId
+            }
+        }).success(function(data){
+            //console.log("获取数据成功");
+            console.log(data);
+            $scope.courseName = data.name;
+            //$scope.data = data;
+        });
+//    教师 id 为 $stateParams.TeId
+        //    根据 教师id 返回教师 的某些信息
+        //    调用的是  教师module中的方法
+        //console.log($stateParams.courseId);
+        $http({
+            method:"post",
+            url:"/api/UserInfo/getTeacherJson",
+            params:{
+                "userId":$stateParams.TeId
+            }
+        }).success(function(data){
+            //console.log("获取数据成功");
+            console.log(data);
+            $scope.teacher = data;
+            //$scope.data = data;
+        });
+    })

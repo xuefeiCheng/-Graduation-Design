@@ -62,6 +62,6 @@ public class teacherUser extends Model {
 
     //    根据id 得到teacher列表
     public static teacherUser findByTeacherUserId(String te_id){
-        return teacherUser.find("te_id",te_id).first();
+        return teacherUser.find("id", Long.valueOf(te_id)).first();
     }
 }
