@@ -608,3 +608,19 @@ angular.module('app')
             //$scope.data = data;
         });
     })
+    .controller("PingStCtrl",function($scope,$http,$stateParams){
+        //教师 id 为 $stateParams.UserId
+        console.log($stateParams.UserId);
+    //    根据 教师 id 查 课程表 返回 课程 信息
+        $http({
+            method:"post",
+            url:"/api/getListController/getCoursesListByTeacher",
+            params:{
+                "userId":$stateParams.UserId
+            }
+        }).success(function(data){
+            //console.log("获取数据成功");
+            console.log(data);
+            $scope.data = data;
+        });
+    })

@@ -47,7 +47,7 @@ public class course extends Model {
 //    根据 老师id 查找该老师开通的课程
     public static List<course> getCoursesByTeacherId(String te_Id){
         List<course> CoursesList = new ArrayList<course>();
-        CoursesList = course.findById(te_Id);
+        CoursesList = course.find("te_id",te_Id).fetch();
         return CoursesList;
 
     }

@@ -91,9 +91,7 @@ angular.module('app')
                     //评教 默认 页面
                     .state('app.myTeachers.default', {
                         url: '/myTeachers/default',
-                        //controller: 'studentsCtrl',
                         templateUrl: 'tpl/details/myTeachers-default.html'
-                        //resolve: load(['moment', 'echarts3'])
                     })
                     //评教详情页面
                     .state('app.myTeachers.detail', {
@@ -119,15 +117,27 @@ angular.module('app')
                     })
                     //评学
                     .state('app.myStudents', {
-                        url: '/myStudents',
+                        url: '/myStudents/:UserId',
                         abstract: true,
-                        //controller: 'studentsCtrl',
+                        controller: 'PingStCtrl',
                         templateUrl: 'tpl/function/myStudents.html'
                         //resolve: load(['moment', 'echarts3'])
                     })
-                    //评学详情页面
+                    //评学  默认进入页面
+                    .state('app.myStudents.default', {
+                        url: '/myStudents/default',
+                        templateUrl: 'tpl/details/myStudents-default.html'
+                    })
+                    //评学 根据课程 查询到 班级 -> 学生列表
+                    .state('app.myStudents.list', {
+                        url: '/myStudents/list/:courseId',
+                        //controller: 'studentsCtrl',
+                        templateUrl: 'tpl/details/myStudents-list.html'
+                        //resolve: load(['moment', 'echarts3'])
+                    })
+                    //评学详情页面 具体学生 评价表
                     .state('app.myStudents.detail', {
-                        url: '/myStudents/detail',
+                        url: '/myStudents/detail/:courseId',
                         //controller: 'studentsCtrl',
                         templateUrl: 'tpl/details/myStudents-detail.html'
                         //resolve: load(['moment', 'echarts3'])
