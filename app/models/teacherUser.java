@@ -13,7 +13,7 @@ import javax.persistence.PersistenceUnit;
 @PersistenceUnit(name="default")
 public class teacherUser extends Model {
 //固定部分
-    public String te_id;//用户id（学号、教工号、领导号）
+//    public String te_id;//用户id（学号、教工号、领导号）
     public String name;//用户id（学号、教工号、领导号）
     public String sex;//性别
     public String xy;// 学院
@@ -32,7 +32,7 @@ public class teacherUser extends Model {
 
     private void _parseJson(JsonObject json, teacherUser st) {
         json.addProperty("name",st.name);
-        json.addProperty("te_id",st.te_id);
+        json.addProperty("id",st.id);
         json.addProperty("sex",st.sex);
         json.addProperty("xy",st.xy);
         json.addProperty("jg",st.jg);

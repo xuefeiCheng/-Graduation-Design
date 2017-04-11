@@ -13,7 +13,7 @@ import javax.persistence.PersistenceUnit;
 @PersistenceUnit(name="default")
 public class adminUser extends Model {
     //固定部分
-    public String ad_id;//用户id（学号、教工号、领导号）
+//    public String ad_id;//用户id（学号、教工号、领导号）
     public String name;//用户name（学号、教工号、领导号）
     public String sex;//性别
     public String xy;// 学院
@@ -32,7 +32,7 @@ public class adminUser extends Model {
 
     private void _parseJson(JsonObject json, adminUser st) {
         json.addProperty("name",st.name);
-        json.addProperty("ad_id",st.ad_id);
+        json.addProperty("id",st.id);
         json.addProperty("sex",st.sex);
         json.addProperty("xy",st.xy);
         json.addProperty("jg",st.jg);
@@ -62,6 +62,6 @@ public class adminUser extends Model {
 
     //    根据id 得到leader列表
     public static adminUser findByAdminUserId(String te_id){
-        return adminUser.find("ad_id",te_id).first();
+        return adminUser.find("id",te_id).first();
     }
 }

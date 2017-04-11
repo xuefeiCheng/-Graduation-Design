@@ -551,4 +551,25 @@ angular.module('app')
         $scope.goSub=function(){
             $state.go("app.information.edit-do");
         };
+    })
+    .controller("PingTeCtrl",function($scope,$http,$stateParams){
+    //    根据id 获得 课程list
+    //    学生 id 为 $stateParams.UserId
+    //    alert("这是 评教页面");
+        //console.log(typeof $stateParams.UserId);
+
+
+        $http({
+            method:"post",
+            url:"/api/getListController/getCoursesListByStudent",
+            params:{
+                "stId":$stateParams.UserId
+            }
+        }).success(function(data){
+            //console.log("获取数据成功");
+            console.log(data);
+        });
+
+
+
     });

@@ -23,7 +23,7 @@ public class studentUser extends Model {
 //    @Id
 //    @Column(name = "st_id")
 //    @GeneratedValue(strategy = GenerationType.AUTO)
-    public String st_id;//用户id（学号、教工号、领导号）
+//    public String st_id;//用户id（学号、教工号、领导号）
     public String name;//用户id（学号、教工号、领导号）
     public String sex;//性别
     public String xy;// 学院
@@ -46,7 +46,7 @@ public class studentUser extends Model {
 
     private void _parseJson(JsonObject json, studentUser st) {
         json.addProperty("name",st.name);
-        json.addProperty("st_id",st.st_id);
+        json.addProperty("id",st.id);
         json.addProperty("sex",st.sex);
         json.addProperty("xy",st.xy);
         json.addProperty("classroom",st.classroom);
@@ -78,12 +78,12 @@ public class studentUser extends Model {
         this.phone = phone;
     }
 //    根据id 得到student列表
-    public static studentUser findByStudentUserId(String st_id){
-     return studentUser.find("st_id",st_id).first();
+    public static studentUser findByStudentUserId(String stId){
+     return studentUser.find("id",Long.valueOf(stId)).first();
     }
 //    获得同一个学号的 学生记录
-    public static List<studentUser> list(String st_id){
-        return studentUser.find("st_id=?", st_id).fetch();
+    public static List<studentUser> list(String stId){
+        return studentUser.find("id=?", Long.valueOf(stId)).fetch();
     }
 
 }

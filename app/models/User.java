@@ -68,6 +68,7 @@ public class User extends Model {
 //        给对象添加属性
         json.addProperty("id", user.id);
         json.addProperty("user_id", user.user_id);
+        json.addProperty("password", user.password);
 //        json.addProperty("name", user.name);
 //        json.addProperty("role_id", user.role_id);
         json.add("role",role.toJson());

@@ -81,8 +81,9 @@ angular.module('app')
                     })
                     //评教
                     .state('app.myTeachers', {
-                        url: '/myTeachers',
+                        url: '/myTeachers/:UserId',
                         abstract: true,
+                        controller:'PingTeCtrl',
                         //controller: 'studentsCtrl',
                         templateUrl: 'tpl/function/myTeachers.html'
                         //resolve: load(['moment', 'echarts3'])
