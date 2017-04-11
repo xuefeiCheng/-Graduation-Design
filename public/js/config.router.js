@@ -131,14 +131,14 @@ angular.module('app')
                     //评学 根据课程 查询到 班级 -> 学生列表
                     .state('app.myStudents.list', {
                         url: '/myStudents/list/:courseId',
-                        //controller: 'studentsCtrl',
+                        controller: 'studentListCtrl',
                         templateUrl: 'tpl/details/myStudents-list.html'
                         //resolve: load(['moment', 'echarts3'])
                     })
                     //评学详情页面 具体学生 评价表
                     .state('app.myStudents.detail', {
-                        url: '/myStudents/detail/:courseId',
-                        //controller: 'studentsCtrl',
+                        url: '/myStudents/detail/:stId',
+                        controller: 'PingStDetailCtrl',
                         templateUrl: 'tpl/details/myStudents-detail.html'
                         //resolve: load(['moment', 'echarts3'])
                     })

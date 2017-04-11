@@ -30,6 +30,6 @@ public class StudentCourseLink extends Model {
 //    根据 course_id  得到数据库表记录
 
     public static List<StudentCourseLink> findStudentByCourse(String co_id){
-        return StudentCourseLink.findById(co_id);
+        return StudentCourseLink.find("course_id=?",Long.valueOf(co_id)).fetch();
     }
 }

@@ -30,4 +30,12 @@ public static void getCoursesListByStudent(String stId){
 //    System.out.println(co);
     renderJSON(co);
 }
+
+//    通过课程id 查找选修该课程的所有 学生list
+public static void getStudentListByCourse(String coId){
+    List<StudentCourseLink> stList = StudentCourseLink.findStudentByCourse(coId);
+//    List<Group> groups= GroupView.group.findAllByName(name);
+//    System.out.println(co);
+    renderJSON(stList);
+}
 }

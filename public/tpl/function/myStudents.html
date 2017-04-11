@@ -22,7 +22,7 @@
             </li>
         </a>
 
-        <a ui-sref="app.myStudents.detail({courseId:{{d.id}} })" ng-repeat="d in data">
+        <a ui-sref="app.myStudents.list({courseId:{{d.id}} })" ng-repeat="d in data">
             <li  class="list-group-item clearfix">
                 <span class="list-group-item-heading pull-left">
                     {{d.name}}

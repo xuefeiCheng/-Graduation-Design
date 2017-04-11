@@ -619,8 +619,27 @@ angular.module('app')
                 "userId":$stateParams.UserId
             }
         }).success(function(data){
+            console.log("获取数据成功");
+            console.log(data);
+            $scope.data = data;
+        });
+    })
+    .controller("studentListCtrl",function($scope,$http,$stateParams){
+        $scope.courseId =$stateParams.courseId;
+        //    根据 课程 id 查 课程学生link表 返回 学生 信息
+        $http({
+            method:"post",
+            url:"/api/getListController/getStudentListByCourse",
+            params:{
+                "coId":$stateParams.courseId
+            }
+        }).success(function(data){
             //console.log("获取数据成功");
             console.log(data);
             $scope.data = data;
         });
+    })
+    .controller("PingStDetailCtrl",function($scope,$http,$stateParams){
+        $scope.stId =$stateParams.stId;
+        console.log("hahah")
     })
