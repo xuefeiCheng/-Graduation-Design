@@ -5,13 +5,21 @@
 //自定义路由
 //angular.module('app', ['ui.router'])
 angular.module('app')
-    .run(['$rootScope', '$window', '$location', '$log','$templateCache', function ($rootScope, $window, $location, $log,$templateCache) {
-
-        var stateChangeSuccess = $rootScope.$on('$stateChangeSuccess', stateChangeSuccess);
-
-        function stateChangeSuccess($rootScope) {
-            $templateCache.removeAll();
-        }
+    .run(['$rootScope', '$window', '$state', '$location','$stateParams', '$log','$templateCache', function ($rootScope,$stateParams,$state, $window, $location, $log,$templateCache) {
+        //监测路由的变化
+        $rootScope.$state = $state;
+        $rootScope.$stateParams = $stateParams;
+        $rootScope.$on('$stateChangeSuccess',
+            function(event, toState, toParams, fromState, fromParams){
+                if(toState.name=="login"){
+                    $templateCache.removeAll();
+                }
+            });
+        //var stateChangeSuccess = $rootScope.$on('$stateChangeSuccess', stateChangeSuccess);
+        //
+        //function stateChangeSuccess($rootScope) {
+        //    $templateCache.removeAll();
+        //}
 
     }])
     .config(
