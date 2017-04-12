@@ -137,7 +137,7 @@ angular.module('app')
                     })
                     //评学详情页面 具体学生 评价表
                     .state('app.myStudents.detail', {
-                        url: '/myStudents/detail/:stId',
+                        url: '/myStudents/detail/:courseId/:stId',
                         controller: 'PingStDetailCtrl',
                         templateUrl: 'tpl/details/myStudents-detail.html'
                         //resolve: load(['moment', 'echarts3'])

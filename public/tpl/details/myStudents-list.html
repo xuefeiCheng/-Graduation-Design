@@ -21,16 +21,16 @@
         <th class="wid-percent-30">班级</th>
         <th  class="wid-percent-30">姓名</th>
         <th class="wid-percent-26">学号</th>
+        <th class="wid-percent-26">状态</th>
     </tr>
     </thead>
     <tbody>
-    <a ui-sref="app.myStudents.detail({ courseId: data.course.id , stId:data.student.id })">
-        <tr ng-repeat="d in data">
+        <tr ui-sref="app.myStudents.detail({stId: {{d.student.id}},courseId:{{d.course.id}} })" ng-repeat="d in data">
             <td >{{d.student.classroom}}</td>
             <td>{{d.student.name}}</td>
             <td >{{d.student.id}}</td>
+            <td >未评</td>
         </tr>
-        </a>
     </tbody>
 </table>
 <!--<a ui-sref="app.myStudents.detail({{courseId}})">-->

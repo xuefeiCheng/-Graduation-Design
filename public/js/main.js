@@ -640,6 +640,31 @@ angular.module('app')
         });
     })
     .controller("PingStDetailCtrl",function($scope,$http,$stateParams){
-        $scope.stId =$stateParams.stId;
-        console.log("hahah")
+        //console.log($stateParams.stId);
+    //    课程id 为$stateParams.courseId
+    //    学生id 为$stateParams.stId
+    //    通过学生id 查找学生信息 调用 学生module中的方法
+        $http({
+            method:"post",
+            url:"/api/UserInfo/getStudentJson",
+            params:{
+                "userId":$stateParams.stId
+            }
+        }).success(function(data){
+            console.log("学生信息");
+            console.log(data);
+            $scope.student = data;
+        })
+    //    根据 课程id 查找课程表 返回 课程信息
+        $http({
+            method:"post",
+            url:"/api/getListController/getCourseJson",
+            params:{
+                "co_id":$stateParams.courseId
+            }
+        }).success(function(data){
+            console.log("课程信息");
+            console.log(data);
+            $scope.co = data;
+        })
     })
