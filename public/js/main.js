@@ -660,7 +660,7 @@ angular.module('app')
                 $("#fat-btn").removeClass("btn-primary").addClass("btn-danger");
             }else{
                 $("#fat-btn").html("提交成功，无法再次编辑");
-                $("#fat-btn").removeClass("btn-primary").addClass("disabled");
+                $("#fat-btn").removeClass("btn-primary btn-danger").addClass("disabled");
             }
 
         }
