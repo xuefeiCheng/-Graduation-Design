@@ -607,6 +607,48 @@ angular.module('app')
             $scope.teacher = data;
             //$scope.data = data;
         });
+    //    评教页面 选择项目
+        $scope.pingjia = [{
+            value : 5,
+            name : "优秀"
+        },{
+            value : 4,
+            name : "良好"
+        },{
+            value : 3,
+            name : "中等"
+        },{
+            value : 1,
+            name : "差强人意"
+        }];
+    //   评教 获得 分数
+        var value1,value2,value3,value4,value5,value6,value7,value8,value9,value10;
+        $scope.getValue1 = function(val){
+            value1= val;
+        };$scope.getValue2 = function(val){
+            value2= val;
+        };$scope.getValue3 = function(val){
+            value3= val;
+        };$scope.getValue4 = function(val){
+            value4= val;
+        };$scope.getValue5 = function(val){
+            value5= val;
+        };$scope.getValue6 = function(val){
+            value6= val;
+        };$scope.getValue7 = function(val){
+            value7= val;
+        };$scope.getValue8 = function(val){
+            value8= val;
+        };$scope.getValue9 = function(val){
+            value9= val;
+        };$scope.getValue10 = function(val){
+            value10= val;
+        };
+        $scope.submit = function(){
+            //页面验证 值不能为空 出现弹框
+            console.log(value1,value2);
+        }
+
     })
     .controller("PingStCtrl",function($scope,$http,$stateParams){
         //教师 id 为 $stateParams.UserId
