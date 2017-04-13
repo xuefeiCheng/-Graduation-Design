@@ -143,9 +143,9 @@ angular.module('app')
                         templateUrl: 'tpl/details/myStudents-list.html'
                         //resolve: load(['moment', 'echarts3'])
                     })
-                    //评学详情页面 具体学生 评价表
+                    //评学详情页面 具体学生所在的班级 即课程 评价表
                     .state('app.myStudents.detail', {
-                        url: '/myStudents/detail/:courseId/:stId',
+                        url: '/myStudents/detail/:courseId',
                         controller: 'PingStDetailCtrl',
                         templateUrl: 'tpl/details/myStudents-detail.html'
                         //resolve: load(['moment', 'echarts3'])
