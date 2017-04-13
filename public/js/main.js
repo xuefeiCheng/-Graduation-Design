@@ -724,5 +724,64 @@ angular.module('app')
             console.log("课程信息");
             console.log(data);
             $scope.co = data;
-        })
+        });
+
+
+        //评教页面 选择项目
+        $scope.pingjia = [{
+            value : 5,
+            name : "优秀"
+        },{
+            value : 4,
+            name : "良好"
+        },{
+            value : 3,
+            name : "中等"
+        },{
+            value : 1,
+            name : "差强人意"
+        }];
+        //   评教 获得 分数
+        var value1,value2,value3,value4,value5,value6,value7,value8,value9,value10;
+        $scope.getValue1 = function(val){
+            value1= val;
+        };$scope.getValue2 = function(val){
+            value2= val;
+        };$scope.getValue3 = function(val){
+            value3= val;
+        };$scope.getValue4 = function(val){
+            value4= val;
+        };$scope.getValue5 = function(val){
+            value5= val;
+        };$scope.getValue6 = function(val){
+            value6= val;
+        };$scope.getValue7 = function(val){
+            value7= val;
+        };$scope.getValue8 = function(val){
+            value8= val;
+        };$scope.getValue9 = function(val){
+            value9= val;
+        };$scope.getValue10 = function(val){
+            value10= val;
+        };
+        $scope.submit = function(){
+            //页面验证 值不能为空 出现弹框
+            //获得 对老师的评语
+            console.log($scope.text) ;
+            console.log(value1,value2);
+            //    数据保存到数据库表中 当学生点击提交之后
+            //    课程列表的 状态变为 已评状态 评教表单 展示的是 学生评教的数据 并且 不再支持编辑功能
+            //    只要将 提交按钮的状态设置为不可点击即可
+            //    disabled
+            //    $("#fat-btn").attr("disabled",true);
+            if(value1==undefined ||value2 == undefined ||value3 == undefined ||value4 == undefined ||value5 == undefined
+                ||value6 == undefined ||value7== undefined ||value8 == undefined ||value8 == undefined||value10 == undefined){
+                $("#fat-btn").html("表单中含有未填项，请检查填写后再次提交");
+                $("#fat-btn").removeClass("btn-primary").addClass("btn-danger");
+            }else{
+                $("#fat-btn").html("提交成功，无法再次编辑");
+                $("#fat-btn").removeClass("btn-primary btn-danger").addClass("disabled");
+            }
+
+        }
     })

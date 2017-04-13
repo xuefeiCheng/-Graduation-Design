@@ -15,16 +15,153 @@
         <!--<button class="btn btn-success pull-right" ng-click="save()">编辑</button>-->
     </li>
 </a>
-
 <li  class="list-group-item clearfix">
-        <span class="list-group-item-heading pull-left">
-            列表项1
-        </span>
+        <span class="list-group-item-heading ">
+           1:是否科学组织教案，教学内容熟悉，授课认真，精神饱满有激情
+        </span><br/>
+    <div class="pull-left m-l margin-l-px-neg-30 col-sm-11  margin-t-px-15">
+        <div class=" radio-inline m-l-xs ">
+            <label class="i-checks" ng-repeat="p1 in pingjia">
+                <input type="radio" name="pingjia1" value="{{p1.value}}" ng-click="getValue1(p1.value)">
+                <i></i>
+                {{p1.name}}
+            </label>
+        </div>
+    </div>
 </li>
 <li  class="list-group-item clearfix">
-        <span class="list-group-item-heading pull-left">
-            列表项2
-        </span>
+       <span class="list-group-item-heading ">
+           2:是否爱岗敬业，仪表端庄；完成规定教学课时；尊重学生人格，严格要求，有问必答，辅导答疑及时、耐心，经常与学生交流
+        </span><br/>
+    <div class="pull-left m-l margin-l-px-neg-30 col-sm-11  margin-t-px-15">
+        <div class=" radio-inline m-l-xs ">
+            <label class="i-checks" ng-repeat="p2 in pingjia">
+                <input type="radio" name="pingjia2" value="{{p2.value}}" ng-click="getValue2(p2.value)">
+                <i></i>
+                {{p2.name}}
+            </label>
+        </div>
+    </div>
 </li>
+<li  class="list-group-item clearfix">
+       <span class="list-group-item-heading ">
+           3:信息量适度，吸收学科新成果，反映学科前沿状况，充实更新教学内容
+        </span><br/>
+    <div class="pull-left m-l margin-l-px-neg-30 col-sm-11  margin-t-px-15">
+        <div class=" radio-inline m-l-xs ">
+            <label class="i-checks" ng-repeat="p3 in pingjia">
+                <input type="radio" name="pingjia3" value="{{p3.value}}" ng-click="getValue3(p3.value)">
+                <i></i>
+                {{p3.name}}
+            </label>
+        </div>
+    </div>
+</li>
+<li  class="list-group-item clearfix">
+        <span class="list-group-item-heading ">
+           4:基本概念准确清晰，逻辑结构合理，阐述科学严谨，观点正确，条理清晰，系统性强
+        </span><br/>
+    <div class="pull-left m-l margin-l-px-neg-30 col-sm-11  margin-t-px-15">
+        <div class=" radio-inline m-l-xs ">
+            <label class="i-checks" ng-repeat="p4 in pingjia">
+                <input type="radio" name="pingjia4" value="{{p4.value}}" ng-click="getValue4(p4.value)">
+                <i></i>
+                {{p4.name}}
+            </label>
+        </div>
+    </div>
+</li>
+<li  class="list-group-item clearfix">
+       <span class="list-group-item-heading ">
+           5:善于启发诱导，教学方法灵活多样， 师生互动活跃，启 发学生思维，学生分析问题、解决问题能力、学习能力得到提高
+        </span><br/>
+    <div class="pull-left m-l margin-l-px-neg-30 col-sm-11  margin-t-px-15">
+        <div class=" radio-inline m-l-xs ">
+            <label class="i-checks" ng-repeat="p5 in pingjia">
+                <input type="radio" name="pingjia5" value="{{p5.value}}" ng-click="getValue5(p5.value)">
+                <i></i>
+                {{p5.name}}
+            </label>
+        </div>
+    </div>
+</li>
+<li  class="list-group-item clearfix">
+       <span class="list-group-item-heading ">
+           6:教学手段运用恰当，合理运用现代化教育技术手段
+        </span><br/>
+    <div class="pull-left m-l margin-l-px-neg-30 col-sm-11  margin-t-px-15">
+        <div class=" radio-inline m-l-xs ">
+            <label class="i-checks" ng-repeat="p6 in pingjia">
+                <input type="radio" name="pingjia6" value="{{p6.value}}" ng-click="getValue6(p6.value)">
+                <i></i>
+                {{p6.name}}
+            </label>
+        </div>
+    </div>
+</li>
+<li  class="list-group-item clearfix">
+       <span class="list-group-item-heading ">
+           7:重点突出，难度、深度适宜，理论联系实际
+        </span><br/>
+    <div class="pull-left m-l margin-l-px-neg-30 col-sm-11  margin-t-px-15">
+        <div class=" radio-inline m-l-xs ">
+            <label class="i-checks" ng-repeat="p7 in pingjia">
+                <input type="radio" name="pingjia7" value="{{p7.value}}" ng-click="getValue7(p7.value)">
+                <i></i>
+                {{p7.name}}
+            </label>
+        </div>
+    </div>
+</li>
+<li  class="list-group-item clearfix">
+        <span class="list-group-item-heading ">
+           8:普通话标准，语言生动流畅，深入浅出，感染力强
+        </span><br/>
+    <div class="pull-left m-l margin-l-px-neg-30 col-sm-11  margin-t-px-15">
+        <div class=" radio-inline m-l-xs ">
+            <label class="i-checks" ng-repeat="p8 in pingjia">
+                <input type="radio" name="pingjia8" value="{{p8.value}}" ng-click="getValue8(p8.value)">
+                <i></i>
+                {{p8.name}}
+            </label>
+        </div>
+    </div>
+</li>
+<li  class="list-group-item clearfix">
+       <span class="list-group-item-heading ">
+           9:学生能较好地理解并掌握主要教学内容，学生上课积极性高，教学秩序好，课堂气氛活跃
+        </span><br/>
+    <div class="pull-left m-l margin-l-px-neg-30 col-sm-11  margin-t-px-15">
+        <div class=" radio-inline m-l-xs ">
+            <label class="i-checks" ng-repeat="p9 in pingjia">
+                <input type="radio" name="pingjia9" value="{{p9.value}}" ng-click="getValue9(p9.value)">
+                <i></i>
+                {{p9.name}}
+            </label>
+        </div>
+    </div>
+</li>
+<li  class="list-group-item clearfix">
+        <span class="list-group-item-heading ">
+           10:是否教学进度节奏适中，能有效利用上课时间，上课效率高
+        </span><br/>
+    <div class="pull-left m-l margin-l-px-neg-30 col-sm-11  margin-t-px-15">
+        <div class=" radio-inline m-l-xs ">
+            <label class="i-checks" ng-repeat="p10 in pingjia">
+                <input type="radio" name="pingjia10" value="{{p10.value}}" ng-click="getValue10(p10.value)">
+                <i></i>
+                {{p10.name}}
+            </label>
+        </div>
+    </div>
+</li>
+<li class="list-group-item">
+    <div class="form-group">
+        <label>对学生们的评语</label>
+        <textarea class="form-control" rows="3" ng-model="text"></textarea>
+    </div>
+</li>
+<br/>
+<button id="fat-btn" class="btn btn-block btn-primary"  type="button" ng-click="submit()"> 提交评学表单</button>
 </body>
 </html>
