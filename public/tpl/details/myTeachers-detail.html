@@ -156,8 +156,14 @@
         </div>
     </div>
 </li>
-    <li  class="list-group-item clearfix">
-        <button id="fat-btn" class="btn btn-primary pull-right"  type="button" ng-click="submit()"> 提交评教表单</button>
+    <li class="list-group-item">
+        <div class="form-group">
+            <label>对老师的评语</label>
+            <textarea class="form-control" rows="3" ng-model="text"></textarea>
+        </div>
     </li>
+<br/>
+        <button id="fat-btn" class="btn btn-block btn-primary"  type="button" ng-click="submit()"> 提交评教表单</button>
+
 </body>
 </html>
