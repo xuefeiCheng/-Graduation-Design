@@ -654,8 +654,15 @@ angular.module('app')
         //    只要将 提交按钮的状态设置为不可点击即可
         //    disabled
         //    $("#fat-btn").attr("disabled",true);
-            $("#fat-btn").html("提交成功，无法再次编辑");
-            $("#fat-btn").removeClass("btn-primary").addClass("disabled");
+            if(value1==undefined ||value2 == undefined ||value3 == undefined ||value4 == undefined ||value5 == undefined
+                ||value6 == undefined ||value7== undefined ||value8 == undefined ||value8 == undefined||value10 == undefined){
+                $("#fat-btn").html("表单中含有未填项，请检查填写后再次提交");
+                $("#fat-btn").removeClass("btn-primary").addClass("btn-danger");
+            }else{
+                $("#fat-btn").html("提交成功，无法再次编辑");
+                $("#fat-btn").removeClass("btn-primary").addClass("disabled");
+            }
+
         }
 
     })
