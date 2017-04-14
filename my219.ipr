@@ -21,6 +21,7 @@
   </component>
   <component name="CopyrightManager" default="" />
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/controllers/User/InfoSave.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/controllers/User/UserLoginController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/public/css/appa.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/public/js/main.js" charset="UTF-8" />

@@ -667,6 +667,9 @@ angular.module('app')
 
     })
     .controller("PingStCtrl",function($scope,$http,$stateParams){
+        //$scope.$on("status",function(event){
+        //    alert("状态要更改了");
+        //})
         //教师 id 为 $stateParams.UserId
         console.log($stateParams.UserId);
     //    根据 教师 id 查 课程表 返回 课程 信息
@@ -780,9 +783,45 @@ angular.module('app')
                 $("#fat-btn").html("表单中含有未填项，请检查填写后再次提交");
                 $("#fat-btn").removeClass("btn-primary").addClass("btn-danger");
             }else{
+                //请求 方法 保存
+                //调用的是 courseResult表中的SetResult方法
+                //传递的参数含有 该课程的id 以及 评价项
+                $http({
+                    method:"post",
+                    url:"/api/InfoSave/CourseResultSet",
+                    params:{
+                        "coId":$stateParams.courseId,
+                        "p1":value1,
+                        "p2":value2,
+                        "p3":value3,
+                        "p4":value4,
+                        "p5":value5,
+                        "p6":value6,
+                        "p7":value7,
+                        "p8":value8,
+                        "p9":value9,
+                        "p10":value10,
+                        "content":$scope.text
+                    }
+                }).success(function(data){
+                    //成功之后 调用一下 course表的方法 变更状态 并且消息传递给 父级控制器 刷新一下 页面
+                    console.log(data);
+                    $http({
+                            method: "post",
+                            url: "/api/InfoSave/statusChange",
+                            params: {
+                                "coId": $stateParams.courseId
+                            }
+                        }).success(function(data){
+                        //传递消息
+                        console.log("状态更改完毕");
+                        //console.log(data);
+                        //$scope.$broadcast("status");
+                    })
+                })
                 $("#fat-btn").html("提交成功，无法再次编辑");
                 $("#fat-btn").removeClass("btn-primary btn-danger").addClass("disabled");
             }
 
         }
-    })
+    });

@@ -3,6 +3,7 @@ package models;
 import com.google.gson.JsonObject;
 import play.db.jpa.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PersistenceUnit;
 import java.util.ArrayList;
@@ -19,7 +20,8 @@ import java.util.Map;
 public class course extends Model {
     public String name;//课程名
     public String te_id;//开课老师id
-    public int status;//登录状态
+    @Column(name="status")
+    public Integer status;//登录状态
 
     private void _parseJson(JsonObject json, course co) {
         json.addProperty("id",co.id);//课程id
@@ -52,5 +54,11 @@ public class course extends Model {
         CoursesList = course.find("te_id",te_Id).fetch();
         return CoursesList;
 
+    }
+//    状态 改变
+    public void SetStatus(int st){
+        this.status = st;
+//        默认为0
+//        已评为1
     }
 }

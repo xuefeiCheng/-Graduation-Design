@@ -1,6 +1,7 @@
 package controllers.User;
 
 import models.StudentCourseLink;
+import models.StudentCourseResultLink;
 import models.course;
 import play.mvc.Controller;
 
@@ -30,6 +31,12 @@ public static void getCoursesListByStudent(String stId){
 //    System.out.println(co);
     renderJSON(co);
 }
+//    查询 评学结果
+//根据 学生id 查找 学生 courseResult  link表中的数据
+    public  static void findCourseResultByStudent(String stId){
+        StudentCourseResultLink coRe = StudentCourseResultLink.findCourseResultByStudent(stId);
+        renderJSON(coRe);
+    }
 
 //    通过课程id 查找选修该课程的所有 学生list
 public static void getStudentListByCourse(String coId){
