@@ -949,3 +949,5 @@ angular.module('app')
         });
 
     })
+    .controller("teResultCtrl",function($scope,$http,$stateParams){})
+    .controller("teReDetailCtrl",function($scope,$http,$stateParams){})

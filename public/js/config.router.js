@@ -159,15 +159,21 @@ angular.module('app')
                     //评教结果查询
                     .state('app.teachersResult', {
                         abstract: true,
-                        url: '/teachersResult',
-                        //controller: 'studentsCtrl',
+                        url: '/teachersResult/:UserId',
+                        controller: 'teResultCtrl',
                         templateUrl: 'tpl/function/teachersResult.html'
                         //resolve: load(['moment', 'echarts3'])
                     })
+                    //评教结果查询  默认界面
+                    .state('app.teachersResult.default', {
+                        url: '/teachersResult/default',
+                        templateUrl: 'tpl/details/teachersResult-default.html'
+                        //resolve: load(['moment', 'echarts3'])
+                    })
                     //评教结果查询  详情页面
-                    .state('app.teachersResult-detail', {
+                    .state('app.teachersResult.detail', {
                         url: '/teachersResult/detail',
-                        //controller: 'studentsCtrl',
+                        controller: 'teReDetailCtrl',
                         templateUrl: 'tpl/details/teachersResult-detail.html'
                         //resolve: load(['moment', 'echarts3'])
                     })
