@@ -949,5 +949,20 @@ angular.module('app')
         });
 
     })
-    .controller("teResultCtrl",function($scope,$http,$stateParams){})
+    .controller("teResultCtrl",function($scope,$http,$stateParams){
+        getCoursesListByTeacher();
+        function getCoursesListByTeacher(){
+            $http({
+                method:"post",
+                url:"/api/getListController/getCoursesListByTeacher",
+                params:{
+                    "userId":$stateParams.UserId
+                }
+            }).success(function(data){
+                console.log("获取数据成功");
+                console.log(data);
+                $scope.data = data;
+            });
+        }
+    })
     .controller("teReDetailCtrl",function($scope,$http,$stateParams){})
