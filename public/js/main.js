@@ -868,4 +868,84 @@ angular.module('app')
             }
 
         }
-    });
+    })
+    .controller("stResultCtrl",function($scope,$http,$stateParams){
+    //    根据 学生id 查找 学生 课程link表格 查出 本学期的课程
+        $http({
+            method:"post",
+            url:"/api/getListController/getCoursesListByStudent",
+            params:{
+                "stId":$stateParams.UserId
+            }
+        }).success(function(data){
+            console.log("本学期课程list");
+            console.log(data);
+            $scope.data = data;
+        });
+
+    })
+    .controller("stReDetailCtrl",function($scope,$http,$stateParams){
+    //    根据课程id 查找的是 课程result表 中的数据
+        //评教页面 选择项目
+        $scope.pingjia = [{
+            value : 5,
+            name : "优秀"
+        },{
+            value : 4,
+            name : "良好"
+        },{
+            value : 3,
+            name : "中等"
+        },{
+            value : 1,
+            name : "差强人意"
+        }];
+
+        $http({
+            method:"post",
+            url:"/api/getListController/getCourseJson",
+            params:{
+                "co_id":$stateParams.courseId
+            }
+        }).success(function(data){
+            console.log("课程信息");
+            console.log(data);
+            $scope.co = data;
+            var status = data.status;
+            if(status == 0){
+                $scope.p11 = 5;
+                $scope.p22 = 5;
+                $scope.p33 = 5;
+                $scope.p44 = 5;
+                $scope.p55 = 5;
+                $scope.p66 = 5;
+                $scope.p77 = 5;
+                $scope.p88 = 5;
+                $scope.p99 = 5;
+                $scope.p100 = 5;
+                $scope.text = "老师还没有评论哦";
+            }else{
+                $http({
+                    method:"post",
+                    url:"/api/getListController/getCourseResultByCoId",
+                    params:{
+                        "cooId":$stateParams.courseId
+                    }
+                }).success(function(data){
+                    console.log(data);
+                    $scope.p11 = data.p1;
+                    $scope.p22 = data.p2;
+                    $scope.p33 = data.p3;
+                    $scope.p44 = data.p4;
+                    $scope.p55 = data.p5;
+                    $scope.p66 = data.p6;
+                    $scope.p77 = data.p7;
+                    $scope.p88 = data.p8;
+                    $scope.p99 = data.p9;
+                    $scope.p100 = data.p10;
+                    $scope.text = data.content;
+                });
+            }
+        });
+
+    })

@@ -23,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.877828">
-              <caret line="671" column="38" selection-start-line="671" selection-start-column="38" selection-end-line="671" selection-end-column="38" />
+            <state vertical-scroll-proportion="-12.466666">
+              <caret line="946" column="19" selection-start-line="946" selection-start-column="19" selection-end-line="946" selection-end-column="19" />
               <folding>
                 <element signature="e#399#6629#0" expanded="false" />
                 <element signature="e#3821#3953#0" expanded="false" />
@@ -35,35 +35,10 @@
                 <element signature="e#6724#11194#0" expanded="false" />
                 <element signature="e#11265#11600#0" expanded="false" />
                 <element signature="e#11682#18500#0" expanded="false" />
-                <element signature="e#18566#19056#0" expanded="false" />
                 <element signature="e#19128#22104#0" expanded="false" />
                 <element signature="e#22490#22879#0" expanded="false" />
                 <element signature="e#22956#23390#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="myStudents-detail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/tpl/details/myStudents-detail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14285715">
-              <caret line="151" column="122" selection-start-line="151" selection-start-column="122" selection-end-line="151" selection-end-column="122" />
-              <folding>
-                <element signature="n#a#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#span#0;n#li#9;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InfoSave.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/User/InfoSave.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#29542#29928#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -73,67 +48,30 @@
         <entry file="file://$PROJECT_DIR$/public/js/config.router.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="129" column="42" selection-start-line="129" selection-start-column="42" selection-end-line="129" selection-end-column="42" />
+              <caret line="119" column="54" selection-start-line="119" selection-start-column="28" selection-end-line="119" selection-end-column="54" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="course.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/course.java">
+      <file leaf-file-name="studentsResult-detail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/tpl/details/studentsResult-detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+            <state vertical-scroll-proportion="-5.428571">
+              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
               <folding>
-                <element signature="imports" expanded="false" />
+                <element signature="n#li#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#span#0;n#li#9;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/User.java">
+      <file leaf-file-name="studentsResult-default.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/tpl/details/studentsResult-default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="3" selection-start-line="47" selection-start-column="3" selection-end-line="49" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1444#1445#0" expanded="false" />
-                <element signature="e#1503#1504#0" expanded="false" />
-                <element signature="e#2524#2525#0" expanded="false" />
-                <element signature="e#2581#2582#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="courseResult.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/courseResult.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="75" column="44" selection-start-line="75" selection-start-column="31" selection-end-line="75" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getListController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/User/getListController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="50" column="57" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="myStudents.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/tpl/function/myStudents.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.0">
-              <caret line="24" column="60" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="60" />
+            <state vertical-scroll-proportion="0.73429954">
+              <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -145,8 +83,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="Html5" />
         <option value="Class" />
+        <option value="Html5" />
       </list>
     </option>
   </component>
@@ -158,7 +96,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/models/UserUnit.java" />
         <option value="$PROJECT_DIR$/app/models/UserGroup.java" />
         <option value="$PROJECT_DIR$/app/models/Role.java" />
         <option value="$PROJECT_DIR$/app/models/Function.java" />
@@ -166,8 +103,6 @@
         <option value="$PROJECT_DIR$/public/js/services/services.js" />
         <option value="$PROJECT_DIR$/app/models/RoleMenuLink.java" />
         <option value="$PROJECT_DIR$/public/tpl/function/details/myTeachers-detail.html" />
-        <option value="$PROJECT_DIR$/public/tpl/function/studentsResult.html" />
-        <option value="$PROJECT_DIR$/public/tpl/details/studentsResult-detail.html" />
         <option value="$PROJECT_DIR$/public/tpl/function/teachersResult.html" />
         <option value="$PROJECT_DIR$/public/tpl/details/teachersResult-detail.html" />
         <option value="$PROJECT_DIR$/public/tpl/function/count.html" />
@@ -193,13 +128,11 @@
         <option value="$PROJECT_DIR$/public/tpl/function/information.html" />
         <option value="$PROJECT_DIR$/public/tpl/function/myTeachers.html" />
         <option value="$PROJECT_DIR$/public/css/appa.css" />
-        <option value="$PROJECT_DIR$/public/tpl/details/myTeachers-default.html" />
         <option value="$PROJECT_DIR$/public/tpl/details/myStudents-default.html" />
         <option value="$PROJECT_DIR$/app/models/StudentCourseLink.java" />
         <option value="$PROJECT_DIR$/app/models/intergration/groupview/api/core/EntityApiClient.java" />
         <option value="$PROJECT_DIR$/public/tpl/details/myStudents-list.html" />
         <option value="$PROJECT_DIR$/public/tpl/details/myTeachers-detail.html" />
-        <option value="$PROJECT_DIR$/public/js/config.router.js" />
         <option value="$PROJECT_DIR$/public/css/web.css" />
         <option value="$PROJECT_DIR$/public/tpl/function/myStudents.html" />
         <option value="$PROJECT_DIR$/app/models/StudentCourseResultLink.java" />
@@ -209,6 +142,11 @@
         <option value="$PROJECT_DIR$/app/controllers/User/getListController.java" />
         <option value="$PROJECT_DIR$/public/tpl/details/myStudents-detail.html" />
         <option value="$PROJECT_DIR$/public/js/main.js" />
+        <option value="$PROJECT_DIR$/public/tpl/details/studentsResult-detail.html" />
+        <option value="$PROJECT_DIR$/public/js/config.router.js" />
+        <option value="$PROJECT_DIR$/public/tpl/function/studentsResult.html" />
+        <option value="$PROJECT_DIR$/public/tpl/details/myTeachers-default.html" />
+        <option value="$PROJECT_DIR$/public/tpl/details/studentsResult-default.html" />
       </list>
     </option>
   </component>
@@ -373,138 +311,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="details" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my219" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my219" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="219" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my219" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my219" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="219" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my219" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my219" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="219" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my219" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my219" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="219" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my219" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my219" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="219" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my219" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my219" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="219" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="User" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -825,12 +631,12 @@
       <workItem from="1491959423359" duration="1186000" />
       <workItem from="1492046622807" duration="8300000" />
       <workItem from="1492067198916" duration="16948000" />
-      <workItem from="1492151575731" duration="4010000" />
+      <workItem from="1492151575731" duration="7442000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171322000" />
+    <option name="totallyTimeSpent" value="174754000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -889,27 +695,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/tpl/function/count.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49279538">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/tpl/details/count-detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3832853">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/tpl/function/rankingList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.428571">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/libs/jquery/bootstrap/dist/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
@@ -1050,13 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/tpl/details/myTeachers-default.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44186047">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/tpl/details/information-edit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1767442">
@@ -1071,24 +849,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/tpl/function/myTeachers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.892857">
-          <caret line="20" column="118" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="118" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="64" column="58" selection-start-line="64" selection-start-column="58" selection-end-line="64" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/tpl/details/myTeachers-detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60232556">
-          <caret line="165" column="110" selection-start-line="18" selection-start-column="4" selection-end-line="165" selection-end-column="110" />
         </state>
       </provider>
     </entry>
@@ -1110,6 +874,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.87117904">
           <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1117,6 +882,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2532751">
           <caret line="554" column="12" selection-start-line="554" selection-start-column="1" selection-end-line="554" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1213,28 +979,110 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/courseResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.5271493">
           <caret line="75" column="44" selection-start-line="75" selection-start-column="31" selection-end-line="75" selection-end-column="44" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/User/getListController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.78506786">
           <caret line="50" column="57" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/User/InfoSave.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5701358">
+          <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/tpl/details/myTeachers-detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3768116">
+          <caret line="165" column="110" selection-start-line="18" selection-start-column="4" selection-end-line="165" selection-end-column="110" />
+          <folding>
+            <element signature="n#li#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#span#0;n#li#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#li#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#span#0;n#li#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#li#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#8;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#9;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#10;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#li#10;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/tpl/function/myTeachers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6425121">
+          <caret line="20" column="95" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/tpl/function/myStudents.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.85507244">
+          <caret line="30" column="82" selection-start-line="29" selection-start-column="15" selection-end-line="30" selection-end-column="82" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/tpl/details/myStudents-detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14285715">
-          <caret line="151" column="122" selection-start-line="151" selection-start-column="122" selection-end-line="151" selection-end-column="122" />
+        <state vertical-scroll-proportion="-8.0">
+          <caret line="163" column="5" selection-start-line="8" selection-start-column="0" selection-end-line="163" selection-end-column="5" />
           <folding>
             <element signature="n#a#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#li#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#span#0;n#li#9;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.466666">
+          <caret line="946" column="19" selection-start-line="946" selection-start-column="19" selection-end-line="946" selection-end-column="19" />
+          <folding>
+            <element signature="e#399#6629#0" expanded="false" />
+            <element signature="e#3821#3953#0" expanded="false" />
+            <element signature="e#3975#4025#0" expanded="false" />
+            <element signature="e#6724#11194#0" expanded="false" />
+            <element signature="e#11265#11600#0" expanded="false" />
+            <element signature="e#11682#18500#0" expanded="false" />
+            <element signature="e#19128#22104#0" expanded="false" />
+            <element signature="e#22490#22879#0" expanded="false" />
+            <element signature="e#22956#23390#0" expanded="false" />
+            <element signature="e#29542#29928#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/tpl/details/studentsResult-detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.428571">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+          <folding>
+            <element signature="n#li#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#span#0;n#li#9;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -1243,45 +1091,32 @@
     <entry file="file://$PROJECT_DIR$/public/js/config.router.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="129" column="42" selection-start-line="129" selection-start-column="42" selection-end-line="129" selection-end-column="42" />
+          <caret line="119" column="54" selection-start-line="119" selection-start-column="28" selection-end-line="119" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/tpl/function/myStudents.html">
+    <entry file="file://$PROJECT_DIR$/public/tpl/details/myTeachers-default.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.0">
-          <caret line="24" column="60" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="60" />
+        <state vertical-scroll-proportion="0.18115942">
+          <caret line="10" column="36" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/User/InfoSave.java">
+    <entry file="file://$PROJECT_DIR$/public/tpl/function/studentsResult.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-9.5">
+          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/main.js">
+    <entry file="file://$PROJECT_DIR$/public/tpl/details/studentsResult-default.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.877828">
-          <caret line="671" column="38" selection-start-line="671" selection-start-column="38" selection-end-line="671" selection-end-column="38" />
-          <folding>
-            <element signature="e#399#6629#0" expanded="false" />
-            <element signature="e#3821#3953#0" expanded="false" />
-            <element signature="e#3975#4025#0" expanded="false" />
-            <element signature="e#6724#11194#0" expanded="false" />
-            <element signature="e#11265#11600#0" expanded="false" />
-            <element signature="e#11682#18500#0" expanded="false" />
-            <element signature="e#18566#19056#0" expanded="false" />
-            <element signature="e#19128#22104#0" expanded="false" />
-            <element signature="e#22490#22879#0" expanded="false" />
-            <element signature="e#22956#23390#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.73429954">
+          <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>

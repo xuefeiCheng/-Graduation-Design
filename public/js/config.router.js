@@ -111,15 +111,21 @@ angular.module('app')
                     //评学结果查询
                     .state('app.studentsResult', {
                         abstract: true,
-                        url: '/studentsResult',
-                        //controller: 'studentsCtrl',
+                        url: '/studentsResult/:UserId',
+                        controller: 'stResultCtrl',
                         templateUrl: 'tpl/function/studentsResult.html'
                         //resolve: load(['moment', 'echarts3'])
                     })
+                    //评学结果查询  默认页面
+                    .state('app.studentsResult.default', {
+                        url: '/studentsResult/default',
+                        templateUrl: 'tpl/details/studentsResult-default.html'
+                        //resolve: load(['moment', 'echarts3'])
+                    })
                     //评学结果查询  详情页面
-                    .state('app.studentsResult-detail', {
-                        url: '/studentsResult/detail',
-                        //controller: 'studentsCtrl',
+                    .state('app.studentsResult.detail', {
+                        url: '/studentsResult/detail/:courseId',
+                        controller: 'stReDetailCtrl',
                         templateUrl: 'tpl/details/studentsResult-detail.html'
                         //resolve: load(['moment', 'echarts3'])
                     })
