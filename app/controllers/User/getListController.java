@@ -3,6 +3,7 @@ package controllers.User;
 import models.StudentCourseLink;
 import models.StudentCourseResultLink;
 import models.course;
+import models.courseResult;
 import play.mvc.Controller;
 
 import java.util.List;
@@ -45,4 +46,10 @@ public static void getStudentListByCourse(String coId){
 //    System.out.println(co);
     renderJSON(stList);
 }
+
+//    根据 课程id 调用 courseResult模块中方法GetResultById  查到评学 结果 数据
+    public static void getCourseResultByCoId(String cooId){
+        courseResult co = courseResult.GetResultById(cooId);
+        renderJSON(co);
+    }
 }

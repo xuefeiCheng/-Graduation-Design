@@ -684,7 +684,6 @@ angular.module('app')
             console.log(data);
             $scope.data = data;
         });
-
     })
     .controller("studentListCtrl",function($scope,$http,$stateParams){
         $scope.courseId =$stateParams.courseId;
@@ -717,6 +716,7 @@ angular.module('app')
     //        console.log(data);
     //        $scope.student = data;
     //    })
+
     //    根据 课程id 查找课程表 返回 课程信息
         $http({
             method:"post",
@@ -728,7 +728,47 @@ angular.module('app')
             console.log("课程信息");
             console.log(data);
             $scope.co = data;
+            var status =data.status;
+            //console.log(status)
+            switch (status){
+                case 1:
+                    //alert("状态为 已评");
+                    $("#fat-btn").html("提交成功，无法再次编辑");
+                    $("#fat-btn").removeClass("btn-primary btn-danger").addClass("disabled");
+                    //调用 courseResult表中 方法
+                    //传入 courseid 获得数据
+                    $http({
+                        method:"post",
+                        url:"/api/getListController/getCourseResultByCoId",
+                        params:{
+                            "cooId":$stateParams.courseId
+                        }
+                    }).success(function(data){
+                        console.log(data);
+                        $scope.p11 = data.p1;
+                        $scope.p22 = data.p2;
+                        $scope.p33 = data.p3;
+                        $scope.p44 = data.p4;
+                        $scope.p55 = data.p5;
+                        $scope.p66 = data.p6;
+                        $scope.p77 = data.p7;
+                        $scope.p88 = data.p8;
+                        $scope.p99 = data.p9;
+                        $scope.p100 = data.p10;
+                        $scope.text = data.content;
+                    });
+                    break;
+                case 0:
+                    $("#fat-btn").html("提交评学表单");
+                    $("#fat-btn").removeClass("btn-primary btn-danger disabled").addClass("btn-primary");
+                    //alert("状态为 未评");
+                    break;
+            }
+
         });
+        //if course.status =0
+        // 调用 更改库表 方法
+        //else 调用的是 查询 courseResult表 数据方法
 
 
         //评教页面 选择项目
