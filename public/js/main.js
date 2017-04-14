@@ -667,23 +667,27 @@ angular.module('app')
 
     })
     .controller("PingStCtrl",function($scope,$http,$stateParams){
-        //$scope.$on("status",function(event){
-        //    alert("状态要更改了");
-        //})
+        $scope.$on("status",function(event){
+            //alert("状态要更改了");
+            getCoursesListByTeacher();
+        });
         //教师 id 为 $stateParams.UserId
         console.log($stateParams.UserId);
     //    根据 教师 id 查 课程表 返回 课程 信息
-        $http({
-            method:"post",
-            url:"/api/getListController/getCoursesListByTeacher",
-            params:{
-                "userId":$stateParams.UserId
-            }
-        }).success(function(data){
-            console.log("获取数据成功");
-            console.log(data);
-            $scope.data = data;
-        });
+        getCoursesListByTeacher();
+        function getCoursesListByTeacher(){
+            $http({
+                method:"post",
+                url:"/api/getListController/getCoursesListByTeacher",
+                params:{
+                    "userId":$stateParams.UserId
+                }
+            }).success(function(data){
+                console.log("获取数据成功");
+                console.log(data);
+                $scope.data = data;
+            });
+        }
     })
     .controller("studentListCtrl",function($scope,$http,$stateParams){
         $scope.courseId =$stateParams.courseId;
@@ -855,10 +859,10 @@ angular.module('app')
                         }).success(function(data){
                         //传递消息
                         console.log("状态更改完毕");
-                        //console.log(data);
-                        //$scope.$broadcast("status");
+                        console.log(data);
+                        $scope.$emit('status');
                     })
-                })
+                });
                 $("#fat-btn").html("提交成功，无法再次编辑");
                 $("#fat-btn").removeClass("btn-primary btn-danger").addClass("disabled");
             }
