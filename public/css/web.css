@@ -552,6 +552,10 @@ fieldset[disabled] .i-checks input + i:before {
     border-color: #27c24c;
 }
 
+.clr-success {
+    color: #27c24c;
+}
+
 .b-info {
     border-color: #23b7e5;
 }
@@ -559,7 +563,9 @@ fieldset[disabled] .i-checks input + i:before {
 .b-warning {
     border-color: #fad733;
 }
-
+.clr-warning {
+    color: #fad733;
+}
 .b-danger {
     border-color: #f05050;
 }

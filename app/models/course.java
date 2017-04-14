@@ -19,11 +19,13 @@ import java.util.Map;
 public class course extends Model {
     public String name;//课程名
     public String te_id;//开课老师id
+    public int status;//登录状态
 
     private void _parseJson(JsonObject json, course co) {
         json.addProperty("id",co.id);//课程id
         json.addProperty("name",co.name);//课程name
         json.addProperty("te_id", co.te_id);//开课老师id
+        json.addProperty("status", co.status);//课程 评论状态
     }
 
     public JsonObject toJson() {
