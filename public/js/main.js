@@ -579,6 +579,9 @@ angular.module('app')
     .controller("PingTeDetailCtrl",function($scope,$http,$stateParams){
 //        课程id 为 $stateParams.courseId
 //        根据 课程id 查到课程表数据
+//        学生id为$stateParams.UserId
+//        老师id为$stateParams.TeId 或者是 下面http服务请求的数据里 data.te_id
+        console.log($stateParams.UserId);
         $http({
             method:"post",
             url:"/api/getListController/getCourseJson",
@@ -659,8 +662,33 @@ angular.module('app')
                 $("#fat-btn").html("表单中含有未填项，请检查填写后再次提交");
                 $("#fat-btn").removeClass("btn-primary").addClass("btn-danger");
             }else{
-                $("#fat-btn").html("提交成功，无法再次编辑");
-                $("#fat-btn").removeClass("btn-primary btn-danger").addClass("disabled");
+                //开始调用接口 用于 将评价报存到 教师结果表中
+                $http({
+                    method: "post",
+                    url: "/api/InfoSave/teacherResultSet",
+                    params: {
+                        "coId": $stateParams.courseId,
+                        "stId": $stateParams.UserId,
+                        "p1": value1,
+                        "p2": value2,
+                        "p3": value3,
+                        "p4": value4,
+                        "p5": value5,
+                        "p6": value6,
+                        "p7": value7,
+                        "p8": value8,
+                        "p9": value9,
+                        "p10": value10,
+                        "content": $scope.text
+                    }
+                }).success(function(data){
+                    console.log("评教成功");
+                    //需要 改变一下 学生 课程link表中的状态
+                    //然后通知一下 父控制器 刷新一下界面的 课程旁边的状态展示
+                    $("#fat-btn").html("提交成功，无法再次编辑");
+                    $("#fat-btn").removeClass("btn-primary btn-danger").addClass("disabled");
+                });
+
             }
 
         }
