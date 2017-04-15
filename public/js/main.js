@@ -1068,4 +1068,33 @@ function getCoursesListByStudent(){
             });
         }
     })
-    .controller("teReDetailCtrl",function($scope,$http,$stateParams){})
+    .controller("teReDetailCtrl",function($scope,$http,$stateParams){
+    //    课程id 为$stateParams.courseId
+    //    教师 id为$stateParams.UserId
+    //    根据 课程id 查课程表 查到课程信息 name
+        $http({
+            method:"post",
+            url:"/api/getListController/getCourseJson",
+            params:{
+                "co_id":$stateParams.courseId
+            }
+        }).success(function(data){
+            //console.log("获取数据成功");
+            console.log(data);
+            $scope.courseName = data.name;
+            //$scope.data = data;
+        });
+    //    根据 课程id 查找 评教结果表 查出 该课程下的所有学生的记录 list
+    //    根据这些 将学生的评语list展示在界面中
+        $http({
+            method:"post",
+            url:"/api/getListController/getTeacherResultListByCoId",
+            params:{
+                "coId":$stateParams.courseId
+            }
+        }).success(function(data){
+            console.log("获取选修该课的 已经评教学生的 评教结果");
+            console.log(data);
+            //$scope.data = data;
+        });
+    });

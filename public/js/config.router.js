@@ -172,7 +172,7 @@ angular.module('app')
                     })
                     //评教结果查询  详情页面
                     .state('app.teachersResult.detail', {
-                        url: '/teachersResult/detail',
+                        url: '/teachersResult/detail/:courseId',
                         controller: 'teReDetailCtrl',
                         templateUrl: 'tpl/details/teachersResult-detail.html'
                         //resolve: load(['moment', 'echarts3'])
