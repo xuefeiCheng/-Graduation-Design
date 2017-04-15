@@ -77,6 +77,10 @@ public class teacherResult extends Model {
         _parseJson(json, this);
         return json;
     }
+//    根据学生id  课程id 返回该条记录
+    public static teacherResult GetResultByStCo(String co_id,String stId){
+        return teacherResult.find("coId=? and stId=?",  Long.valueOf(co_id), Long.valueOf(stId)).first();
+    }
     //根据 id 返回数据
     public static teacherResult GetResultById(String coId){
         return teacherResult.find("coId", Long.valueOf(coId)).first();
@@ -84,7 +88,7 @@ public class teacherResult extends Model {
 //    根据 课程id 得到该id下的所有数据list
     public static List<teacherResult> findByCoId(String coId) {
         List<teacherResult> list = new ArrayList<teacherResult>();
-        list = teacherResult.find("coId",coId).fetch();
+        list = teacherResult.find("coId",Long.valueOf(coId)).fetch();
         return list;
     }
     //    无参数 构造 函数

@@ -29,6 +29,11 @@ public static void getCoursesListByStudent(String stId){
 //    System.out.println(co);
     renderJSON(co);
 }
+//    通过 学生 id 课程id 查找课程学生link表中的数据  查询 该学生的该门课程的状态
+    public static void GetStatusNow(String stId,String coId){
+        StudentCourseLink stCo = StudentCourseLink.findCourseById(coId, stId);
+        renderJSON(stCo);
+    }
 //    查询 评学结果
 //根据 学生id 查找 学生 courseResult  link表中的数据
     public  static void findCourseResultByStudent(String stId){
@@ -47,6 +52,11 @@ public static void getStudentListByCourse(String coId){
 //    根据 课程id 调用 courseResult模块中方法GetResultById  查到评学 结果 数据
     public static void getCourseResultByCoId(String cooId){
         courseResult co = courseResult.GetResultById(cooId);
+        renderJSON(co);
+    }
+//    根据学生id 课程id 返回该条记录 查询 结果表
+    public static void getResult(String coId,String stId){
+        teacherResult co = teacherResult.GetResultByStCo(coId,stId);
         renderJSON(co);
     }
 //    根据 课程id 查找该老师开通的这门课的所有同学 的评分list

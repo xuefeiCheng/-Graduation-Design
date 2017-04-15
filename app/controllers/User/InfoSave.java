@@ -1,5 +1,6 @@
 package controllers.User;
 
+import models.StudentCourseLink;
 import models.course;
 import models.courseResult;
 import models.teacherResult;
@@ -52,5 +53,13 @@ public static void teacherResultSet(String coId ,String stId ,Integer p1,Integer
     }
     renderJSON(re);
 }
+
+    //    课程 学生 link 表 状态改变
+    public static void statusSave(String coId,String stId){
+        StudentCourseLink co = StudentCourseLink.findCourseById(coId,stId);
+        co.SetStatus(1);
+        co.save();
+        renderJSON(co);
+    }
 
 }

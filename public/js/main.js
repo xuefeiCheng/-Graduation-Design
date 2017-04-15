@@ -557,19 +557,25 @@ angular.module('app')
     //    学生 id 为 $stateParams.UserId
     //    alert("这是 评教页面");
         //console.log(typeof $stateParams.UserId);
-
-
-        $http({
-            method:"post",
-            url:"/api/getListController/getCoursesListByStudent",
-            params:{
-                "stId":$stateParams.UserId
-            }
-        }).success(function(data){
-            console.log("获取选修课程list");
-            console.log(data);
-            $scope.data = data;
+        $scope.$on("status-te",function(event){
+            //alert("状态要更改了");
+            getCoursesListByStudent();
         });
+        getCoursesListByStudent();
+function getCoursesListByStudent(){
+    $http({
+        method:"post",
+        url:"/api/getListController/getCoursesListByStudent",
+        params:{
+            "stId":$stateParams.UserId
+        }
+    }).success(function(data){
+        console.log("获取选修课程list");
+        console.log(data);
+        $scope.data = data;
+    });
+}
+
 
 
 
@@ -582,6 +588,8 @@ angular.module('app')
 //        学生id为$stateParams.UserId
 //        老师id为$stateParams.TeId 或者是 下面http服务请求的数据里 data.te_id
         console.log($stateParams.UserId);
+        //查找 课程信息 主要是得到课程name
+        //查的是 课程表
         $http({
             method:"post",
             url:"/api/getListController/getCourseJson",
@@ -593,6 +601,60 @@ angular.module('app')
             console.log(data);
             $scope.courseName = data.name;
             //$scope.data = data;
+        });
+//        进入界面首先查找的是 学生 课程 link表 查看该课改学生是否已经评价过
+//        若状态已评 则显示的是库表的数据 并且不可在编辑
+//        查的是 结果表 查的是 该生 该课的该条结果
+//        若状态为未评 则评教支持
+        $http({
+            method:"post",
+            url:"/api/getListController/GetStatusNow",
+            params:{
+                "stId":$stateParams.UserId,
+                "coId":$stateParams.courseId
+            }
+        }).success(function(data){
+            console.log("获取该生的该课程的状态");
+            console.log(data);
+            var status =data.status;
+            //console.log(status)
+            switch (status){
+                case 1:
+                    //alert("状态为 已评");
+                    $("#fat-btn").html("提交成功，无法再次编辑");
+                    $("#fat-btn").removeClass("btn-primary btn-danger").addClass("disabled");
+                    //调用 courseResult表中 方法
+                    //传入 courseid 获得数据
+
+                    $http({
+                        method:"post",
+                        url:"/api/getListController/getResult",
+                        params:{
+                            "stId":$stateParams.UserId,
+                            "coId":$stateParams.courseId
+                        }
+                    }).success(function(data){
+                        console.log("该生该课程的结果");
+                        console.log(data);
+                        $scope.p11 = data.p1;
+                        $scope.p22 = data.p2;
+                        $scope.p33 = data.p3;
+                        $scope.p44 = data.p4;
+                        $scope.p55 = data.p5;
+                        $scope.p66 = data.p6;
+                        $scope.p77 = data.p7;
+                        $scope.p88 = data.p8;
+                        $scope.p99 = data.p9;
+                        $scope.p100 = data.p10;
+                        $scope.text = data.content;
+                    });
+                    break;
+                case 0:
+                    $("#fat-btn").html("提交评学表单");
+                    $("#fat-btn").removeClass("btn-primary btn-danger disabled").addClass("btn-primary");
+                    //alert("状态为 未评");
+                    break;
+            }
         });
 //    教师 id 为 $stateParams.TeId
         //    根据 教师id 返回教师 的某些信息
@@ -685,6 +747,19 @@ angular.module('app')
                     console.log("评教成功");
                     //需要 改变一下 学生 课程link表中的状态
                     //然后通知一下 父控制器 刷新一下界面的 课程旁边的状态展示
+                    $http({
+                        method: "post",
+                        url: "/api/InfoSave/statusSave",
+                        params: {
+                            "coId": $stateParams.courseId,
+                            "stId": $stateParams.UserId
+                        }
+                    }).success(function(data){
+                        //传递消息
+                        console.log("状态更改完毕");
+                        console.log(data);
+                        $scope.$emit('status-te');
+                    });
                     $("#fat-btn").html("提交成功，无法再次编辑");
                     $("#fat-btn").removeClass("btn-primary btn-danger").addClass("disabled");
                 });
