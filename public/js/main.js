@@ -1069,6 +1069,18 @@ function getCoursesListByStudent(){
         }
     })
     .controller("teReDetailCtrl",function($scope,$http,$stateParams){
+        function scoreSave( score){
+$http({
+    method:"post",
+    url:"/api/InfoSave/scoreSave",
+    params:{
+        "teId":$stateParams.UserId,
+        "score":score
+    }
+}).success(function(data){
+    console.log("成功将教师表中的 score字段 更新");
+})
+        }
     //    课程id 为$stateParams.courseId
     //    教师 id为$stateParams.UserId
     //    根据 课程id 查课程表 查到课程信息 name
@@ -1122,8 +1134,12 @@ function getCoursesListByStudent(){
                 totalScore = num/(data.length-2);
                 $scope.total = totalScore;
             }
-            console.log("总分为"+totalScore);
-            console.log(scoreList);
+            scoreSave(totalScore);
+            //console.log("总分为"+totalScore);
+            //console.log(scoreList);
             //$scope.data = data;
+        //    计算得到的总分 应该保存到 教师表中
+        //    然后  算老师排名的时候  从教师表中取出  计算排名
+
         });
     });

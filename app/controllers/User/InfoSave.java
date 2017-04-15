@@ -1,9 +1,6 @@
 package controllers.User;
 
-import models.StudentCourseLink;
-import models.course;
-import models.courseResult;
-import models.teacherResult;
+import models.*;
 import play.mvc.Controller;
 
 /**
@@ -56,10 +53,18 @@ public static void teacherResultSet(String coId ,String stId ,Integer p1,Integer
 
     //    课程 学生 link 表 状态改变
     public static void statusSave(String coId,String stId){
-        StudentCourseLink co = StudentCourseLink.findCourseById(coId,stId);
+        StudentCourseLink co = StudentCourseLink.findCourseById(coId, stId);
         co.SetStatus(1);
         co.save();
         renderJSON(co);
+    }
+
+//    更新  教师表中的 score字段
+    public static void scoreSave(String teId,Float score){
+        teacherUser te = teacherUser.findByTeacherUserId(teId);
+        te.changeScore(score);
+        te.save();
+        renderJSON(te);
     }
 
 }

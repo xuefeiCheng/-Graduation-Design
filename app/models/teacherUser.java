@@ -3,6 +3,7 @@ package models;
 import com.google.gson.JsonObject;
 import play.db.jpa.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PersistenceUnit;
 
@@ -24,6 +25,9 @@ public class teacherUser extends Model {
     public String rxdate;//入校年限
     public String zc;//职称
 
+    @Column(name = "score")
+    public Float score;//评教得分
+
 //    可变部分
     public String email;//邮箱
     public String dz;//通讯地址
@@ -41,6 +45,7 @@ public class teacherUser extends Model {
         json.addProperty("mz",st.mz);
         json.addProperty("rxdate",st.rxdate);
         json.addProperty("zc",st.zc);
+        json.addProperty("score",st.score);
 
         json.addProperty("email", st.email);
         json.addProperty("dz", st.dz);
@@ -63,5 +68,9 @@ public class teacherUser extends Model {
     //    根据id 得到teacher列表
     public static teacherUser findByTeacherUserId(String te_id){
         return teacherUser.find("id", Long.valueOf(te_id)).first();
+    }
+//    更新 评教得分
+    public void changeScore(Float score){
+        this.score =score;
     }
 }
