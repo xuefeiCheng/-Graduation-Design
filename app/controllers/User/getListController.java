@@ -1,9 +1,6 @@
 package controllers.User;
 
-import models.StudentCourseLink;
-import models.StudentCourseResultLink;
-import models.course;
-import models.courseResult;
+import models.*;
 import play.mvc.Controller;
 
 import java.util.List;
@@ -51,5 +48,10 @@ public static void getStudentListByCourse(String coId){
     public static void getCourseResultByCoId(String cooId){
         courseResult co = courseResult.GetResultById(cooId);
         renderJSON(co);
+    }
+//    根据 课程id 查找该老师开通的这门课的所有同学 的评分list
+    public static void getTeacherResultListByCoId(String coId){
+        List<teacherResult> teRe = teacherResult.findByCoId(coId);
+        renderJSON(teRe);
     }
 }

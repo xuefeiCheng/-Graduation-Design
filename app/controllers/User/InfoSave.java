@@ -2,6 +2,7 @@ package controllers.User;
 
 import models.course;
 import models.courseResult;
+import models.teacherResult;
 import play.mvc.Controller;
 
 /**
@@ -33,4 +34,23 @@ public static void CourseResultSet(String coId ,Integer p1,Integer p2,Integer p3
         co.save();
         renderJSON(co);
     }
+
+
+//    学生评教 模块 保存到teacherResult表中 调用的是该表中的SetResult方法
+public static void teacherResultSet(String coId ,String stId ,Integer p1,Integer p2,Integer p3,Integer p4,Integer p5,Integer p6,Integer p7,Integer p8,Integer p9,Integer p10,String content){
+    if(content==null){
+        content="没有评语哦";
+    }
+    teacherResult re = teacherResult.GetResultById(coId);
+    if(re==null){
+        teacherResult reset = new teacherResult();
+        reset.SetResult(coId,stId,p1,p10,p2,p3,p4,p5,p6,p7,p8,p9,content);
+        reset.save();
+    }else{
+        re.SetResult(coId,stId,p1,p10,p2,p3,p4,p5,p6,p7,p8,p9,content);
+        re.save();
+    }
+    renderJSON(re);
+}
+
 }
