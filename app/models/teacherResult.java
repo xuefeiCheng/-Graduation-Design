@@ -53,6 +53,9 @@ public class teacherResult extends Model {
     @Column(name = "p10")
     public Integer p10;//评价项
 
+    @Column(name = "score")
+    public Integer score;//每个学生评教总分
+
     @Column(name = "content")
     public String content;//评价内容
 
@@ -69,6 +72,7 @@ public class teacherResult extends Model {
         json.addProperty("p8",teRe.p8);//评价项
         json.addProperty("p9",teRe.p9);//评价项
         json.addProperty("p10",teRe.p10);//评价项
+        json.addProperty("score",teRe.score);//评价项
         json.addProperty("content",teRe.content);//评价内容
     }
 
@@ -105,6 +109,7 @@ public class teacherResult extends Model {
         this.p8 = null;
         this.p9 = null;
         this.p10 = null;
+        this.score = null;
         this.content = null;
         return this;
     }
@@ -122,6 +127,7 @@ public class teacherResult extends Model {
         this.p8 = p8;
         this.p9 = p9;
         this.p10 = p10;
+        this.score = p1+p2+p3+p4+p5+p6+p7+p8+p9+p10;
         this.content = content;
     }
 }

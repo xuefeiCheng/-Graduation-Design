@@ -16,14 +16,9 @@
     </li>
 </a>
 <!--学生评语list-->
-<li  class="list-group-item clearfix">
+<li  class="list-group-item clearfix" ng-repeat="li in list">
         <span class="list-group-item-heading ">
-201358503103：老师不错
-        </span>
-</li>
-<li  class="list-group-item clearfix">
-       <span class="list-group-item-heading ">
-201358503102：挺好的
+{{li.stId}}：{{li.content}}
         </span>
 </li>
 

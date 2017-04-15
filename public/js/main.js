@@ -1095,6 +1095,7 @@ function getCoursesListByStudent(){
         }).success(function(data){
             console.log("获取选修该课的 已经评教学生的 评教结果");
             console.log(data);
+            $scope.list = data;
             //$scope.data = data;
         });
     });
