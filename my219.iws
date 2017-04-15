@@ -23,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.3">
-              <caret line="1097" column="31" selection-start-line="1097" selection-start-column="31" selection-end-line="1097" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.46116504">
+              <caret line="1085" column="11" selection-start-line="1085" selection-start-column="11" selection-end-line="1085" selection-end-column="11" />
               <folding>
                 <element signature="e#399#6629#0" expanded="false" />
                 <element signature="e#3821#3953#0" expanded="false" />
@@ -52,18 +52,18 @@
       <file leaf-file-name="teachersResult-detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/tpl/details/teachersResult-detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.0">
-              <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+            <state vertical-scroll-proportion="-5.285714">
+              <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leaderUser.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="leaderUser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/leaderUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.78506786">
-              <caret line="64" column="54" selection-start-line="64" selection-start-column="54" selection-end-line="64" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -156,9 +156,9 @@
         <option value="$PROJECT_DIR$/public/tpl/details/myTeachers-detail.html" />
         <option value="$PROJECT_DIR$/public/js/config.router.js" />
         <option value="$PROJECT_DIR$/app/models/teacherResult.java" />
-        <option value="$PROJECT_DIR$/public/js/main.js" />
-        <option value="$PROJECT_DIR$/public/tpl/details/teachersResult-detail.html" />
         <option value="$PROJECT_DIR$/app/models/leaderUser.java" />
+        <option value="$PROJECT_DIR$/public/tpl/details/teachersResult-detail.html" />
+        <option value="$PROJECT_DIR$/public/js/main.js" />
       </list>
     </option>
   </component>
@@ -708,12 +708,12 @@
       <workItem from="1492151575731" duration="8436000" />
       <workItem from="1492216216374" duration="304000" />
       <workItem from="1492217137239" duration="7228000" />
-      <workItem from="1492234176633" duration="2124000" />
+      <workItem from="1492234176633" duration="3294000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185404000" />
+    <option name="totallyTimeSpent" value="186574000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1107,14 +1107,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/config.router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="174" column="62" selection-start-line="174" selection-start-column="54" selection-end-line="174" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/User/getListController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1131,10 +1123,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/leaderUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/config.router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="174" column="62" selection-start-line="174" selection-start-column="54" selection-end-line="174" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/tpl/details/teachersResult-detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.285714">
+          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.3">
-          <caret line="1097" column="31" selection-start-line="1097" selection-start-column="31" selection-end-line="1097" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.46116504">
+          <caret line="1085" column="11" selection-start-line="1085" selection-start-column="11" selection-end-line="1085" selection-end-column="11" />
           <folding>
             <element signature="e#399#6629#0" expanded="false" />
             <element signature="e#3821#3953#0" expanded="false" />
@@ -1142,22 +1158,6 @@
             <element signature="e#11682#18500#0" expanded="false" />
             <element signature="e#26948#27382#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/tpl/details/teachersResult-detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.0">
-          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/leaderUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78506786">
-          <caret line="64" column="54" selection-start-line="64" selection-start-column="54" selection-end-line="64" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
