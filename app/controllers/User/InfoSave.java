@@ -42,7 +42,7 @@ public static void teacherResultSet(String coId ,String stId ,Integer p1,Integer
     if(content==null){
         content="没有评语哦";
     }
-    teacherResult re = teacherResult.GetResultById(coId);
+    teacherResult re = teacherResult.GetResultByStCo(coId, stId);
     if(re==null){
         teacherResult reset = new teacherResult();
         reset.SetResult(coId,stId,p1,p10,p2,p3,p4,p5,p6,p7,p8,p9,content);
