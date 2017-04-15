@@ -92,7 +92,11 @@ public class teacherResult extends Model {
 //    根据 课程id 得到该id下的所有数据list
     public static List<teacherResult> findByCoId(String coId) {
         List<teacherResult> list = new ArrayList<teacherResult>();
-        list = teacherResult.find("coId",Long.valueOf(coId)).fetch();
+//        coId and order by score desc
+//        find("docid in (?1) order by publish_time desc").setParameter("1",ids).fetch(currentPage,pageSize);
+//        数据库表 排序  降序排列
+        list = teacherResult.find("coId in (?1) order by score desc",Long.valueOf(coId)).fetch();
+
         return list;
     }
     //    无参数 构造 函数

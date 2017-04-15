@@ -1098,49 +1098,29 @@ function getCoursesListByStudent(){
             $scope.list = data;
 
             var scoreList = [];//记录 每一个学生的 打分情况
-            var totalScore =0;//记录总分
+            var totalScore;//记录总分
             var num =0;//暂时记录总分
-            for(var i=0;i<data.length;i++){
-                //console.log(data[i].score);
-                num = num+data[i].score;
-                scoreList.push(data[i].score);
-            }
-            if(data.length<3){
-                totalScore = num/(data.length);
-            }else{
-            //排序 得到有序数组
-            //    二分法 排序
-            //    int A[] = { 5, 2, 9, 4, 7, 6, 1, 3, 8 };// 从小到大二分插入排序
-                var A = [];
-                A=scoreList;
-                var  n = data.length;
-                var ii, j, get, left, right, middle;
 
-                for (ii = 1; ii < n; ii++)                 // 类似抓扑克牌排序
-                {
-                    get = A[ii];                         // 右手抓到一张扑克牌
-                    left = 0;                           // 拿在左手上的牌总是排序好的,所以可以用二分法
-                    right = ii - 1;                      // 手牌左右边界进行初始化
-                    while (left <= right)               // 采用二分法定位新牌的位置
-                    {
-                        middle = (left + right) / 2;
-                        if (A[middle] > get)
-                            right = middle - 1;
-                        else
-                            left = middle + 1;
-                    }
-                    for (j = ii - 1; j >= left; j--)    // 将欲插入新牌位置右边的牌整体向右移动一个单位
-                    {
-                        A[j + 1] = A[j];
-                    }
-                    A[left] = get;                    // 将抓到的牌插入手牌
+
+            console.log("得分 数组为"+scoreList);
+            if(data.length<3){
+                for(var i=0;i<data.length;i++){
+                    //console.log(data[i].score);
+                    num = num+data[i].score;
+                    scoreList.push(data[i].score);
                 }
-                for (ii = 0; ii < n; ii++)
-                {
-                    console.log( A[ii]);
-                }
+                totalScore = num/(data.length);
+                $scope.total = totalScore;
+            }else{
             //    去掉最高分去掉最低分 算平均分
             //    得到最终的 totalScore
+                for(var i=1;i<data.length-1;i++){
+                    //console.log(data[i].score);
+                    num = num+data[i].score;
+                    scoreList.push(data[i].score);
+                }
+                totalScore = num/(data.length-2);
+                $scope.total = totalScore;
             }
             console.log("总分为"+totalScore);
             console.log(scoreList);
