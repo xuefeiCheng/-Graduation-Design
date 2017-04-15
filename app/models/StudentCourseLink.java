@@ -2,6 +2,7 @@ package models;
 
 import play.db.jpa.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.PersistenceUnit;
@@ -17,6 +18,8 @@ public class StudentCourseLink extends Model {
     public studentUser student;
     @ManyToOne
     public course course;
+    @Column(name="status")
+    public Integer status;//登录状态
 
 
     public static List<StudentCourseLink> findByStudent(studentUser student) {
@@ -31,5 +34,12 @@ public class StudentCourseLink extends Model {
 
     public static List<StudentCourseLink> findStudentByCourse(String co_id){
         return StudentCourseLink.find("course_id=?",Long.valueOf(co_id)).fetch();
+    }
+
+    //    状态 改变
+    public void SetStatus(int st){
+        this.status = st;
+//        默认为0
+//        已评为1
     }
 }

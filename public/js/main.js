@@ -566,7 +566,7 @@ angular.module('app')
                 "stId":$stateParams.UserId
             }
         }).success(function(data){
-            //console.log("获取数据成功");
+            console.log("获取选修课程list");
             console.log(data);
             $scope.data = data;
         });
