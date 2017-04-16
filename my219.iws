@@ -23,11 +23,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="college.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="college.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/college.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.739726">
-              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="27" column="5" selection-start-line="18" selection-start-column="4" selection-end-line="27" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="classRoom.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/classRoom.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.39041096">
+              <caret line="12" column="54" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,7 +66,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/conf/routes" />
         <option value="$PROJECT_DIR$/public/js/services/services.js" />
         <option value="$PROJECT_DIR$/app/models/RoleMenuLink.java" />
         <option value="$PROJECT_DIR$/public/tpl/function/details/myTeachers-detail.html" />
@@ -105,6 +116,7 @@
         <option value="$PROJECT_DIR$/app/controllers/User/InfoSave.java" />
         <option value="$PROJECT_DIR$/app/models/teacherUser.java" />
         <option value="$PROJECT_DIR$/app/models/college.java" />
+        <option value="$PROJECT_DIR$/app/models/classRoom.java" />
       </list>
     </option>
   </component>
@@ -541,12 +553,12 @@
       <workItem from="1492216216374" duration="304000" />
       <workItem from="1492217137239" duration="7228000" />
       <workItem from="1492234176633" duration="10803000" />
-      <workItem from="1492305075535" duration="502000" />
+      <workItem from="1492305075535" duration="685000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194585000" />
+    <option name="totallyTimeSpent" value="194768000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -605,13 +617,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/tpl/students/students.myself.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.464286">
-          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/tpl/students/students.myself1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -980,8 +985,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/college.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.739726">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="5" selection-start-line="18" selection-start-column="4" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/classRoom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39041096">
+          <caret line="12" column="54" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
