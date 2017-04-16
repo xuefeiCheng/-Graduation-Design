@@ -47,7 +47,8 @@ public class classRoomCollegeLink extends Model{
 //    根据 学院 分组 查出 班级 以及 班级评教率
 public static List<JSONObject> getPercentGroupByCollege(){
     List<JSONObject> list=new ArrayList<JSONObject>();
-    List lists= JPA.em().createNativeQuery("SELECT percent,classroom_id,college_id FROM `classroomcollegelink` GROUP BY college_id,classroom_id;").getResultList();
+    List lists= JPA.em().createNativeQuery("SELECT percent,classroom_id,college_id FROM `classroomcollegelink` GROUP BY college_id," +
+            "classroom_id;").getResultList();
     for (Object object : lists) {
         Object[] o=(Object[]) object;
         college co = models.college.getCollegeInfo(o[2].toString());

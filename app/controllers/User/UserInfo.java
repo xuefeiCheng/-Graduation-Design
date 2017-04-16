@@ -69,6 +69,33 @@ public static void getStudentClassJson(String userId){
         teacherUser user = teacherUser.findByTeacherUserId(userId);
         renderJSON(user.toJson());
     }
+    //    用于获取 教师信息 包括 教师表中的所有数据 以及 学院信息name
+    public static JsonObject teacherInfo(String userId){
+        JsonObject json = new JsonObject();
+//        获得学生 实体
+//        studentUser st =studentUser.findByStudentUserId(stId);
+//        获得学生 课程表中的数据
+        teacherCollegeLink st = teacherCollegeLink.getTeacherCollegeInfo(userId);
+        json.addProperty("name",st.te.name);
+        json.addProperty("id",st.te.id);
+        json.addProperty("sex",st.te.sex);
+//        json.addProperty("xy",st.te.xy);
+        json.addProperty("jg",st.te.jg);
+        json.addProperty("zzmm",st.te.zzmm);
+        json.addProperty("sfz",st.te.sfz);
+        json.addProperty("mz",st.te.mz);
+        json.addProperty("rxdate",st.te.rxdate);
+        json.addProperty("zc",st.te.zc);
+        json.addProperty("score",st.te.score);
+
+        json.addProperty("email", st.te.email);
+        json.addProperty("dz", st.te.dz);
+        json.addProperty("phone", st.te.phone);
+
+        json.addProperty("college", st.co.name);
+
+        return json;
+    }
 
     //    更改 督导 个人信息
     public static void changeInfo_le(String userId ,String email,String dz){

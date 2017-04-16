@@ -17,7 +17,7 @@ public class teacherUser extends Model {
 //    public String te_id;//用户id（学号、教工号、领导号）
     public String name;//用户id（学号、教工号、领导号）
     public String sex;//性别
-    public String xy;// 学院
+//    public String xy;// 学院
     public String jg;//籍贯
     public String zzmm;//政治面貌
     public String sfz;//身份证号
@@ -38,7 +38,7 @@ public class teacherUser extends Model {
         json.addProperty("name",st.name);
         json.addProperty("id",st.id);
         json.addProperty("sex",st.sex);
-        json.addProperty("xy",st.xy);
+//        json.addProperty("xy",st.xy);
         json.addProperty("jg",st.jg);
         json.addProperty("zzmm",st.zzmm);
         json.addProperty("sfz",st.sfz);
