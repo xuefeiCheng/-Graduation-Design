@@ -1,6 +1,7 @@
 package controllers.User;
 
 import models.*;
+import net.sf.json.JSONObject;
 import play.mvc.Controller;
 
 import java.util.List;
@@ -62,6 +63,13 @@ public static void getStudentListByCourse(String coId){
 //    根据 课程id 查找该老师开通的这门课的所有同学 的评分list
     public static void getTeacherResultListByCoId(String coId){
         List<teacherResult> teRe = teacherResult.findByCoId(coId);
+        renderJSON(teRe);
+    }
+//以班级为单位 得到班级总人数
+//    返回 count 班级人数
+//    classroom 班级 id
+    public static void GetTotalCount(){
+        List<JSONObject> teRe = studentClassroomLink.getTotalCount();
         renderJSON(teRe);
     }
 }

@@ -26,8 +26,6 @@ public class studentUser extends Model {
 //    public String st_id;//用户id（学号、教工号、领导号）
     public String name;//用户id（学号、教工号、领导号）
     public String sex;//性别
-    public String xy;// 学院
-    public String classroom;//班级
     public String zy;//专业
     public String jg;//籍贯
     public String zzmm;//政治面貌
@@ -36,6 +34,7 @@ public class studentUser extends Model {
     public String mz;//民族
     public String rxdate;//入学时间
     public String jb;//年级
+
 
 
     //可改项目
@@ -48,8 +47,6 @@ public class studentUser extends Model {
         json.addProperty("name",st.name);
         json.addProperty("id",st.id);
         json.addProperty("sex",st.sex);
-        json.addProperty("xy",st.xy);
-        json.addProperty("classroom",st.classroom);
         json.addProperty("zy",st.zy);
         json.addProperty("jg",st.jg);
         json.addProperty("zzmm",st.zzmm);

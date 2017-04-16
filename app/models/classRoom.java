@@ -3,10 +3,15 @@ package models;
 import com.google.gson.JsonObject;
 import play.db.jpa.Model;
 
+import javax.persistence.Entity;
+import javax.persistence.PersistenceUnit;
+
 /**
  * Created by Administrator on 2017/4/16.
  */
 //班级表
+@Entity
+@PersistenceUnit(name="default")
 public class classRoom extends Model{
     public String name;//班级 名称
 
