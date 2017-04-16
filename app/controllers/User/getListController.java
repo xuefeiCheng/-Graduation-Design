@@ -89,5 +89,8 @@ public static void getStudentListByCourse(String coId){
 
 //    以学院 为单位 查找所有老师的list 并且查出 老师的得分 score
 //    查询的表 为 老师用户表
-
+    public static void getScoreGroupByCollege(){
+        List<JSONObject> list = teacherCollegeLink.getScoreGroupByCollege();
+        renderJSON(list);
+    }
 }
