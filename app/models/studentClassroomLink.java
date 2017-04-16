@@ -36,9 +36,18 @@ public class studentClassroomLink extends Model {
         _parseJson(json, this);
         return json;
     }
-//    根据 学生id 查找 信息
+//    根据 学生id 查找 信息 只能返回 该表中的 数据 不能获得 link表中的所有数据
+//    返回  status
     public static studentClassroomLink GetClassRoom(String stId){
         return studentClassroomLink.find("st_id=?",Long.valueOf(stId)).first();
+    }
+//    根据 学生id 返回 班级信息
+    public static studentClassroomLink getClassInfo(String stId){
+        return studentClassroomLink.find("st_id = ?",Long.valueOf(stId)).first();
+    }
+//根据 学生id 返回 学生 班级所有记录
+    public static List<studentClassroomLink> findStudentClassByStudent(String stId){
+        return studentClassroomLink.find("st_id=?",Long.valueOf(stId)).fetch();
     }
 
 //    根据 班级 分组 获得班级总人数

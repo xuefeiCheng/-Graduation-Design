@@ -1,10 +1,10 @@
 package controllers.User;
 
-import models.adminUser;
-import models.leaderUser;
-import models.studentUser;
-import models.teacherUser;
+import com.google.gson.JsonObject;
+import models.*;
 import play.mvc.Controller;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/4/9.
@@ -18,10 +18,44 @@ public class UserInfo extends Controller {
         user.save();
         renderJSON(user);
     }
-    //    用于获取 学生 个人信息
+    //    用于获取 学生 个人信息 查找的是 学生用户表
     public static void getStudentJson(String userId){
         studentUser st = studentUser.findByStudentUserId(userId);
         renderJSON(st.toJson());
+    }
+//    用于获取  学生个人信息 查找的是 学生 班级表
+public static void getStudentClassJson(String userId){
+//    List<studentClassroomLink> stClass = studentClassroomLink.findStudentClassByStudent(userId);
+    studentClassroomLink ss = studentClassroomLink.GetClassRoom(userId);
+//    ss 中 包括 student表中的信息 也包括 class中的信息
+    renderJSON(ss.classroom);
+}
+//    用于获取 学生信息 包括 学生表中的所有数据 以及班级信息name 学院信息name
+    public static JsonObject studentInfo(String userId){
+        JsonObject json = new JsonObject();
+//        获得学生 实体
+//        studentUser st =studentUser.findByStudentUserId(stId);
+//        获得学生 课程表中的数据
+        studentClassroomLink st = studentClassroomLink.GetClassRoom(userId);
+        json.addProperty("name",st.st.name);
+        json.addProperty("id",st.st.id);
+        json.addProperty("sex",st.st.sex);
+        json.addProperty("zy",st.st.zy);
+        json.addProperty("jg",st.st.jg);
+        json.addProperty("zzmm",st.st.zzmm);
+        json.addProperty("sfz",st.st.sfz);
+        json.addProperty("lb",st.st.lb);
+        json.addProperty("mz",st.st.mz);
+        json.addProperty("rxdate",st.st.rxdate);
+        json.addProperty("jb", st.st.jb);
+
+        json.addProperty("email", st.st.email);
+        json.addProperty("dz", st.st.dz);
+        json.addProperty("phone", st.st.phone);
+
+        json.addProperty("classroom", st.classroom.name);
+
+        return json;
     }
 //    更改 教师 个人信息
     public static void changeInfo_te(String userId ,String email,String dz){

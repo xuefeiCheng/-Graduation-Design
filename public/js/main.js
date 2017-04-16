@@ -406,7 +406,7 @@ angular.module('app')
         function getStudentJson(){
             $http({
                 method:'post',
-                url:'/api/UserInfo/getStudentJson',
+                url:'/api/UserInfo/studentInfo',
                 params:{
                     'userId':$stateParams.UserId
                 }
