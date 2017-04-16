@@ -481,11 +481,12 @@ angular.module('app')
         function getTeacherJson(){
             $http({
                 method:'post',
-                url:'/api/UserInfo/getTeacherJson',
+                url:'/api/UserInfo/teacherInfo',
                 params:{
                     'userId':$stateParams.UserId
                 }
             }).success(function(data){
+                console.log("获得老师的所有信息");
                 console.log(data);
                 $scope.user = data;
             });
