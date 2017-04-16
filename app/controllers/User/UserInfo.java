@@ -122,4 +122,12 @@ public static void getStudentClassJson(String userId){
         adminUser user = adminUser.findByAdminUserId(userId);
         renderJSON(user.toJson());
     }
+
+
+    //    输入 学院id 或者 教师 id
+//    获得 教师 学院 link 表中的全部信息
+    public static void getTeacherCollegeInfo(String nn){
+        teacherCollegeLink te = teacherCollegeLink.getTeacherCollegeInfo(nn);
+        renderJSON(te);
+    }
 }

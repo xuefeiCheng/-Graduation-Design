@@ -1,11 +1,15 @@
 package models;
 
 import com.google.gson.JsonObject;
+import net.sf.json.JSONObject;
+import play.db.jpa.JPA;
 import play.db.jpa.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PersistenceUnit;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/4/9.
@@ -69,8 +73,5 @@ public class teacherUser extends Model {
     public static teacherUser findByTeacherUserId(String te_id){
         return teacherUser.find("id", Long.valueOf(te_id)).first();
     }
-//    更新 评教得分
-    public void changeScore(Float score){
-        this.score =score;
-    }
+
 }

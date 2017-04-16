@@ -59,12 +59,11 @@ public static void teacherResultSet(String coId ,String stId ,Integer p1,Integer
         renderJSON(co);
     }
 
-//    更新  教师表中的 score字段
+//    更新  教师 学院 link表中的 score字段
     public static void scoreSave(String teId,Float score){
-        teacherUser te = teacherUser.findByTeacherUserId(teId);
+        teacherCollegeLink te = teacherCollegeLink.getTeacherCollegeInfo(teId);
         te.changeScore(score);
         te.save();
         renderJSON(te);
     }
-
 }
