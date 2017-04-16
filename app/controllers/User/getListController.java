@@ -2,9 +2,11 @@ package controllers.User;
 
 import models.*;
 import net.sf.json.JSONObject;
+import play.db.jpa.JPA;
 import play.mvc.Controller;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/4/11.
@@ -92,5 +94,23 @@ public static void getStudentListByCourse(String coId){
     public static void getScoreGroupByCollege(){
         List<JSONObject> list = teacherCollegeLink.getScoreGroupByCollege();
         renderJSON(list);
+    }
+
+//    获得 学生 评教状态是否更改
+    public static void GetP(String stId){
+        List<JSONObject> total = StudentCourseLink.getCourseTotalByStId(stId);
+        List<JSONObject> done = StudentCourseLink.getCourseDoneByStId(stId);
+//        int xx =Integer.parseInt(total.get(0).toString());
+//        int yy =Integer.parseInt(done.get(0).toString());
+        studentClassroomLink co =studentClassroomLink.GetClassRoom(stId);
+        if(total.get(0) ==done.get(0)){
+//            查 学生 班级 link表 更改状态 为1
+            co.changeStatus(1);
+        }else{
+            co.changeStatus(0);
+//            状态不更改 或者是 更改状态为0
+        }
+        co.save();
+        renderJSON(co);
     }
 }

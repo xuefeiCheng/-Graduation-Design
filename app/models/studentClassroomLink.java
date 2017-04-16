@@ -49,6 +49,11 @@ public class studentClassroomLink extends Model {
         return studentClassroomLink.find("st_id=?",Long.valueOf(stId)).fetch();
     }
 
+//    更新 状态
+    public void changeStatus(Integer status){
+        this.status = status;
+    }
+
 //    根据 班级 分组 获得班级总人数
 public static  List<JSONObject> getTotalCount(){
     List<JSONObject> list=new ArrayList<JSONObject>();

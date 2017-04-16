@@ -1,13 +1,17 @@
 package models;
 
 import com.google.gson.JsonObject;
+import net.sf.json.JSONObject;
+import play.db.jpa.JPA;
 import play.db.jpa.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.PersistenceUnit;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/4/11.
@@ -23,7 +27,7 @@ public class StudentCourseLink extends Model {
     public Integer status;//登录状态
 
     private void _parseJson(JsonObject json, StudentCourseLink st) {
-        json.addProperty("status",st.status);
+        json.addProperty("status", st.status);
 
     }
 
@@ -55,5 +59,17 @@ public class StudentCourseLink extends Model {
         this.status = st;
 //        默认为0
 //        已评为1
+    }
+
+//    获得  学生的选修的所有课程数
+public static List<JSONObject> getCourseTotalByStId(String stId){
+    List count =JPA.em().createNativeQuery("SELECT count(course_id) FROM `studentcourselink` WHERE student_id="+stId).getResultList();
+    return count;
+
+}
+  //    查询 学生评教的课程数
+    public static List<JSONObject> getCourseDoneByStId(String stId){
+        return JPA.em().createNativeQuery("SELECT count(course_id) FROM `studentcourselink` WHERE `status`=1 AND student_id="+stId).getResultList();
+
     }
 }
