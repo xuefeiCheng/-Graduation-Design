@@ -1142,4 +1142,31 @@ $http({
         //    然后  算老师排名的时候  从教师表中取出  计算排名
 
         });
+    })
+    .controller("CountCtrl",function($scope,$http){
+        $http({
+            method:"post",
+            url:"/api/getListController/GetPercentGroupByCollege"
+        }).success(function(data){
+            console.log("评教率");
+            console.log(data);
+            var jobsSortObject = {};
+            for(var i =0; i< data.length; i++){
+                var job = data[i],
+                    mark = job.college,//mark 是 学院 id
+                    //mark = job.collegeName;//mark 是 collegeName
+                    jobItem = jobsSortObject[mark];
+                if(jobItem){
+                    jobsSortObject[mark].push(job);
+
+                }else{
+                    jobsSortObject[mark] = [job];
+
+                }
+                jobsSortObject[mark].name=job.collegeName ;
+            }
+            $scope.dataHa = jobsSortObject;
+            console.log("这是按 学院id 分组的评教率");
+            console.log(jobsSortObject);
+        })
     });

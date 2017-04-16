@@ -26,4 +26,8 @@ public class college extends Model {
         _parseJson(json, this);
         return json;
     }
+//    根据id 查信息
+    public static college getCollegeInfo(String co_id){
+        return college.find("id",Long.valueOf(co_id)).first();
+    }
 }

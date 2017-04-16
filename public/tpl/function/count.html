@@ -8,5 +8,11 @@
 评教统计
 左侧:班级列表->班级评教统计人数(评教率v)
 右侧:详情页面
+<ul ng-repeat="da in dataHa">
+    <span>{{da.name}}</span>
+    <li ng-repeat="d in da">
+        {{d.classroom}}-{{d.percent}}
+    </li>
+</ul>
 </body>
 </html>

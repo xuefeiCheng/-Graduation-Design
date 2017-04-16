@@ -57,7 +57,7 @@ public static void getStudentListByCourse(String coId){
     }
 //    根据学生id 课程id 返回该条记录 查询 结果表
     public static void getResult(String coId,String stId){
-        teacherResult co = teacherResult.GetResultByStCo(coId,stId);
+        teacherResult co = teacherResult.GetResultByStCo(coId, stId);
         renderJSON(co);
     }
 //    根据 课程id 查找该老师开通的这门课的所有同学 的评分list
@@ -71,5 +71,19 @@ public static void getStudentListByCourse(String coId){
     public static void GetTotalCount(){
         List<JSONObject> teRe = studentClassroomLink.getTotalCount();
         renderJSON(teRe);
+    }
+
+//    以学院为单位 查出 所有班级 的评教率
+//    输出 班级id
+//    每个班级 对应的评教率
+//    json 格式
+//    [
+//          {"percent":22.02,"classroom":101331,"college":1},
+//          {"percent":30.43,"classroom":101661,"college":1},
+//          {"percent":20.1,"classroom":201331,"college":2}
+//  ]
+    public static void GetPercentGroupByCollege(){
+        List<JSONObject> list = classRoomCollegeLink.getPercentGroupByCollege();
+        renderJSON(list);
     }
 }

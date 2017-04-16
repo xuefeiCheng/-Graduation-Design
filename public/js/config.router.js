@@ -179,9 +179,9 @@ angular.module('app')
                     })
                     //评教统计
                     .state('app.count', {
-                        url: '/count',
+                        url: '/count/:UserId',
                         abstract: true,
-                        //controller: 'studentsCtrl',
+                        controller: 'CountCtrl',
                         templateUrl: 'tpl/function/count.html'
                         //resolve: load(['moment', 'echarts3'])
                     })
