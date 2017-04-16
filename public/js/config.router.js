@@ -194,8 +194,8 @@ angular.module('app')
                     })
                     //老师排名
                     .state('app.rankingList', {
-                        url: '/rankingList',
-                        //controller: 'studentsCtrl',
+                        url: '/rankingList/:UserId',
+                        controller: 'rankingCtrl',
                         templateUrl: 'tpl/function/rankingList.html'
                         //resolve: load(['moment', 'echarts3'])
                     })

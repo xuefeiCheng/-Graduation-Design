@@ -7,5 +7,11 @@
 <body>
 老师排名页面
 老师按分数排序  分数前十  列表详情页面
+<ul ng-repeat="da in dataHa">
+    {{da.name}}
+    <li ng-repeat="d in da" ng-if="$index<1">
+        {{d.teacherName}}-{{d.score}}
+    </li>
+</ul>
 </body>
 </html>

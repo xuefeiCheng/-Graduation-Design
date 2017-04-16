@@ -1170,4 +1170,35 @@ $http({
             console.log("这是按 学院id 分组的评教率");
             console.log(jobsSortObject);
         })
-    });
+    })
+    .controller("rankingCtrl",function($http,$scope){
+    //查询 教师 学院link 表
+    //    输出 所有数据
+    //    组织数据 以学院为依据 分组 展示在前端界面
+    //    遗留问题 取top10
+        $http({
+            method:"post",
+            url:"/api/getListController/getScoreGroupByCollege"
+        }).success(function(data){
+            console.log("教师排名");
+            console.log(data);
+            var jobsSortObject = {};
+            for(var i =0; i< data.length; i++){
+                var job = data[i],
+                    mark = job.college,//mark 是 学院 id
+                //mark = job.collegeName;//mark 是 collegeName
+                    jobItem = jobsSortObject[mark];
+                if(jobItem){
+                    jobsSortObject[mark].push(job);
+
+                }else{
+                    jobsSortObject[mark] = [job];
+
+                }
+                jobsSortObject[mark].name=job.collegeName ;
+            }
+            $scope.dataHa = jobsSortObject;
+            console.log("这是按 学院id 分组的评教率");
+            console.log(jobsSortObject);
+        })
+    })
