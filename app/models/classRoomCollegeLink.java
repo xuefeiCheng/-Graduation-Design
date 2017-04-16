@@ -51,10 +51,12 @@ public static List<JSONObject> getPercentGroupByCollege(){
     for (Object object : lists) {
         Object[] o=(Object[]) object;
         college co = models.college.getCollegeInfo(o[2].toString());
+        classRoom ca = classRoom.getClassInfo(o[1].toString());
         JSONObject json=new JSONObject();
         json.put("percent", o[0]);
         json.put("classroom", o[1]);
         json.put("college", o[2]);
+        json.put("classRoomName", ca.name);
         json.put("collegeName", co.name);
         list.add(json);
     }

@@ -25,4 +25,8 @@ public class classRoom extends Model{
         _parseJson(json, this);
         return json;
     }
+//    根据id 返回数据
+    public static classRoom getClassInfo(String cl_id){
+        return classRoom.find("id",Long.valueOf(cl_id)).first();
+    }
 }
