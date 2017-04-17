@@ -721,6 +721,14 @@ function getCoursesListByStudent(){
                 console.log("学生的整体状态查询更改完毕");
             })
         }
+        function setPercent(){
+            $http({
+                method: "post",
+                url: "/api/getListController/setPercent"
+            }).success(function(data){
+                console.log("评教率已更改，请查看 班级学院link表中的percent字段是否变化");
+            })
+        }
         $scope.submit = function(){
             //页面验证 值不能为空 出现弹框
             //获得 对老师的评语
@@ -773,6 +781,10 @@ function getCoursesListByStudent(){
                         //更改数据库表 学生 班级link表
                         //调用接口 /api/getListController/SetP
                         SetP();
+                        //若 学生 状态为 评教结束 则应相应更改 评教率
+                        //调用接口 /api/getListController/setPercent
+                        //先计算 在更新库表 班级 学院link表中的 percent字段
+                        setPercent();
                         console.log(data);
                         $scope.$emit('status-te');
                     });

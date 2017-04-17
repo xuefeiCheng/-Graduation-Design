@@ -125,7 +125,7 @@ public class getListController extends Controller {
 //    班级总人数 查询model studentclassroomlink的getTotalCount()方法
 //    以班级分组 查询 班级中 未完成评教的人数 查询 model studentclassroomlink的getNotDoneCount()方法
 //    评教率 = （总人数-未参评人数）/总人数
-    public static void getPercent() {
+    public static void setPercent() {
         List<JSONObject> totalCount = studentClassroomLink.getTotalCount();
         List<JSONObject> notDoneCount = studentClassroomLink.getNotDoneCount();
 //        计算的评教率 需要 保存到  库表 班级学院link表中
