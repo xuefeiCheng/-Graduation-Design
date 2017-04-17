@@ -39,6 +39,13 @@ public class classRoomCollegeLink extends Model{
         return json;
     }
 
+    public static List<classRoomCollegeLink> classRoomCollegeLink(){
+        return classRoomCollegeLink.findAll();
+    }
+//根据 班级 id 返回数据
+    public static classRoomCollegeLink getInfoByClassId(String classId){
+        return classRoomCollegeLink.find("classroom_id =?",Long.valueOf(classId)).first();
+    }
 //     更新 评教率
     public void changeP(float p){
         this.percent = p;

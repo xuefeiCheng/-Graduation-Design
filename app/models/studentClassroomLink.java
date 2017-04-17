@@ -67,5 +67,19 @@ public static  List<JSONObject> getTotalCount(){
     }
     return list;
 }
-//    根据班级分组 获得 status=1 的学生 人数
+//    根据班级分组 获得 status=0 的学生 人数
+//SELECT count(st_id),classroom_id FROM `studentclassroomlink` WHERE `status`=0 GROUP BY classroom_id
+//得到的是  未参评的学生人数
+    public static  List<JSONObject> getNotDoneCount(){
+        List<JSONObject> list=new ArrayList<JSONObject>();
+        List lists= JPA.em().createNativeQuery("SELECT count(st_id),classroom_id FROM `studentclassroomlink` WHERE `status`=0 GROUP BY classroom_id").getResultList();
+        for (Object object : lists) {
+            Object[] o=(Object[]) object;
+            JSONObject json=new JSONObject();
+            json.put("count", o[0]);
+            json.put("classroom", o[1]);
+            list.add(json);
+        }
+        return list;
+    }
 }
