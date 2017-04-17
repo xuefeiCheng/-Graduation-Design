@@ -710,6 +710,17 @@ function getCoursesListByStudent(){
         };$scope.getValue10 = function(val){
             value10= val;
         };
+        function SetP(){
+            $http({
+                method: "post",
+                url: "/api/getListController/SetP",
+                params: {
+                    "stId": $stateParams.UserId
+                }
+            }).success(function(data){
+                console.log("学生的整体状态查询更改完毕");
+            })
+        }
         $scope.submit = function(){
             //页面验证 值不能为空 出现弹框
             //获得 对老师的评语
@@ -757,7 +768,11 @@ function getCoursesListByStudent(){
                         }
                     }).success(function(data){
                         //传递消息
-                        console.log("状态更改完毕");
+                        console.log("本课程状态更改完毕");
+                        //根据 该学生 选修的所有课程的状态 更改该学生的评教状态
+                        //更改数据库表 学生 班级link表
+                        //调用接口 /api/getListController/SetP
+                        SetP();
                         console.log(data);
                         $scope.$emit('status-te');
                     });

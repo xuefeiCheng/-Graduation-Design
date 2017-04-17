@@ -103,8 +103,8 @@ public class getListController extends Controller {
         renderJSON(list);
     }
 
-    //    获得 学生 评教状态是否更改
-    public static void GetP(String stId) {
+    //     学生 评教状态更改
+    public static void SetP(String stId) {
         List<JSONObject> total = StudentCourseLink.getCourseTotalByStId(stId);
         List<JSONObject> done = StudentCourseLink.getCourseDoneByStId(stId);
 //        int xx =Integer.parseInt(total.get(0).toString());
