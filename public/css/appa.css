@@ -1,6 +1,6 @@
 html {
     /* background-color: #f0f3f4; */
-    background-color: #F7F7F7;
+    background-color: #F7F7F7!important;
 
 }
 
@@ -37,6 +37,17 @@ footer{
 .m-b {
     margin-bottom: 15px;
 }
+.padder {
+    padding-right: 15px;
+    padding-left: 15px;
+    /*margin-bottom: 60px;*/
+}
+.padder-r{
+    padding-right: 20px;
+}
+.padder-l{
+    padding-left: 15px;
+}
 /*字体颜色*/
 .col-lbr {
     color:#58666e;
@@ -55,6 +66,48 @@ footer{
 }
 /*自定义 列表*/
 /*样式一*/
+.ranking{
+    background: #bdbdbd;
+    color: #fff;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    text-align: center;
+    font-size: 12px;
+}
+.red-ranking{
+    background: #cc0000;
+}
+.red-ranking-font{
+    color: #cc0000;
+}
+
+.hot-title{
+    padding: 8px 10px 0px 10px !important;
+}
+.hot-title span{
+    display: inline-block;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+.color-blue-lbr{
+    color:#004B97;
+}
+.f6{
+    font-size: 1rem;
+}
+.font-title{
+    color:#58666e;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.font-bold {
+    font-weight: 700;
+    /*font-size: 16px;*/
+}
 .collection-box{
     border:1px solid #dde6e6;
     background-color:#fff;

@@ -42,7 +42,7 @@ angular.module('app')
                         abstract: true,
                         url: '/app',
                         templateUrl: layout,
-                        resolve:load(['css/header.css'])
+                        resolve:load(['css/header.css','moment', 'echarts3'])
                         //resolve:(['js/home/home.js'])
                     })
                     //首页
@@ -60,7 +60,7 @@ angular.module('app')
                         //    }
                         //}
                         controller: 'homeCtrl',
-                        templateUrl: 'tpl/blocks/home.html'
+                        templateUrl: 'tpl/blocks/home.html',
                         // use resolve to load other dependences
                         //resolve: load(['moment', 'echarts3'])
                     })
@@ -182,8 +182,8 @@ angular.module('app')
                         url: '/count/:UserId',
                         abstract: true,
                         controller: 'CountCtrl',
-                        templateUrl: 'tpl/function/count.html'
-                        //resolve: load(['moment', 'echarts3'])
+                        templateUrl: 'tpl/function/count.html',
+                        resolve: load(['libs/echarts/d3.min.js'])
                     })
                     //评教统计  详情页面
                     .state('app.count.detail', {

@@ -62,6 +62,6 @@ public class adminUser extends Model {
 
     //    根据id 得到leader列表
     public static adminUser findByAdminUserId(String te_id){
-        return adminUser.find("id",te_id).first();
+        return adminUser.find("id",Long.valueOf(te_id)).first();
     }
 }

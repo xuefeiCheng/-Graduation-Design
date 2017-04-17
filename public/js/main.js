@@ -1,6 +1,20 @@
 /**
  * Created by cxf on 2016/9/26.
  */
+
+//自定义 服务  用于加载 Echars图
+angular.module('app')
+    .directive('line', function() {
+        return {
+            scope: {
+                id: "@"
+            },
+            restrict: 'E',
+            template: '<div style="height:600px;width:1000px;margin: 0 auto"></div>',
+            replace: true
+
+        };
+});
 angular.module('app')
     .controller("AppCtrl",["$scope","$state",function($scope,$state){
         $scope.$on("USER",function(event,data){
@@ -1171,13 +1185,51 @@ $http({
 
         });
     })
-    .controller("CountCtrl",function($scope,$http){
+    .controller("CountCtrl",function($scope,$http,$rootScope){
+
+        if (echarts.version == '3.2.2') {
+            $rootScope.echarts33 = echarts;
+        }
+
+        //var colors = ['#88cffa', '#d36ed4'];
         $http({
             method:"post",
             url:"/api/getListController/GetPercentGroupByCollege"
         }).success(function(data){
             console.log("评教率");
             console.log(data);
+
+            //将数据 处理成 每个属性一个 数组
+//            var effectRow1 =[];
+//            var map = {};
+//            for(i=0;i<data.length;i++){
+//                effectRow1["all"]=effectRow1.push(data[i]);
+//            }
+//            for(i=0;i<effectRow1.length;i++){
+//
+////                           //把相同值的属性取出来放进key中
+//                var key =effectRow1[i].college;
+//                //console.log(key);
+//                map[key] = map[key] || (map[key] = []);
+//                //把json对象进行分组处理，属性值相同的则放进一起，此时map[key]是数组
+//                map[key].push(effectRow1[i]);
+//                map[key].name=effectRow1[i].collegeName ;
+//                //console.log(map[key].name);
+//
+//            }
+//            for(var name in map){
+//                var classRoomName=[];
+//                var percent =[];
+//                for(var i = 0;i < map[name].length; i++) {
+//                    classRoomName.push(map[name][i].classRoomName);
+//                    percent.push(map[name][i].percent)
+//                }
+//
+//                //console.log( classRoomName);
+//
+//            }
+
+            //将数据 处理成 以学院分组
             var jobsSortObject = {};
             for(var i =0; i< data.length; i++){
                 var job = data[i],
@@ -1196,6 +1248,48 @@ $http({
             $scope.dataHa = jobsSortObject;
             console.log("这是按 学院id 分组的评教率");
             console.log(jobsSortObject);
+
+        //    将数据  绑定给 E charts图表
+        //    var myChart = $rootScope.echarts33.init(document.getElementById('countEcharts'));
+        //    var option = {
+        //        color: ['#3398DB'],
+        //        tooltip : {
+        //            trigger: 'axis',
+        //            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+        //                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        //            }
+        //        },
+        //        grid: {
+        //            left: '3%',
+        //            right: '4%',
+        //            bottom: '3%',
+        //            containLabel: true
+        //        },
+        //        xAxis : [
+        //            {
+        //                type : 'category',
+        //                data : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        //                axisTick: {
+        //                    alignWithLabel: true
+        //                }
+        //            }
+        //        ],
+        //        yAxis : [
+        //            {
+        //                type : 'value'
+        //            }
+        //        ],
+        //        series : [
+        //            {
+        //                name:'直接访问',
+        //                type:'bar',
+        //                barWidth: '60%',
+        //                //data:[10, 52, 200, 334, 390, 330, 220]
+        //                data:[10, 52, 200, 334, 390, 330, 220]
+        //            }
+        //        ]
+        //    };
+        //    myChart.setOption(option);
         })
     })
     .controller("rankingCtrl",function($http,$scope){
