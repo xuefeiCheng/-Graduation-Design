@@ -10,7 +10,7 @@
 <ul ng-repeat="da in dataHa">
     {{da.name}}
     <li ng-repeat="d in da" ng-if="$index<1">
-        {{d.teacherName}}-{{d.score}}
+       <h4>TOP1:</h4> {{d.teacherName}}-{{d.score}}
     </li>
 </ul>
 </body>
