@@ -1153,9 +1153,21 @@ function getCoursesListByStudent(){
                 text:"是否教学进度节奏适中，能有效利用上课时间，上课效率高",
                 s:10
             }
-
-
         ];
+        $scope.pages=[5,10,15,20];
+        //换页函数
+        function request(){
+        //    查询数据 输入 pagesize
+        }
+
+        $scope.pageSizeChange=function(pageSize){
+            $scope.pageSize = pageSize;
+            request();
+        };
+        $scope.pageChange=function(currentPage){
+            $scope.currentPage=currentPage;
+            request();
+        };
         getCoursesListByTeacher();
         function getCoursesListByTeacher(){
             $http({

@@ -40,6 +40,21 @@
 {{li.stId}}：{{li.content}}
         </span>
 </li>
-
+<footer class="panel-footer">
+    <div class="row padder">
+        <div class="pull-left">
+            每页显示
+            <select  class="input-sm form-control w-xs inline v-middle" ng-model="pageSize"
+                     ng-options="page for page in pages"  ng-change="pageSizeChange(pageSize)"></select>
+            条
+        </div>
+        <div class="pull-right">
+            <pagination boundary-links="true" total-items="totalItems" items-per-page="pageSize"
+                        ng-model="currentPage" ng-change="pageChange(currentPage)" class="m-t-none m-b-none"
+                        previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;"
+                        last-text="&raquo;"></pagination>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

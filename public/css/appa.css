@@ -37,6 +37,24 @@ footer{
 .m-b {
     margin-bottom: 15px;
 }
+.w-xs {
+    width: 90px;
+}
+.inline {
+    display: inline-block !important;
+}
+
+.v-middle {
+    vertical-align: middle !important;
+}
+
+.v-top {
+    vertical-align: top !important;
+}
+
+.v-bottom {
+    vertical-align: bottom !important;
+}
 .padder {
     padding-right: 15px;
     padding-left: 15px;
