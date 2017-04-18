@@ -26,8 +26,8 @@
       <file leaf-file-name="count.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/tpl/function/count.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.75">
-              <caret line="19" column="73" selection-start-line="19" selection-start-column="73" selection-end-line="19" selection-end-column="73" />
+            <state vertical-scroll-proportion="-8.071428">
+              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="20" selection-end-column="10" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -45,14 +45,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.76600987">
-              <caret line="1318" column="34" selection-start-line="1318" selection-start-column="34" selection-end-line="1318" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1513" column="48" selection-start-line="1513" selection-start-column="48" selection-end-line="1513" selection-end-column="48" />
               <folding>
-                <marker date="1492504816794" expanded="true" signature="261:301" placeholder="..." />
+                <marker date="1492507478135" expanded="true" signature="261:301" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rankingList.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/tpl/function/rankingList.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.35449734">
+              <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,7 +123,6 @@
         <option value="$PROJECT_DIR$/app/models/teacherCollegeLink.java" />
         <option value="$PROJECT_DIR$/app/models/studentClassroomLink.java" />
         <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/public/tpl/function/rankingList.html" />
         <option value="$PROJECT_DIR$/app/models/leaderUser.java" />
         <option value="$PROJECT_DIR$/public/tpl/function/information.html" />
         <option value="$PROJECT_DIR$/app/models/adminUser.java" />
@@ -127,6 +136,7 @@
         <option value="$PROJECT_DIR$/app/models/classRoomCollegeLink.java" />
         <option value="$PROJECT_DIR$/public/tpl/function/count.html" />
         <option value="$PROJECT_DIR$/public/js/main.js" />
+        <option value="$PROJECT_DIR$/public/tpl/function/rankingList.html" />
       </list>
     </option>
   </component>
@@ -804,12 +814,12 @@
       <workItem from="1492424404727" duration="472000" />
       <workItem from="1492475600162" duration="2360000" />
       <workItem from="1492480033106" duration="1934000" />
-      <workItem from="1492497071359" duration="7593000" />
+      <workItem from="1492497071359" duration="9973000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="249423000" />
+    <option name="totallyTimeSpent" value="251803000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -821,7 +831,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -863,7 +873,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1205,14 +1215,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/tpl/function/rankingList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65873015">
-          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/User/getListController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.733334">
@@ -1223,8 +1225,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/tpl/function/count.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.75">
-          <caret line="19" column="73" selection-start-line="19" selection-start-column="73" selection-end-line="19" selection-end-column="73" />
+        <state vertical-scroll-proportion="-8.071428">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="20" selection-end-column="10" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -1233,11 +1235,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76600987">
-          <caret line="1318" column="34" selection-start-line="1318" selection-start-column="34" selection-end-line="1318" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1513" column="48" selection-start-line="1513" selection-start-column="48" selection-end-line="1513" selection-end-column="48" />
           <folding>
-            <marker date="1492504816794" expanded="true" signature="261:301" placeholder="..." />
+            <marker date="1492507478135" expanded="true" signature="261:301" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/tpl/function/rankingList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35449734">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>

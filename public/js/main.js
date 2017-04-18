@@ -1352,7 +1352,22 @@ $http({
 
         })
     })
-    .controller("rankingCtrl",function($http,$scope){
+    .controller("rankingCtrl",function($http,$scope,$rootScope){
+        var id =[];//存储 处理后的id 列表
+        var myCharts=[];//存储 处理好的 charts 列表
+        $http({
+            method:"post",
+            url:"/api/getListController/getCollegeIdGroup"
+        }).success(function(data){
+            for(var i= 0,l=data.length;i<l;i++){
+                id.push("teEchart"+data[i]);
+                myCharts.push("myCharts"+data[i]);
+            }
+            $scope.idLibs =id;
+        });
+        if (echarts.version == '3.2.2') {
+            $rootScope.echarts33 = echarts;
+        }
     //查询 教师 学院link 表
     //    输出 所有数据
     //    组织数据 以学院为依据 分组 展示在前端界面
@@ -1363,6 +1378,166 @@ $http({
         }).success(function(data){
             console.log("教师排名");
             console.log(data);
+
+            //最新视图
+            //将数据 处理成 每个属性一个 数组
+            var effectRow1 =[];
+            var map = {};
+            for(i=0;i<data.length;i++){
+                effectRow1["all"]=effectRow1.push(data[i]);
+            }
+            for(i=0;i<effectRow1.length;i++){
+
+//                           //把相同值的属性取出来放进key中
+                var key =effectRow1[i].college;
+                //console.log(key);
+                map[key] = map[key] || (map[key] = []);
+                //把json对象进行分组处理，属性值相同的则放进一起，此时map[key]是数组
+                map[key].push(effectRow1[i]);
+                map[key].name=effectRow1[i].collegeName ;
+                //console.log(map[key].name);
+                //$scope.map
+
+            }
+            $scope.map =map;
+            console.log(map);
+            for(var name in map) {
+                var classRoomName = [];
+                var percent = [];
+                for (var i = 0; i < map[name].length; i++) {
+                    classRoomName.push(map[name][i].teacherName);
+                    percent.push(map[name][i].score);
+
+                    //    将数据  绑定给 E charts图表
+
+                    var idLibs = id;
+                    console.log(idLibs[i]);
+                    //var myCharts = ["myChart1", "myChart2"];
+                    console.log(myCharts[i]);
+                    console.log(document.getElementById(idLibs[i]));
+                    myCharts[i] = $rootScope.echarts33.init(document.getElementById(idLibs[i]));
+
+                    //var option = {
+                    //    color: ['#3398DB'],
+                    //    tooltip: {
+                    //        trigger: 'axis',
+                    //        axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    //            type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    //        }
+                    //    },
+                    //    title: {
+                    //        left: 'center',
+                    //        text: map[name].name
+                    //    },
+                    //    grid: {
+                    //        left: '3%',
+                    //        right: '4%',
+                    //        bottom: '3%',
+                    //        containLabel: true
+                    //    },
+                    //    //下载 区域缩放功能等
+                    //    toolbox: {
+                    //        feature: {
+                    //            dataZoom: {
+                    //                yAxisIndex: 'none'
+                    //            },
+                    //            restore: {},
+                    //            saveAsImage: {}
+                    //        }
+                    //    },
+                    //    xAxis: [
+                    //        {
+                    //            type: 'category',
+                    //            name: "班级",
+                    //            data: classRoomName,
+                    //            axisTick: {
+                    //                alignWithLabel: true
+                    //            }
+                    //        }
+                    //    ],
+                    //    yAxis: [
+                    //        {
+                    //            type: 'value',
+                    //            name: "评教率(%)"
+                    //        }
+                    //    ],
+                    //    series: [
+                    //        {
+                    //            name: '评教率',
+                    //            type: 'bar',
+                    //            barWidth: '60%',
+                    //            label: {
+                    //                normal: {
+                    //                    show: true,
+                    //                    position: 'inside'
+                    //                }
+                    //            },
+                    //            //data:[10, 52, 200, 334, 390, 330, 220]
+                    //            data: percent
+                    //        }
+                    //    ]
+                    //};
+                    option = {
+                        title: {
+                            text: map[name].name,
+                            left: 'center',
+                            subtext: '数据来自评教系统结果表'
+                        },
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'shadow'
+                            }
+                        },
+                        //legend: {
+                        //    data: ['2011年', '2012年']
+                        //},
+                        grid: {
+                            left: '3%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                            //下载 区域缩放功能等
+                            toolbox: {
+                                feature: {
+                                    dataZoom: {
+                                        yAxisIndex: 'none'
+                                    },
+                                    restore: {},
+                                    saveAsImage: {}
+                                }
+                            },
+                        xAxis: {
+                            type: 'value',
+                            name:"分数",
+                            boundaryGap: [0, 0.01]
+                        },
+                        yAxis: {
+                            type: 'category',
+                            name:"教师姓名",
+                            data: classRoomName
+                        },
+                        series: [
+                            {
+                                name: '得分',
+                                type: 'bar',
+                                data: percent
+                            }
+                            //,
+                            //{
+                            //    name: '2012年',
+                            //    type: 'bar',
+                            //    data: [19325, 23438, 31000, 121594, 134141, 681807]
+                            //}
+                        ]
+                    };
+                    myCharts[i].setOption(option);
+                }
+            }
+
+
+                //表格视图 数据 组织
             var jobsSortObject = {};
             for(var i =0; i< data.length; i++){
                 var job = data[i],
@@ -1382,4 +1557,4 @@ $http({
             console.log("这是按 学院id 分组的评教率");
             console.log(jobsSortObject);
         })
-    })
+    });
