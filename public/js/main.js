@@ -689,16 +689,16 @@ function getCoursesListByStudent(){
         });
     //    评教页面 选择项目
         $scope.pingjia = [{
-            value : 5,
+            value : 10,
             name : "优秀"
         },{
-            value : 4,
+            value : 8,
             name : "良好"
         },{
-            value : 3,
+            value : 6,
             name : "中等"
         },{
-            value : 1,
+            value : 2,
             name : "差强人意"
         }];
     //   评教 获得 分数
