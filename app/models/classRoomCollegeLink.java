@@ -71,4 +71,10 @@ public static List<JSONObject> getPercentGroupByCollege(){
     return list;
 
 }
+
+//    以学院分组 输出学院id 用于 评教率统计功能中 动态产生界面所需id
+    public static List<JSONObject> getCollegeIdGroup(){
+        List lists= JPA.em().createNativeQuery("SELECT college_id FROM `classroomcollegelink` GROUP BY college_id").getResultList();
+        return lists;
+    }
 }

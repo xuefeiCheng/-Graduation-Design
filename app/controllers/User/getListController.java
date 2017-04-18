@@ -147,5 +147,11 @@ public class getListController extends Controller {
 //        renderJSON(totalCount);
         }
     }
+
+//    获得 学院id list
+public static void getCollegeIdGroup() {
+    List<JSONObject> idList = classRoomCollegeLink.getCollegeIdGroup();
+    renderJSON(idList);
+}
 }
 

@@ -23,13 +23,18 @@ angular.module('app')
             $scope.$broadcast("child",{data:data})
         });
     }])
-    .controller("LoginCtrl",["$scope","$state","$http",function($scope,$state,$http){
-
+    .controller("LoginCtrl",["$scope","$state","$http","$location",function($scope,$state,$http,$location){
+        //$location.reload();
+        $scope.reloadRoute = function () {
+            console.log("页面重新加载");
+            $window.location.reload();
+        };
     $("#student").keydown(function(event){
         if(event.keyCode ==13){
             $scope.login($scope.stName,$scope.stPsd);
         }
     });
+
         //$("#user").css("background-color","#B2E0FF");
 
         //原生js函数写法
@@ -219,6 +224,9 @@ angular.module('app')
 
     }])
     .controller("headerCtrl",function($scope,$state,$http,$stateParams,$rootScope,$injector){
+        $scope.goLogin = function(){
+            $state.go("login",{},{reload:true});
+        };
         $scope.$on("child",function(event,data){
             console.log("这是header");
             console.log(data);
@@ -1186,10 +1194,27 @@ $http({
         });
     })
     .controller("CountCtrl",function($scope,$http,$rootScope){
+        //动态加载id
+        //查表  班级学院表 查出 学院id
+        //SELECT college_id FROM `classroomcollegelink` GROUP BY college_id;
 
+            var id =[];//存储 处理后的id 列表
+            var myCharts=[];//存储 处理好的 charts 列表
+            $http({
+                method:"post",
+                url:"/api/getListController/getCollegeIdGroup"
+            }).success(function(data){
+                for(var i= 0,l=data.length;i<l;i++){
+                    id.push("countEchart"+data[i]);
+                    myCharts.push("myCharts"+data[i]);
+                }
+                $scope.idLibs =id;
+            });
         if (echarts.version == '3.2.2') {
             $rootScope.echarts33 = echarts;
         }
+
+
 
         //var colors = ['#88cffa', '#d36ed4'];
         $http({
@@ -1200,96 +1225,131 @@ $http({
             console.log(data);
 
             //将数据 处理成 每个属性一个 数组
-//            var effectRow1 =[];
-//            var map = {};
-//            for(i=0;i<data.length;i++){
-//                effectRow1["all"]=effectRow1.push(data[i]);
-//            }
-//            for(i=0;i<effectRow1.length;i++){
-//
-////                           //把相同值的属性取出来放进key中
-//                var key =effectRow1[i].college;
-//                //console.log(key);
-//                map[key] = map[key] || (map[key] = []);
-//                //把json对象进行分组处理，属性值相同的则放进一起，此时map[key]是数组
-//                map[key].push(effectRow1[i]);
-//                map[key].name=effectRow1[i].collegeName ;
-//                //console.log(map[key].name);
-//
-//            }
-//            for(var name in map){
-//                var classRoomName=[];
-//                var percent =[];
-//                for(var i = 0;i < map[name].length; i++) {
-//                    classRoomName.push(map[name][i].classRoomName);
-//                    percent.push(map[name][i].percent)
-//                }
-//
-//                //console.log( classRoomName);
-//
-//            }
-
-            //将数据 处理成 以学院分组
-            var jobsSortObject = {};
-            for(var i =0; i< data.length; i++){
-                var job = data[i],
-                    mark = job.college,//mark 是 学院 id
-                    //mark = job.collegeName;//mark 是 collegeName
-                    jobItem = jobsSortObject[mark];
-                if(jobItem){
-                    jobsSortObject[mark].push(job);
-
-                }else{
-                    jobsSortObject[mark] = [job];
-
-                }
-                jobsSortObject[mark].name=job.collegeName ;
+            var effectRow1 =[];
+            var map = {};
+            for(i=0;i<data.length;i++){
+                effectRow1["all"]=effectRow1.push(data[i]);
             }
-            $scope.dataHa = jobsSortObject;
-            console.log("这是按 学院id 分组的评教率");
-            console.log(jobsSortObject);
+            for(i=0;i<effectRow1.length;i++){
 
-        //    将数据  绑定给 E charts图表
-        //    var myChart = $rootScope.echarts33.init(document.getElementById('countEcharts'));
-        //    var option = {
-        //        color: ['#3398DB'],
-        //        tooltip : {
-        //            trigger: 'axis',
-        //            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-        //                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-        //            }
-        //        },
-        //        grid: {
-        //            left: '3%',
-        //            right: '4%',
-        //            bottom: '3%',
-        //            containLabel: true
-        //        },
-        //        xAxis : [
-        //            {
-        //                type : 'category',
-        //                data : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        //                axisTick: {
-        //                    alignWithLabel: true
-        //                }
-        //            }
-        //        ],
-        //        yAxis : [
-        //            {
-        //                type : 'value'
-        //            }
-        //        ],
-        //        series : [
-        //            {
-        //                name:'直接访问',
-        //                type:'bar',
-        //                barWidth: '60%',
-        //                //data:[10, 52, 200, 334, 390, 330, 220]
-        //                data:[10, 52, 200, 334, 390, 330, 220]
-        //            }
-        //        ]
-        //    };
-        //    myChart.setOption(option);
+//                           //把相同值的属性取出来放进key中
+                var key =effectRow1[i].college;
+                //console.log(key);
+                map[key] = map[key] || (map[key] = []);
+                //把json对象进行分组处理，属性值相同的则放进一起，此时map[key]是数组
+                map[key].push(effectRow1[i]);
+                map[key].name=effectRow1[i].collegeName ;
+                //console.log(map[key].name);
+                //$scope.map
+
+            }
+            $scope.map =map;
+            console.log(map);
+            for(var name in map){
+                var classRoomName=[];
+                var percent =[];
+                for(var i = 0;i < map[name].length; i++) {
+                    classRoomName.push(map[name][i].classRoomName);
+                    var  p = (map[name][i].percent*100).toFixed(2);
+                    percent.push(p);
+
+                    //    将数据  绑定给 E charts图表
+
+                    var idLibs = id;
+                    console.log(idLibs[i]);
+                    //var myCharts = ["myChart1", "myChart2"];
+                    console.log(myCharts[i]) ;
+                    console.log(document.getElementById(idLibs[i]));
+                    myCharts[i]   = $rootScope.echarts33.init(document.getElementById(idLibs[i]));
+
+                    var option = {
+                        color: ['#3398DB'],
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                            }
+                        },
+                        title: {
+                            left: 'center',
+                            text: map[name].name
+                        },
+                        grid: {
+                            left: '3%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                        //下载 区域缩放功能等
+                        toolbox: {
+                            feature: {
+                                dataZoom: {
+                                    yAxisIndex: 'none'
+                                },
+                                restore: {},
+                                saveAsImage: {}
+                            }
+                        },
+                        xAxis: [
+                            {
+                                type: 'category',
+                                name:"班级",
+                                data:classRoomName ,
+                                axisTick: {
+                                    alignWithLabel: true
+                                }
+                            }
+                        ],
+                        yAxis: [
+                            {
+                                type: 'value',
+                                name:"评教率(%)"
+                            }
+                        ],
+                        series: [
+                            {
+                                name: '评教率',
+                                type: 'bar',
+                                barWidth: '60%',
+                                label: {
+                                    normal: {
+                                        show: true,
+                                        position: 'inside'
+                                    }
+                                },
+                                //data:[10, 52, 200, 334, 390, 330, 220]
+                                data:percent
+                            }
+                        ]
+                    };
+                    myCharts[i].setOption(option);
+                }
+
+            }
+
+
+            //表格 视图  数据来源
+            //将数据 处理成 以学院分组
+            //var jobsSortObject = {};
+            //for(var i =0; i< data.length; i++){
+            //    var job = data[i],
+            //        mark = job.college,//mark 是 学院 id
+            //        //mark = job.collegeName;//mark 是 collegeName
+            //        jobItem = jobsSortObject[mark];
+            //    if(jobItem){
+            //        jobsSortObject[mark].push(job);
+            //
+            //    }else{
+            //        jobsSortObject[mark] = [job];
+            //
+            //    }
+            //    jobsSortObject[mark].name=job.collegeName ;
+            //}
+            //$scope.dataHa = jobsSortObject;
+            //console.log("这是按 学院id 分组的评教率");
+            //console.log(jobsSortObject);
+
+
         })
     })
     .controller("rankingCtrl",function($http,$scope){

@@ -12,6 +12,9 @@ angular.module('app')
         $rootScope.$on('$stateChangeSuccess',
             function(event, toState, toParams, fromState, fromParams){
                 if(toState.name=="login"){
+                    //alert("调转页面了");
+                    //window.location.reload();
+                    //$location.reload();
                     $templateCache.removeAll();
                 }
             });
