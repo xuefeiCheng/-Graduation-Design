@@ -1103,71 +1103,7 @@ function getCoursesListByStudent(){
 
     })
     .controller("teResultCtrl",function($scope,$http,$stateParams){
-        //界面所需要的评价指标
-        $scope.content=[
-            {
-                id:1,
-                text:"是否科学组织教案，教学内容熟悉，授课认真，精神饱满有激情 ",
-                s:10
-            },
-            {
-                id:2,
-                text:"是否爱岗敬业，仪表端庄；完成规定教学课时；尊重学生人格，严格要求，有问必答，辅导答疑及时、耐心，经常与学生交流",
-                s:10
-            },
-            {
-                id:3,
-                text:"信息量适度，吸收学科新成果，反映学科前沿状况，充实更新教学内容 ",
-                s:10
-            },
-            {
-                id:4,
-                text:"基本概念准确清晰，逻辑结构合理，阐述科学严谨，观点正确，条理清晰，系统性强 ",
-                s:10
-            },
-            {
-                id:5,
-                text:"善于启发诱导，教学方法灵活多样， 师生互动活跃，启 发学生思维，学生分析问题、解决问题能力、学习能力得到提高 ",
-                s:10
-            },
-            {
-                id:6,
-                text:"教学手段运用恰当，合理运用现代化教育技术手段  ",
-                s:10
-            }, {
-                id:7,
-                text:"重点突出，难度、深度适宜，理论联系实际 ",
-                s:10
-            },
-            {
-                id:8,
-                text:"普通话标准，语言生动流畅，深入浅出，感染力强  ",
-                s:10
-            },
-            {
-                id:9,
-                text:"学生能较好地理解并掌握主要教学内容，学生上课积极性高，教学秩序好，课堂气氛活跃  ",
-                s:10
-            }, {
-                id:10,
-                text:"是否教学进度节奏适中，能有效利用上课时间，上课效率高",
-                s:10
-            }
-        ];
-        $scope.pages=[5,10,15,20];
-        //换页函数
-        function request(){
-        //    查询数据 输入 pagesize
-        }
 
-        $scope.pageSizeChange=function(pageSize){
-            $scope.pageSize = pageSize;
-            request();
-        };
-        $scope.pageChange=function(currentPage){
-            $scope.currentPage=currentPage;
-            request();
-        };
         getCoursesListByTeacher();
         function getCoursesListByTeacher(){
             $http({
@@ -1184,6 +1120,21 @@ function getCoursesListByStudent(){
         }
     })
     .controller("teReDetailCtrl",function($scope,$http,$stateParams){
+
+        $scope.pages=[5,10,15,20];
+        //换页函数
+        function request(){
+            //    查询数据 输入 pagesize
+        }
+
+        $scope.pageSizeChange=function(pageSize){
+            $scope.pageSize = pageSize;
+            request();
+        };
+        $scope.pageChange=function(currentPage){
+            $scope.currentPage=currentPage;
+            request();
+        };
         function scoreSave( score){
 $http({
     method:"post",
@@ -1227,15 +1178,53 @@ $http({
             var scoreList = [];//记录 每一个学生的 打分情况
             var totalScore;//记录总分
             var num =0;//暂时记录总分
+            var p1= 0,p2= 0,p3= 0,p4= 0,p5= 0,p6= 0,p7= 0,p8= 0,p9= 0,p10=0;//记录每一项总分
+            var ListP1= [],ListP2= [],ListP3= [],ListP4= [],ListP5= [],ListP6= [],ListP7= [],ListP8= [],ListP9= [],ListP10= [];//记录每一项 的所有学生的 分值list
+            var avgP1,avgP2,avgP3,avgP4,avgP5,avgP6,avgP7,avgP8,avgP9,avgP10;//记录每一项 平均分
 
 
             console.log("得分 数组为"+scoreList);
+            for(var i= 0,l=data.length;i<l;i++){
+                ListP1.push(data[i].p1);
+                ListP2.push(data[i].p2);
+                ListP3.push(data[i].p3);
+                ListP4.push(data[i].p4);
+                ListP5.push(data[i].p5);
+                ListP6.push(data[i].p6);
+                ListP7.push(data[i].p7);
+                ListP8.push(data[i].p8);
+                ListP9.push(data[i].p9);
+                ListP10.push(data[i].p10);
+            }
+            //console.log(list.sort());
+            //console.log("平" +ListP6.sort()[1]);//降序排列 10 10 8
             if(data.length<3){
                 for(var i=0;i<data.length;i++){
                     //console.log(data[i].score);
                     num = num+data[i].score;
-                    scoreList.push(data[i].score);
+                   p1=p1+data[i].p1;
+                   p2=p2+data[i].p2;
+                   p3=p3+data[i].p3;
+                   p4=p4+data[i].p4;
+                   p5=p5+data[i].p5;
+                   p6=p6+data[i].p6;
+                   p7=p7+data[i].p7;
+                   p8=p8+data[i].p8;
+                   p9=p9+data[i].p9;
+                   p10=p10+data[i].p10;
+
+                    //scoreList.push(data[i].score);
                 }
+                avgP1 = p1/(data.length);
+                avgP2 = p2/(data.length);
+                avgP3 = p3/(data.length);
+                avgP4 = p4/(data.length);
+                avgP5 = p5/(data.length);
+                avgP6 = p6/(data.length);
+                avgP7 = p7/(data.length);
+                avgP8 = p8/(data.length);
+                avgP9 = p9/(data.length);
+                avgP10 = p10/(data.length);
                 totalScore = num/(data.length);
                 $scope.total = totalScore;
             }else{
@@ -1244,12 +1233,100 @@ $http({
                 for(var i=1;i<data.length-1;i++){
                     //console.log(data[i].score);
                     num = num+data[i].score;
+                    p1=p1+ListP1[i];
+                    p2=p2+ListP2[i];
+                    p3=p3+ListP3[i];
+                    p4=p4+ListP4[i];
+                    p5=p5+ListP5[i];
+                    p6=p6+ListP6[i];
+                    p7=p7+ListP7[i];
+                    p8=p8+ListP8[i];
+                    p9=p9+ListP9[i];
+                    p10=p10+ListP10[i];
                     scoreList.push(data[i].score);
                 }
                 totalScore = num/(data.length-2);
+                avgP1 = p1/(data.length-2);
+                avgP2 = p2/(data.length-2);
+                avgP3 = p3/(data.length-2);
+                avgP4 = p4/(data.length-2);
+                avgP5 = p5/(data.length-2);
+                avgP6 = p6/(data.length-2);
+                avgP7 = p7/(data.length-2);
+                avgP8 = p8/(data.length-2);
+                avgP9 = p9/(data.length-2);
+                avgP10 = p10/(data.length-2);
                 $scope.total = totalScore;
             }
+            var pList=[];//用于存储 最终 每项 结果
+            pList = [avgP1,avgP2,avgP3,avgP4,avgP5,avgP6,avgP7,avgP8,avgP9,avgP10];
             scoreSave(totalScore);
+            //界面所需要的评价指标
+            var content;
+            $scope.content = content=[
+                {
+                    id:1,
+                    text:"是否科学组织教案，教学内容熟悉，授课认真，精神饱满有激情 ",
+                    s:10,
+                    value:null
+                },
+                {
+                    id:2,
+                    text:"是否爱岗敬业，仪表端庄；完成规定教学课时；尊重学生人格，严格要求，有问必答，辅导答疑及时、耐心，经常与学生交流",
+                    s:10,
+                    value:null
+                },
+                {
+                    id:3,
+                    text:"信息量适度，吸收学科新成果，反映学科前沿状况，充实更新教学内容 ",
+                    s:10,
+                    value:null
+                },
+                {
+                    id:4,
+                    text:"基本概念准确清晰，逻辑结构合理，阐述科学严谨，观点正确，条理清晰，系统性强 ",
+                    s:10,
+                    value:null
+                },
+                {
+                    id:5,
+                    text:"善于启发诱导，教学方法灵活多样， 师生互动活跃，启 发学生思维，学生分析问题、解决问题能力、学习能力得到提高 ",
+                    s:10,
+                    value:null
+                },
+                {
+                    id:6,
+                    text:"教学手段运用恰当，合理运用现代化教育技术手段  ",
+                    s:10,
+                    value:null
+                }, {
+                    id:7,
+                    text:"重点突出，难度、深度适宜，理论联系实际 ",
+                    s:10,
+                    value:null
+                },
+                {
+                    id:8,
+                    text:"普通话标准，语言生动流畅，深入浅出，感染力强  ",
+                    s:10,
+                    value:null
+                },
+                {
+                    id:9,
+                    text:"学生能较好地理解并掌握主要教学内容，学生上课积极性高，教学秩序好，课堂气氛活跃  ",
+                    s:10,
+                    value:null
+                }, {
+                    id:10,
+                    text:"是否教学进度节奏适中，能有效利用上课时间，上课效率高",
+                    s:10,
+                    value:null
+                }
+            ];
+            for(var i= 0,l=content.length;i<l;i++){
+                content[i].value=pList[i];
+            }
+            console.log(content);
             //console.log("总分为"+totalScore);
             //console.log(scoreList);
             //$scope.data = data;
