@@ -73,7 +73,11 @@ public class getListController extends Controller {
         List<teacherResult> teRe = teacherResult.findByCoId(coId);
         renderJSON(teRe);
     }
-
+//
+public static void listTeResult(String coId, Integer p, Integer ps) {
+    JSONObject warnList = teacherResult.listByIds(coId, p, ps);
+    renderJSON(warnList);
+}
     //以班级为单位 得到班级总人数
 //    返回 count 班级人数
 //    classroom 班级 id

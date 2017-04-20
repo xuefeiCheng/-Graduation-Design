@@ -1166,14 +1166,19 @@ $http({
     //    根据这些 将学生的评语list展示在界面中
         $http({
             method:"post",
-            url:"/api/getListController/getTeacherResultListByCoId",
+            url:"/api/getListController/listTeResult",
             params:{
-                "coId":$stateParams.courseId
+                "coId":$stateParams.courseId,
+                'p':$scope.currentPage,
+                'ps':$scope.pageSize
             }
         }).success(function(data){
             console.log("获取选修该课的 已经评教学生的 评教结果");
             console.log(data);
-            $scope.list = data;
+            $scope.list = data.rows;
+            $scope.page = data.page;
+            $scope.pageSize = data.pageSize;
+            $scope.totalItems = data.count;
 
             var scoreList = [];//记录 每一个学生的 打分情况
             var totalScore;//记录总分
@@ -1184,78 +1189,78 @@ $http({
 
 
             console.log("得分 数组为"+scoreList);
-            for(var i= 0,l=data.length;i<l;i++){
-                ListP1.push(data[i].p1);
-                ListP2.push(data[i].p2);
-                ListP3.push(data[i].p3);
-                ListP4.push(data[i].p4);
-                ListP5.push(data[i].p5);
-                ListP6.push(data[i].p6);
-                ListP7.push(data[i].p7);
-                ListP8.push(data[i].p8);
-                ListP9.push(data[i].p9);
-                ListP10.push(data[i].p10);
+            for(var i= 0,l=data.rows.length;i<l;i++){
+                ListP1.push(data.rows[i].p1);
+                ListP2.push(data.rows[i].p2);
+                ListP3.push(data.rows[i].p3);
+                ListP4.push(data.rows[i].p4);
+                ListP5.push(data.rows[i].p5);
+                ListP6.push(data.rows[i].p6);
+                ListP7.push(data.rows[i].p7);
+                ListP8.push(data.rows[i].p8);
+                ListP9.push(data.rows[i].p9);
+                ListP10.push(data.rows[i].p10);
             }
             //console.log(list.sort());
             //console.log("平" +ListP6.sort()[1]);//降序排列 10 10 8
-            if(data.length<3){
-                for(var i=0;i<data.length;i++){
+            if(data.rows.length<3){
+                for(var i=0;i<data.rows.length;i++){
                     //console.log(data[i].score);
-                    num = num+data[i].score;
-                   p1=p1+data[i].p1;
-                   p2=p2+data[i].p2;
-                   p3=p3+data[i].p3;
-                   p4=p4+data[i].p4;
-                   p5=p5+data[i].p5;
-                   p6=p6+data[i].p6;
-                   p7=p7+data[i].p7;
-                   p8=p8+data[i].p8;
-                   p9=p9+data[i].p9;
-                   p10=p10+data[i].p10;
+                    num = num+data.rows[i].score;
+                   p1=p1+data.rows[i].p1;
+                   p2=p2+data.rows[i].p2;
+                   p3=p3+data.rows[i].p3;
+                   p4=p4+data.rows[i].p4;
+                   p5=p5+data.rows[i].p5;
+                   p6=p6+data.rows[i].p6;
+                   p7=p7+data.rows[i].p7;
+                   p8=p8+data.rows[i].p8;
+                   p9=p9+data.rows[i].p9;
+                   p10=p10+data.rows[i].p10;
 
                     //scoreList.push(data[i].score);
                 }
-                avgP1 = p1/(data.length);
-                avgP2 = p2/(data.length);
-                avgP3 = p3/(data.length);
-                avgP4 = p4/(data.length);
-                avgP5 = p5/(data.length);
-                avgP6 = p6/(data.length);
-                avgP7 = p7/(data.length);
-                avgP8 = p8/(data.length);
-                avgP9 = p9/(data.length);
-                avgP10 = p10/(data.length);
-                totalScore = num/(data.length);
+                avgP1 = p1/(data.rows.length);
+                avgP2 = p2/(data.rows.length);
+                avgP3 = p3/(data.rows.length);
+                avgP4 = p4/(data.rows.length);
+                avgP5 = p5/(data.rows.length);
+                avgP6 = p6/(data.rows.length);
+                avgP7 = p7/(data.rows.length);
+                avgP8 = p8/(data.rows.length);
+                avgP9 = p9/(data.rows.length);
+                avgP10 = p10/(data.rows.length);
+                totalScore = num/(data.rows.length);
                 $scope.total = totalScore;
             }else{
             //    去掉最高分去掉最低分 算平均分
             //    得到最终的 totalScore
-                for(var i=1;i<data.length-1;i++){
+                for(var i=1;i<data.rows.length-1;i++){
                     //console.log(data[i].score);
-                    num = num+data[i].score;
-                    p1=p1+ListP1[i];
-                    p2=p2+ListP2[i];
-                    p3=p3+ListP3[i];
-                    p4=p4+ListP4[i];
-                    p5=p5+ListP5[i];
-                    p6=p6+ListP6[i];
-                    p7=p7+ListP7[i];
-                    p8=p8+ListP8[i];
-                    p9=p9+ListP9[i];
-                    p10=p10+ListP10[i];
-                    scoreList.push(data[i].score);
+                    num = num+data.rows[i].score;
+                    p1=p1+ListP1.sort()[i];
+                    p2=p2+ListP2.sort()[i];
+                    p3=p3+ListP3.sort()[i];
+                    p4=p4+ListP4.sort()[i];
+                    p5=p5+ListP5.sort()[i];
+                    p6=p6+ListP6.sort()[i];
+                    p7=p7+ListP7.sort()[i];
+                    p8=p8+ListP8.sort()[i];
+                    p9=p9+ListP9.sort()[i];
+                    p10=p10+ListP10.sort()[i];
+                    scoreList.push(data.rows[i].score);
                 }
-                totalScore = num/(data.length-2);
-                avgP1 = p1/(data.length-2);
-                avgP2 = p2/(data.length-2);
-                avgP3 = p3/(data.length-2);
-                avgP4 = p4/(data.length-2);
-                avgP5 = p5/(data.length-2);
-                avgP6 = p6/(data.length-2);
-                avgP7 = p7/(data.length-2);
-                avgP8 = p8/(data.length-2);
-                avgP9 = p9/(data.length-2);
-                avgP10 = p10/(data.length-2);
+                totalScore = num/(data.rows.length-2);
+                avgP1 = p1/(data.rows.length-2);
+                avgP2 = p2/(data.rows.length-2);
+                avgP3 = p3/(data.rows.length-2);
+                avgP4 = p4/(data.rows.length-2);
+                avgP5 = p5/(data.rows.length-2);
+                avgP6 = p6/(data.rows.length-2);
+                avgP7 = p7/(data.rows.length-2);
+                avgP8 = p8/(data.rows.length-2);
+                avgP9 = p9/(data.rows.length-2);
+                avgP10 = p10/(data.rows.length-2);
                 $scope.total = totalScore;
             }
             var pList=[];//用于存储 最终 每项 结果

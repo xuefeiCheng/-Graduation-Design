@@ -1,13 +1,15 @@
 package models;
 
 import com.google.gson.JsonObject;
+import net.sf.json.JSONObject;
+import net.sf.oval.constraint.Min;
 import play.db.jpa.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PersistenceUnit;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.regex.Pattern;
 
 /**
  * Created by Administrator on 2017/4/15.
@@ -98,6 +100,70 @@ public class teacherResult extends Model {
         list = teacherResult.find("coId in (?1) order by score desc",Long.valueOf(coId)).fetch();
 
         return list;
+    }
+//    分页
+public static JSONObject listByIds(String coId, Integer p, Integer ps) {
+    JSONObject returnjson=new JSONObject();
+    List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+    long count = 0L;
+    if(p == null) {
+        p = 1;
+    }
+    if(ps == null) {
+        ps = 5;
+    }
+
+
+        List<teacherResult> warnList = new ArrayList<teacherResult>();
+        List<teacherResult> statisWarnList = new ArrayList<teacherResult>();
+
+                warnList = teacherResult.find("coId in (?1) order by score desc", Long.valueOf(coId)).fetch(p,ps);
+                statisWarnList = teacherResult.find("coId in (?1) order by score desc", Long.valueOf(coId)).fetch();
+                count = statisWarnList.size();
+
+        Map<String, Object> docInfo;
+        for(teacherResult w : warnList) {
+            docInfo = new HashMap<String, Object>();
+            docInfo.put("coId",w.coId);//课程id
+            docInfo.put("stId",w.stId);//课程id
+            docInfo.put("p1",w.p1);//评价项
+            docInfo.put("p2",w.p2);//评价项
+            docInfo.put("p3",w.p3);//评价项
+            docInfo.put( "p4",w.p4);//评价项
+            docInfo.put("p5",w.p5);//评价项
+            docInfo.put( "p7",w.p7);//评价项
+            docInfo.put( "p8",w.p8);//评价项
+            docInfo.put("p9",w.p9);//评价项
+            docInfo.put( "p10",w.p10);//评价项
+            docInfo.put("score",w.score);//评价项
+            docInfo.put( "content",w.content);//评价内容
+            result.add(docInfo);
+        }
+
+    returnjson.put("rows", result);
+    returnjson.put("count", count);
+    returnjson.put("page", p);
+    returnjson.put("pageSize", ps);
+    return returnjson;
+}
+//分页  获取 评教结果
+    public Map<String,Object> findResultByCoId (String coId,@Min(0) Integer p, @Min(0) Integer ps) {
+        Map<String,Object> teacherResultMap = new HashMap<String,Object>();
+        List<teacherResult> list = new ArrayList<teacherResult>();
+        long count = 0L;
+        if (null == p) {
+            p = 1;
+        }
+        if (null == ps) {
+            ps = 5;
+        }
+        count = teacherResult.count("coId in (?1)", Long.valueOf(coId));
+        list = teacherResult.find("coId in (?1) order by score desc",Long.valueOf(coId)).fetch(p,ps);
+        teacherResultMap.put("rows",list);
+        teacherResultMap.put("count",count);
+        teacherResultMap.put("page",p);
+        teacherResultMap.put("pageSize",ps);
+        return teacherResultMap;
     }
     //    无参数 构造 函数
     public teacherResult currentUser(){
