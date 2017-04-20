@@ -1,0 +1,44 @@
+*{padding: 0;margin: 0;}
+ul,ol{list-style: none;}
+img{
+    vertical-align: top;
+}
+.box{
+    width: 1440px;
+    height: 390px;
+    /*margin: 100px auto;*/
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 34px;
+    box-shadow: 4px 3px 2px #002f68;
+}
+.box ul{
+    position: absolute;
+    width: 500%;
+    top: 0;
+    left: 0;
+}
+.box ul li{
+    float: left;
+}
+.circles{
+    position: absolute;
+    width: 120px;
+    margin-left: 5px;
+    bottom: 0;
+    left: 615px;
+}
+.circles li{
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    background-color: #fff;
+    margin: 2px;
+    float: left;
+    font-size: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+.circles .current{
+    background-color: yellow;
+}

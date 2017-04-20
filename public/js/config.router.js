@@ -65,7 +65,7 @@ angular.module('app')
                         controller: 'homeCtrl',
                         templateUrl: 'tpl/blocks/home.html',
                         // use resolve to load other dependences
-                        //resolve: load(['moment', 'echarts3'])
+                        resolve: load(['css/home.css'])
                     })
                     //个人信息 管理
                     .state('app.information', {
