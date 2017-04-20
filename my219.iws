@@ -23,11 +23,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.2">
+              <caret line="374" column="0" selection-start-line="374" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/tpl/blocks/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.76079136">
-              <caret line="146" column="31" selection-start-line="146" selection-start-column="31" selection-end-line="146" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.794964">
+              <caret line="397" column="0" selection-start-line="397" selection-start-column="0" selection-end-line="397" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -37,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/public/js/config.router.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="67" column="52" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
+              <caret line="64" column="45" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -120,9 +130,9 @@
         <option value="$PROJECT_DIR$/public/tpl/details/teachersResult-detail.html" />
         <option value="$PROJECT_DIR$/app/models/teacherResult.java" />
         <option value="$PROJECT_DIR$/app/controllers/User/getListController.java" />
-        <option value="$PROJECT_DIR$/public/js/main.js" />
         <option value="$PROJECT_DIR$/public/js/config.router.js" />
         <option value="$PROJECT_DIR$/public/css/home.css" />
+        <option value="$PROJECT_DIR$/public/js/main.js" />
         <option value="$PROJECT_DIR$/public/tpl/blocks/home.html" />
       </list>
     </option>
@@ -643,12 +653,12 @@
       <workItem from="1492497071359" duration="12438000" />
       <workItem from="1492560926450" duration="6953000" />
       <workItem from="1492648424011" duration="617000" />
-      <workItem from="1492665877097" duration="7757000" />
+      <workItem from="1492665877097" duration="8312000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="269595000" />
+    <option name="totallyTimeSpent" value="270150000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1003,28 +1013,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.4649532">
-          <caret line="1213" column="41" selection-start-line="1213" selection-start-column="41" selection-end-line="1213" selection-end-column="41" />
-          <folding>
-            <marker date="1492670093095" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/login.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33246073">
           <caret line="196" column="20" selection-start-line="196" selection-start-column="20" selection-end-line="196" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/config.router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="52" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
           <folding />
         </state>
       </provider>
@@ -1062,10 +1054,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/config.router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="45" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.2">
+          <caret line="374" column="0" selection-start-line="374" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/tpl/blocks/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76079136">
-          <caret line="146" column="31" selection-start-line="146" selection-start-column="31" selection-end-line="146" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.794964">
+          <caret line="397" column="0" selection-start-line="397" selection-start-column="0" selection-end-line="397" selection-end-column="0" />
           <folding />
         </state>
       </provider>

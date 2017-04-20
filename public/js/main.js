@@ -347,6 +347,32 @@ angular.module('app')
         }
     })
     .controller("homeCtrl",function($scope,$state,$http,$stateParams){
+
+        function $(id){return document.getElementById(id);}
+        var jd = $("jd");
+        var ul = jd.children[0].children[0];
+        var ol = jd.children[0].children[1];
+        var liList = ol.children;
+        // 小圆点  样式更改  排他思想
+        for(var i=0,l=liList.length;i<l;i++){
+            // 索引号
+            liList[i].index = i;
+            liList[i].onmouseover = function(){
+                for(var j=0,le=liList.length;j<le;j++){
+                    liList[j].className = "";
+                }
+                this.className = "current";
+                target = this.index * (-1440);
+            }
+
+        }
+        var leader =0, target = 0;
+        setInterval(function(){
+            leader = leader +(target - leader) /10;
+            ul.style.left = leader +"px";
+        },30);
+
+
         //console.log($stateParams.UserName);
         var userId=$stateParams.UserId;
         console.log("home");
