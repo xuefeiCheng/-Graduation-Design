@@ -43,7 +43,7 @@ public class teacherCollegeLink extends Model {
 //    根据 学院 分组 查出 教师 以及教师 得分 按降序排列
     public static List<JSONObject> getScoreGroupByCollege(){
         List<JSONObject> list=new ArrayList<JSONObject>();
-        List lists= JPA.em().createNativeQuery("SELECT score,te_id,co_id FROM `teachercollegelink` ORDER BY score DESC").getResultList();
+        List lists= JPA.em().createNativeQuery("SELECT score,te_id,co_id FROM `teachercollegelink` ORDER BY score Asc").getResultList();
         for (Object object : lists) {
             Object[] o=(Object[]) object;
             college co = college.getCollegeInfo(o[2].toString());
