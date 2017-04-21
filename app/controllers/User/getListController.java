@@ -136,8 +136,13 @@ public static void listTeResult(String coId, Integer p, Integer ps) {
 //        输入  班级id
 //        返回 该表数据 并将评教率 更新
 //        System.out.println(totalCount.get(1).toString());
+        System.out.println(notDoneCount);
+//        System.out.println(totalCount);
+        if(notDoneCount.size()==0){
+            renderJSON(notDoneCount);
+        }
         if (totalCount.size() > 0) {
-            for (int i = 0; i < totalCount.size(); i++) {
+            for (int i = 0; i <totalCount.size(); i++) {
                 classRoomCollegeLink li = classRoomCollegeLink.getInfoByClassId(totalCount.get(i).getString("classroom"));
                 Float c = Float.valueOf(totalCount.get(i).getString("count"));
                 Float n = Float.valueOf(notDoneCount.get(i).getString("count"));
@@ -148,7 +153,7 @@ public static void listTeResult(String coId, Integer p, Integer ps) {
 //                renderJSON(li);
             }
 //        renderJSON(totalCount.get(1).getString("count"));
-//        renderJSON(totalCount);
+
         }
     }
 

@@ -777,6 +777,52 @@ function getCoursesListByStudent(){
                 console.log("评教率已更改，请查看 班级学院link表中的percent字段是否变化");
             })
         }
+        //评教完毕后  直接更改 结果表中总分 以及老师学院link 表中的总分
+        function scoreSave( score){
+            $http({
+                method:"post",
+                url:"/api/InfoSave/scoreSave",
+                params:{
+                    "teId":$stateParams.TeId,
+                    "score":score
+                }
+            }).success(function(data){
+                console.log("成功将教师学院link中的 score字段 更新");
+            })
+        }
+
+        //查询 每一项 分数 用于计算总分数
+        function TotalScoreSave(){
+            $http({
+                method:"post",
+                url:"/api/getListController/getTeacherResultListByCoId",
+                params:{
+                    "coId":$stateParams.courseId
+                }
+            })
+                .success(function(data) {
+                console.log("获取选修该课的 已经评教学生的 评教结果");
+                console.log(data);
+
+                var totalScore;//记录总分
+                var num = 0;//暂时记录总分
+                if (data.length < 3) {
+                    for (var i = 0; i < data.length; i++) {
+                        num = num + data[i].score;
+                    }
+                    totalScore = num / (data.length);
+                } else {
+                    //    去掉最高分去掉最低分 算平均分
+                    //    得到最终的 totalScore
+                    for (var i = 1; i < data.length - 1; i++) {
+                        num = num + data[i].score;
+                    }
+                    totalScore = num / (data.length - 2);
+                }
+                scoreSave(totalScore);
+            });
+        }
+
         $scope.submit = function(){
             //页面验证 值不能为空 出现弹框
             //获得 对老师的评语
@@ -815,6 +861,7 @@ function getCoursesListByStudent(){
                     console.log("评教成功");
                     //需要 改变一下 学生 课程link表中的状态
                     //然后通知一下 父控制器 刷新一下界面的 课程旁边的状态展示
+                    TotalScoreSave();
                     $http({
                         method: "post",
                         url: "/api/InfoSave/statusSave",
@@ -1146,11 +1193,29 @@ function getCoursesListByStudent(){
         }
     })
     .controller("teReDetailCtrl",function($scope,$http,$stateParams){
-
+        request();
         $scope.pages=[5,10,15,20];
         //换页函数
+        //    根据 课程id 查找 评教结果表 查出 该课程下的所有学生的记录 list
+        //    根据这些 将学生的评语list展示在界面中
         function request(){
             //    查询数据 输入 pagesize
+            $http({
+                method:"post",
+                url:"/api/getListController/listTeResult",
+                params:{
+                    "coId":$stateParams.courseId,
+                    'p':$scope.currentPage,
+                    'ps':$scope.pageSize
+                }
+            }).success(function(data){
+                console.log("获取选修该课的 已经评教学生的 评语列表 分页展示");
+                console.log(data);
+                $scope.list = data.rows;
+                $scope.page = data.page;
+                $scope.pageSize = data.pageSize;
+                $scope.totalItems = data.count;
+            });
         }
 
         $scope.pageSizeChange=function(pageSize){
@@ -1161,18 +1226,7 @@ function getCoursesListByStudent(){
             $scope.currentPage=currentPage;
             request();
         };
-        function scoreSave( score){
-$http({
-    method:"post",
-    url:"/api/InfoSave/scoreSave",
-    params:{
-        "teId":$stateParams.UserId,
-        "score":score
-    }
-}).success(function(data){
-    console.log("成功将教师表中的 score字段 更新");
-})
-        }
+
     //    课程id 为$stateParams.courseId
     //    教师 id为$stateParams.UserId
     //    根据 课程id 查课程表 查到课程信息 name
@@ -1188,23 +1242,16 @@ $http({
             $scope.courseName = data.name;
             //$scope.data = data;
         });
-    //    根据 课程id 查找 评教结果表 查出 该课程下的所有学生的记录 list
-    //    根据这些 将学生的评语list展示在界面中
+    //    根据 课程id 查找 教师结果表 查出所有学生 的评分项 并通过计算 展示在 界面中
         $http({
             method:"post",
-            url:"/api/getListController/listTeResult",
+            url:"/api/getListController/getTeacherResultListByCoId",
             params:{
-                "coId":$stateParams.courseId,
-                'p':$scope.currentPage,
-                'ps':$scope.pageSize
+                "coId":$stateParams.courseId
             }
         }).success(function(data){
             console.log("获取选修该课的 已经评教学生的 评教结果");
             console.log(data);
-            $scope.list = data.rows;
-            $scope.page = data.page;
-            $scope.pageSize = data.pageSize;
-            $scope.totalItems = data.count;
 
             var scoreList = [];//记录 每一个学生的 打分情况
             var totalScore;//记录总分
@@ -1215,55 +1262,55 @@ $http({
 
 
             console.log("得分 数组为"+scoreList);
-            for(var i= 0,l=data.rows.length;i<l;i++){
-                ListP1.push(data.rows[i].p1);
-                ListP2.push(data.rows[i].p2);
-                ListP3.push(data.rows[i].p3);
-                ListP4.push(data.rows[i].p4);
-                ListP5.push(data.rows[i].p5);
-                ListP6.push(data.rows[i].p6);
-                ListP7.push(data.rows[i].p7);
-                ListP8.push(data.rows[i].p8);
-                ListP9.push(data.rows[i].p9);
-                ListP10.push(data.rows[i].p10);
+            for(var i= 0,l=data.length;i<l;i++){
+                ListP1.push(data[i].p1);
+                ListP2.push(data[i].p2);
+                ListP3.push(data[i].p3);
+                ListP4.push(data[i].p4);
+                ListP5.push(data[i].p5);
+                ListP6.push(data[i].p6);
+                ListP7.push(data[i].p7);
+                ListP8.push(data[i].p8);
+                ListP9.push(data[i].p9);
+                ListP10.push(data[i].p10);
             }
             //console.log(list.sort());
             //console.log("平" +ListP6.sort()[1]);//降序排列 10 10 8
-            if(data.rows.length<3){
-                for(var i=0;i<data.rows.length;i++){
+            if(data.length<3){
+                for(var i=0;i<data.length;i++){
                     //console.log(data[i].score);
-                    num = num+data.rows[i].score;
-                   p1=p1+data.rows[i].p1;
-                   p2=p2+data.rows[i].p2;
-                   p3=p3+data.rows[i].p3;
-                   p4=p4+data.rows[i].p4;
-                   p5=p5+data.rows[i].p5;
-                   p6=p6+data.rows[i].p6;
-                   p7=p7+data.rows[i].p7;
-                   p8=p8+data.rows[i].p8;
-                   p9=p9+data.rows[i].p9;
-                   p10=p10+data.rows[i].p10;
+                    num = num+data[i].score;
+                    p1=p1+data[i].p1;
+                    p2=p2+data[i].p2;
+                    p3=p3+data[i].p3;
+                    p4=p4+data[i].p4;
+                    p5=p5+data[i].p5;
+                    p6=p6+data[i].p6;
+                    p7=p7+data[i].p7;
+                    p8=p8+data[i].p8;
+                    p9=p9+data[i].p9;
+                    p10=p10+data[i].p10;
 
                     //scoreList.push(data[i].score);
                 }
-                avgP1 = p1/(data.rows.length);
-                avgP2 = p2/(data.rows.length);
-                avgP3 = p3/(data.rows.length);
-                avgP4 = p4/(data.rows.length);
-                avgP5 = p5/(data.rows.length);
-                avgP6 = p6/(data.rows.length);
-                avgP7 = p7/(data.rows.length);
-                avgP8 = p8/(data.rows.length);
-                avgP9 = p9/(data.rows.length);
-                avgP10 = p10/(data.rows.length);
-                totalScore = num/(data.rows.length);
+                avgP1 = p1/(data.length);
+                avgP2 = p2/(data.length);
+                avgP3 = p3/(data.length);
+                avgP4 = p4/(data.length);
+                avgP5 = p5/(data.length);
+                avgP6 = p6/(data.length);
+                avgP7 = p7/(data.length);
+                avgP8 = p8/(data.length);
+                avgP9 = p9/(data.length);
+                avgP10 = p10/(data.length);
+                totalScore = num/(data.length);
                 $scope.total = totalScore;
             }else{
-            //    去掉最高分去掉最低分 算平均分
-            //    得到最终的 totalScore
-                for(var i=1;i<data.rows.length-1;i++){
+                //    去掉最高分去掉最低分 算平均分
+                //    得到最终的 totalScore
+                for(var i=1;i<data.length-1;i++){
                     //console.log(data[i].score);
-                    num = num+data.rows[i].score;
+                    num = num+data[i].score;
                     p1=p1+ListP1.sort()[i];
                     p2=p2+ListP2.sort()[i];
                     p3=p3+ListP3.sort()[i];
@@ -1274,24 +1321,24 @@ $http({
                     p8=p8+ListP8.sort()[i];
                     p9=p9+ListP9.sort()[i];
                     p10=p10+ListP10.sort()[i];
-                    scoreList.push(data.rows[i].score);
+                    scoreList.push(data[i].score);
                 }
-                totalScore = num/(data.rows.length-2);
-                avgP1 = p1/(data.rows.length-2);
-                avgP2 = p2/(data.rows.length-2);
-                avgP3 = p3/(data.rows.length-2);
-                avgP4 = p4/(data.rows.length-2);
-                avgP5 = p5/(data.rows.length-2);
-                avgP6 = p6/(data.rows.length-2);
-                avgP7 = p7/(data.rows.length-2);
-                avgP8 = p8/(data.rows.length-2);
-                avgP9 = p9/(data.rows.length-2);
-                avgP10 = p10/(data.rows.length-2);
+                totalScore = num/(data.length-2);
+                avgP1 = p1/(data.length-2);
+                avgP2 = p2/(data.length-2);
+                avgP3 = p3/(data.length-2);
+                avgP4 = p4/(data.length-2);
+                avgP5 = p5/(data.length-2);
+                avgP6 = p6/(data.length-2);
+                avgP7 = p7/(data.length-2);
+                avgP8 = p8/(data.length-2);
+                avgP9 = p9/(data.length-2);
+                avgP10 = p10/(data.length-2);
                 $scope.total = totalScore;
             }
             var pList=[];//用于存储 最终 每项 结果
             pList = [avgP1,avgP2,avgP3,avgP4,avgP5,avgP6,avgP7,avgP8,avgP9,avgP10];
-            scoreSave(totalScore);
+
             //界面所需要的评价指标
             var content;
             $scope.content = content=[
@@ -1358,12 +1405,6 @@ $http({
                 content[i].value=pList[i];
             }
             console.log(content);
-            //console.log("总分为"+totalScore);
-            //console.log(scoreList);
-            //$scope.data = data;
-        //    计算得到的总分 应该保存到 教师表中
-        //    然后  算老师排名的时候  从教师表中取出  计算排名
-
         });
     })
     .controller("CountCtrl",function($scope,$http,$rootScope){
@@ -1371,18 +1412,21 @@ $http({
         //查表  班级学院表 查出 学院id
         //SELECT college_id FROM `classroomcollegelink` GROUP BY college_id;
 
-            var id =[];//存储 处理后的id 列表
+            var ids =[];//存储 处理后的id 列表
             var myCharts=[];//存储 处理好的 charts 列表
             $http({
                 method:"post",
                 url:"/api/getListController/getCollegeIdGroup"
             }).success(function(data){
                 for(var i= 0,l=data.length;i<l;i++){
-                    id.push("countEchart"+data[i]);
                     myCharts.push("myCharts"+data[i]);
+                    ids.push("countEchart" + data[i]);
                 }
-                $scope.idLibs =id;
+                $scope.idLibs =ids;
+                console.log( $scope.idLibs);
             });
+
+
         if (echarts.version == '3.2.2') {
             $rootScope.echarts33 = echarts;
         }
@@ -1412,28 +1456,31 @@ $http({
                 //把json对象进行分组处理，属性值相同的则放进一起，此时map[key]是数组
                 map[key].push(effectRow1[i]);
                 map[key].name=effectRow1[i].collegeName ;
-                //console.log(map[key].name);
+                console.log(map[key].name);
                 //$scope.map
 
             }
-            $scope.map =map;
             console.log(map);
             for(var name in map){
                 var classRoomName=[];
                 var percent =[];
+                var idLibs = [];
                 for(var i = 0;i < map[name].length; i++) {
                     classRoomName.push(map[name][i].classRoomName);
-                    var  p = (map[name][i].percent*100).toFixed(2);
+                    var p = (map[name][i].percent * 100).toFixed(2);
                     percent.push(p);
+                    //评教率
+                    //console.log("评价率");
+                    //console.log(p);
 
                     //    将数据  绑定给 E charts图表
+                    //console.log(map[name][i].college);
 
-                    var idLibs = id;
-                    console.log(idLibs[i]);
-                    //var myCharts = ["myChart1", "myChart2"];
-                    console.log(myCharts[i]) ;
-                    console.log(document.getElementById(idLibs[i]));
+                    idLibs.push("countEchart" + map[name][i].college);
+                }
+                for(var i = 0;i < map[name].length; i++) {
                     myCharts[i]   = $rootScope.echarts33.init(document.getElementById(idLibs[i]));
+                    console.log(map[name].name+"给定 id为"+idLibs[i]+"的评教率为"+p+"init图标的id为"+myCharts[i]);
 
                     var option = {
                         color: ['#3398DB'],
