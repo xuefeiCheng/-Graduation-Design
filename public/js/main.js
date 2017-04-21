@@ -1701,6 +1701,7 @@ function getCoursesListByStudent(){
                     //    ]
                     //};
                     option = {
+                        color: ['#3398DB'],
                         title: {
                             text: map[name].name,
                             left: 'center',

@@ -23,14 +23,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="7.0">
-              <caret line="1403" column="51" selection-start-line="1403" selection-start-column="51" selection-end-line="1403" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.47738692">
+              <caret line="1703" column="43" selection-start-line="1703" selection-start-column="43" selection-end-line="1703" selection-end-column="43" />
               <folding>
                 <element signature="e#46203#48020#0" expanded="false" />
-                <marker date="1492742579451" expanded="true" signature="261:301" placeholder="..." />
+                <marker date="1492745363863" expanded="true" signature="261:301" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -58,10 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getListController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="getListController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/User/getListController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.80904526">
+            <state vertical-scroll-proportion="-10.733334">
               <caret line="163" column="13" selection-start-line="163" selection-start-column="13" selection-end-line="163" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -179,10 +179,10 @@
         <option value="$PROJECT_DIR$/public/js/config.router.js" />
         <option value="$PROJECT_DIR$/public/css/home.css" />
         <option value="$PROJECT_DIR$/public/tpl/blocks/home.html" />
-        <option value="$PROJECT_DIR$/public/js/main.js" />
         <option value="$PROJECT_DIR$/app/models/teacherCollegeLink.java" />
         <option value="$PROJECT_DIR$/app/models/studentClassroomLink.java" />
         <option value="$PROJECT_DIR$/app/controllers/User/getListController.java" />
+        <option value="$PROJECT_DIR$/public/js/main.js" />
       </list>
     </option>
   </component>
@@ -817,12 +817,12 @@
       <workItem from="1492560926450" duration="6953000" />
       <workItem from="1492648424011" duration="617000" />
       <workItem from="1492665877097" duration="14176000" />
-      <workItem from="1492734992032" duration="8887000" />
+      <workItem from="1492734992032" duration="9521000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="284901000" />
+    <option name="totallyTimeSpent" value="285535000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1224,17 +1224,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="7.0">
-          <caret line="1403" column="51" selection-start-line="1403" selection-start-column="51" selection-end-line="1403" selection-end-column="51" />
-          <folding>
-            <element signature="e#46203#48020#0" expanded="false" />
-            <marker date="1492742579451" expanded="true" signature="261:301" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/studentClassroomLink.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1252,10 +1241,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/User/getListController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.80904526">
+        <state vertical-scroll-proportion="-10.733334">
           <caret line="163" column="13" selection-start-line="163" selection-start-column="13" selection-end-line="163" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47738692">
+          <caret line="1703" column="43" selection-start-line="1703" selection-start-column="43" selection-end-line="1703" selection-end-column="43" />
+          <folding>
+            <element signature="e#46203#48020#0" expanded="false" />
+            <marker date="1492745363863" expanded="true" signature="261:301" placeholder="..." />
           </folding>
         </state>
       </provider>
