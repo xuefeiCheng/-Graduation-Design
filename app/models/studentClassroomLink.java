@@ -82,4 +82,18 @@ public static  List<JSONObject> getTotalCount(){
         }
         return list;
     }
+
+//    应景完成 评教的学生人数
+public static  List<JSONObject> getDoneCount(){
+    List<JSONObject> list=new ArrayList<JSONObject>();
+    List lists= JPA.em().createNativeQuery("SELECT count(st_id),classroom_id FROM `studentclassroomlink` WHERE `status`=1 GROUP BY classroom_id").getResultList();
+    for (Object object : lists) {
+        Object[] o=(Object[]) object;
+        JSONObject json=new JSONObject();
+        json.put("count", o[0]);
+        json.put("classroom", o[1]);
+        list.add(json);
+    }
+    return list;
+}
 }

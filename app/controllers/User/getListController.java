@@ -132,16 +132,14 @@ public static void listTeResult(String coId, Integer p, Integer ps) {
     public static void setPercent() {
         List<JSONObject> totalCount = studentClassroomLink.getTotalCount();
         List<JSONObject> notDoneCount = studentClassroomLink.getNotDoneCount();
+        List<JSONObject> DoneCount = studentClassroomLink.getDoneCount();
 //        计算的评教率 需要 保存到  库表 班级学院link表中
 //        输入  班级id
 //        返回 该表数据 并将评教率 更新
 //        System.out.println(totalCount.get(1).toString());
         System.out.println(notDoneCount);
-//        System.out.println(totalCount);
-        if(notDoneCount.size()==0){
-            renderJSON(notDoneCount);
-        }
-        if (totalCount.size() > 0) {
+        System.out.println(totalCount);
+        if (totalCount.size() > 0 && totalCount.size()==notDoneCount.size()) {
             for (int i = 0; i <totalCount.size(); i++) {
                 classRoomCollegeLink li = classRoomCollegeLink.getInfoByClassId(totalCount.get(i).getString("classroom"));
                 Float c = Float.valueOf(totalCount.get(i).getString("count"));
@@ -154,6 +152,16 @@ public static void listTeResult(String coId, Integer p, Integer ps) {
             }
 //        renderJSON(totalCount.get(1).getString("count"));
 
+        }else if(totalCount.size() > 0 && totalCount.size()==DoneCount.size()){
+            for (int i = 0; i <totalCount.size(); i++) {
+                classRoomCollegeLink li = classRoomCollegeLink.getInfoByClassId(totalCount.get(i).getString("classroom"));
+                Float c = Float.valueOf(totalCount.get(i).getString("count"));
+                Float n = Float.valueOf(DoneCount.get(i).getString("count"));
+                Float result = n / c;
+
+                li.changeP(result);
+                li.save();
+            }
         }
     }
 
