@@ -1745,6 +1745,12 @@ function getCoursesListByStudent(){
                             {
                                 name: '得分',
                                 type: 'bar',
+                                label: {
+                                    normal: {
+                                        show: true,
+                                        position: 'inside'
+                                    }
+                                },
                                 data: percent
                             }
                             //,
