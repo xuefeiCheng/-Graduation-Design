@@ -784,7 +784,7 @@ function getCoursesListByStudent(){
                 url:"/api/InfoSave/scoreSave",
                 params:{
                     "teId":$stateParams.TeId,
-                    "score":score
+                    "score":score.toFixed(2)
                 }
             }).success(function(data){
                 console.log("成功将教师学院link中的 score字段 更新");
@@ -1627,7 +1627,7 @@ function getCoursesListByStudent(){
                 var idLibs =[];
                 for (var i = 0; i < map[name].length; i++) {
                     classRoomName.push(map[name][i].teacherName);
-                    percent.push(map[name][i].score);
+                    percent.push(map[name][i].score.toFixed(2));//显示结果 保留两位小数
 
                     //    将数据  绑定给 E charts图表
 
