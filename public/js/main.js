@@ -784,7 +784,7 @@ function getCoursesListByStudent(){
                 url:"/api/InfoSave/scoreSave",
                 params:{
                     "teId":$stateParams.TeId,
-                    "score":score.toFixed(2)
+                    "score":score
                 }
             }).success(function(data){
                 console.log("成功将教师学院link中的 score字段 更新");
@@ -845,16 +845,16 @@ function getCoursesListByStudent(){
                     params: {
                         "coId": $stateParams.courseId,
                         "stId": $stateParams.UserId,
-                        "p1": value1.toFixed(2),
-                        "p2": value2.toFixed(2),
-                        "p3": value3.toFixed(2),
-                        "p4": value4.toFixed(2),
-                        "p5": value5.toFixed(2),
-                        "p6": value6.toFixed(2),
-                        "p7": value7.toFixed(2),
-                        "p8": value8.toFixed(2),
-                        "p9": value9.toFixed(2),
-                        "p10": value10.toFixed(2),
+                        "p1": value1,
+                        "p2": value2,
+                        "p3": value3,
+                        "p4": value4,
+                        "p5": value5,
+                        "p6": value6,
+                        "p7": value7,
+                        "p8": value8,
+                        "p9": value9,
+                        "p10": value10,
                         "content": $scope.text
                     }
                 }).success(function(data){
@@ -1304,7 +1304,7 @@ function getCoursesListByStudent(){
                 avgP9 = p9/(data.length);
                 avgP10 = p10/(data.length);
                 totalScore = num/(data.length);
-                $scope.total = totalScore;
+                $scope.total = totalScore.toFixed(2);
             }else{
                 //    去掉最高分去掉最低分 算平均分
                 //    得到最终的 totalScore
@@ -1334,10 +1334,10 @@ function getCoursesListByStudent(){
                 avgP8 = p8/(data.length-2);
                 avgP9 = p9/(data.length-2);
                 avgP10 = p10/(data.length-2);
-                $scope.total = totalScore;
+                $scope.total = totalScore.toFixed(2);
             }
             var pList=[];//用于存储 最终 每项 结果
-            pList = [avgP1,avgP2,avgP3,avgP4,avgP5,avgP6,avgP7,avgP8,avgP9,avgP10];
+            pList = [avgP1.toFixed(2),avgP2.toFixed(2),avgP3.toFixed(2),avgP4.toFixed(2),avgP5.toFixed(2),avgP6.toFixed(2),avgP7.toFixed(2),avgP8.toFixed(2),avgP9.toFixed(2),avgP10.toFixed(2)];
 
             //界面所需要的评价指标
             var content;

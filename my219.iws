@@ -26,11 +26,11 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.90954775">
-              <caret line="856" column="49" selection-start-line="856" selection-start-column="49" selection-end-line="856" selection-end-column="49" />
+            <state vertical-scroll-proportion="2.0527637">
+              <caret line="1306" column="52" selection-start-line="1306" selection-start-column="52" selection-end-line="1306" selection-end-column="52" />
               <folding>
-                <element signature="e#46324#48141#0" expanded="false" />
-                <marker date="1492745751495" expanded="true" signature="261:301" placeholder="..." />
+                <element signature="e#46335#48152#0" expanded="false" />
+                <marker date="1492745998277" expanded="true" signature="261:301" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -817,12 +817,12 @@
       <workItem from="1492560926450" duration="6953000" />
       <workItem from="1492648424011" duration="617000" />
       <workItem from="1492665877097" duration="14176000" />
-      <workItem from="1492734992032" duration="9912000" />
+      <workItem from="1492734992032" duration="10161000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="285926000" />
+    <option name="totallyTimeSpent" value="286175000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1251,11 +1251,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.90954775">
-          <caret line="856" column="49" selection-start-line="856" selection-start-column="49" selection-end-line="856" selection-end-column="49" />
+        <state vertical-scroll-proportion="2.0527637">
+          <caret line="1306" column="52" selection-start-line="1306" selection-start-column="52" selection-end-line="1306" selection-end-column="52" />
           <folding>
-            <element signature="e#46324#48141#0" expanded="false" />
-            <marker date="1492745751495" expanded="true" signature="261:301" placeholder="..." />
+            <element signature="e#46335#48152#0" expanded="false" />
+            <marker date="1492745998277" expanded="true" signature="261:301" placeholder="..." />
           </folding>
         </state>
       </provider>
