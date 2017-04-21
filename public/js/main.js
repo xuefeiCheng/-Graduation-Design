@@ -1624,14 +1624,17 @@ function getCoursesListByStudent(){
             for(var name in map) {
                 var classRoomName = [];
                 var percent = [];
+                var idLibs =[];
                 for (var i = 0; i < map[name].length; i++) {
                     classRoomName.push(map[name][i].teacherName);
                     percent.push(map[name][i].score);
 
                     //    将数据  绑定给 E charts图表
 
-                    var idLibs = id;
+                    idLibs.push("teEchart" + map[name][i].college);
                     console.log(idLibs[i]);
+                }
+                for(var i = 0;i < map[name].length; i++) {
                     //var myCharts = ["myChart1", "myChart2"];
                     console.log(myCharts[i]);
                     console.log(document.getElementById(idLibs[i]));
