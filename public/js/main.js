@@ -845,16 +845,16 @@ function getCoursesListByStudent(){
                     params: {
                         "coId": $stateParams.courseId,
                         "stId": $stateParams.UserId,
-                        "p1": value1,
-                        "p2": value2,
-                        "p3": value3,
-                        "p4": value4,
-                        "p5": value5,
-                        "p6": value6,
-                        "p7": value7,
-                        "p8": value8,
-                        "p9": value9,
-                        "p10": value10,
+                        "p1": value1.toFixed(2),
+                        "p2": value2.toFixed(2),
+                        "p3": value3.toFixed(2),
+                        "p4": value4.toFixed(2),
+                        "p5": value5.toFixed(2),
+                        "p6": value6.toFixed(2),
+                        "p7": value7.toFixed(2),
+                        "p8": value8.toFixed(2),
+                        "p9": value9.toFixed(2),
+                        "p10": value10.toFixed(2),
                         "content": $scope.text
                     }
                 }).success(function(data){
