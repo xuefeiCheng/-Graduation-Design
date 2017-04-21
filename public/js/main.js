@@ -1211,10 +1211,10 @@ function getCoursesListByStudent(){
             }).success(function(data){
                 console.log("获取选修该课的 已经评教学生的 评语列表 分页展示");
                 console.log(data);
+                $scope.totalItems = data.count;
                 $scope.list = data.rows;
                 $scope.page = data.page;
                 $scope.pageSize = data.pageSize;
-                $scope.totalItems = data.count;
             });
         }
 
