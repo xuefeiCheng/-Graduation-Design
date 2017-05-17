@@ -349,6 +349,25 @@ angular.module('app')
     .controller("homeCtrl",function($scope,$state,$http,$stateParams){
 
         function $(id){return document.getElementById(id);}
+        //free();
+        function free(){
+            var leader =0,target = -7200;
+            var timer =null;
+            timer = setInterval(imgPlay,5);
+            function imgPlay(){
+
+                target--;
+                target <= -7200 ?target = 0 :target;
+                leader = leader+(target-leader)/10;
+                $("scroll").children[0].style.left = leader +"px";
+            }
+            $("scroll").onmouseout = function(){
+                timer = setInterval(imgPlay,5);
+            }
+            $("scroll").onmouseover = function(){
+                clearInterval(timer);
+            }
+        }
         var jd = $("jd");
         var ul = jd.children[0].children[0];
         var ol = jd.children[0].children[1];
@@ -1346,63 +1365,66 @@ function getCoursesListByStudent(){
                     id:1,
                     text:"是否科学组织教案，教学内容熟悉，授课认真，精神饱满有激情 ",
                     s:10,
-                    value:null
+                    //value:null,
+                    //nn:null
                 },
                 {
                     id:2,
                     text:"是否爱岗敬业，仪表端庄；完成规定教学课时；尊重学生人格，严格要求，有问必答，辅导答疑及时、耐心，经常与学生交流",
                     s:10,
-                    value:null
+                    //value:null
                 },
                 {
                     id:3,
                     text:"信息量适度，吸收学科新成果，反映学科前沿状况，充实更新教学内容 ",
                     s:10,
-                    value:null
+                    //value:null
                 },
                 {
                     id:4,
                     text:"基本概念准确清晰，逻辑结构合理，阐述科学严谨，观点正确，条理清晰，系统性强 ",
                     s:10,
-                    value:null
+                    //value:null
                 },
                 {
                     id:5,
                     text:"善于启发诱导，教学方法灵活多样， 师生互动活跃，启 发学生思维，学生分析问题、解决问题能力、学习能力得到提高 ",
                     s:10,
-                    value:null
+                    //value:null
                 },
                 {
                     id:6,
                     text:"教学手段运用恰当，合理运用现代化教育技术手段  ",
                     s:10,
-                    value:null
+                    //value:null
                 }, {
                     id:7,
                     text:"重点突出，难度、深度适宜，理论联系实际 ",
                     s:10,
-                    value:null
+                    //value:null
                 },
                 {
                     id:8,
                     text:"普通话标准，语言生动流畅，深入浅出，感染力强  ",
                     s:10,
-                    value:null
+                    //value:null
                 },
                 {
                     id:9,
                     text:"学生能较好地理解并掌握主要教学内容，学生上课积极性高，教学秩序好，课堂气氛活跃  ",
                     s:10,
-                    value:null
+                    //value:null
                 }, {
                     id:10,
                     text:"是否教学进度节奏适中，能有效利用上课时间，上课效率高",
                     s:10,
-                    value:null
+                    //value:null
                 }
             ];
             for(var i= 0,l=content.length;i<l;i++){
                 content[i].value=pList[i];
+                //偏差
+                content[i].nn=((10-pList[i])/10*100).toFixed(2)+"%";
             }
             console.log(content);
         });

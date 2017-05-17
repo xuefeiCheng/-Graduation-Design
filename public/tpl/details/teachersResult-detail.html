@@ -21,7 +21,8 @@
         <th class="wid-percent-20">序号</th>
         <th  class="wid-percent-35">评分指标</th>
         <th class="wid-percent-26">分值</th>
-        <th class="wid-percent-26">得分</th>
+        <th class="wid-percent-20">得分</th>
+        <th class="wid-percent-6">偏差</th>
     </tr>
     </thead>
     <tbody>
@@ -30,17 +31,19 @@
         <td>{{d.text}}</td>
         <td>{{d.s}}</td>
         <td>{{d.value}}</td>
+        <td>{{d.nn}}</td>
     </tr>
     </tbody>
 </table>
 <!--学生评语list-->
+
 <li class="list-group-item" ng-if="list==''">暂时没有同学给您评论哦</li>
 <li  class="list-group-item" ng-repeat="li in list">
         <span class="list-group-item-heading ">
-{{li.stId}}：{{li.content}}
+            {{li.stId}}：{{li.content}}
         </span>
 </li>
-<footer class="panel-footer">
+<li  class="list-group-item">
     <div class="row padder">
         <div class="pull-left">
             每页显示
@@ -55,6 +58,8 @@
                         last-text="&raquo;"></pagination>
         </div>
     </div>
-</footer>
+</li>
 </body>
 </html>
+
+

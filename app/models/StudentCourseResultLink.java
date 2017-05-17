@@ -23,5 +23,6 @@ public class StudentCourseResultLink extends Model {
         return StudentCourseResultLink.find("student_id=?",Long.valueOf(stId)).first();
     }
 
-
 }
+
+

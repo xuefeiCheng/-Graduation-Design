@@ -10,7 +10,7 @@ img{
     position: relative;
     overflow: hidden;
     margin-bottom: 34px;
-    box-shadow: 4px 3px 2px #002f68;
+    /*box-shadow: 4px 3px 2px #002f68;*/
 }
 .box ul{
     position: absolute;
