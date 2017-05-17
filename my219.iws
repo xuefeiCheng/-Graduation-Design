@@ -59,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/public/tpl/details/teachersResult-detail.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.335">
-              <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+              <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
               <folding>
                 <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -188,8 +188,8 @@
         <option value="$PROJECT_DIR$/public/login-cxf.html" />
         <option value="$PROJECT_DIR$/public/tpl/blocks/home.html" />
         <option value="$PROJECT_DIR$/public/css/home.css" />
-        <option value="$PROJECT_DIR$/public/tpl/details/teachersResult-detail.html" />
         <option value="$PROJECT_DIR$/public/js/main.js" />
+        <option value="$PROJECT_DIR$/public/tpl/details/teachersResult-detail.html" />
       </list>
     </option>
   </component>
@@ -833,12 +833,12 @@
       <workItem from="1492823202778" duration="2417000" />
       <workItem from="1492916051110" duration="622000" />
       <workItem from="1494897307321" duration="3369000" />
-      <workItem from="1494998198980" duration="2579000" />
+      <workItem from="1494998198980" duration="3012000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="299818000" />
+    <option name="totallyTimeSpent" value="300251000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -850,7 +850,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1250,7 +1250,7 @@
     <entry file="file://$PROJECT_DIR$/public/tpl/details/teachersResult-detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.335">
-          <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
           <folding>
             <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>

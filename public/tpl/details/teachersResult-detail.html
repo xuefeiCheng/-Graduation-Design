@@ -40,7 +40,7 @@
 <li class="list-group-item" ng-if="list==''">暂时没有同学给您评论哦</li>
 <li  class="list-group-item" ng-repeat="li in list">
         <span class="list-group-item-heading ">
-            {{li.stId}}：{{li.content}}
+           学生{{$index+1}}：{{li.content}}
         </span>
 </li>
 <li  class="list-group-item">
