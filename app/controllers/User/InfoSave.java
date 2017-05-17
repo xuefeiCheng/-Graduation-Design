@@ -66,4 +66,10 @@ public static void teacherResultSet(String coId ,String stId ,Integer p1,Integer
         te.save();
         renderJSON(te);
     }
+
+//获取  评教 标准
+    public static void getPingjiaInfo(){
+        renderJSON(pingjia.findAll());
+    }
+//    获取  评学 标准
 }
